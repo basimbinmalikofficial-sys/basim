@@ -438,6 +438,31 @@
             .mobile-text-center {
                 text-align: center !important;
             }
+            
+            /* Improved touch targets */
+            .touch-target {
+                min-height: 44px;
+                min-width: 44px;
+            }
+            
+            /* Better modal handling */
+            .modal-mobile {
+                align-items: flex-end !important;
+                padding: 0 !important;
+            }
+            
+            .modal-content-mobile {
+                width: 100% !important;
+                max-height: 90vh !important;
+                border-radius: 1rem 1rem 0 0 !important;
+                margin: 0 !important;
+            }
+            
+            /* Improved product grid */
+            .product-grid-mobile {
+                grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+                gap: 0.75rem !important;
+            }
         }
         
         @media (min-width: 769px) and (max-width: 1024px) {
@@ -451,12 +476,14 @@
             position: fixed;
             top: 0;
             right: -100%;
-            width: 80%;
+            width: 85%;
+            max-width: 320px;
             height: 100vh;
             background: white;
             z-index: 1000;
             transition: right 0.3s ease;
             box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+            overflow-y: auto;
         }
         
         .mobile-menu.active {
@@ -507,6 +534,21 @@
         @keyframes spin {
             to { transform: rotate(360deg); }
         }
+        
+        /* Swipe gestures support */
+        .swipe-area {
+            -webkit-overflow-scrolling: touch;
+        }
+        
+        /* Improved form inputs for mobile */
+        input, select, textarea {
+            font-size: 16px !important; /* Prevents zoom on iOS */
+        }
+        
+        /* Enhanced mobile performance */
+        .will-change-transform {
+            will-change: transform;
+        }
     </style>
 </head>
 <body class="bg-gray-50 overflow-x-hidden no-horizontal-scroll">
@@ -518,17 +560,17 @@
         <div class="p-6">
             <div class="flex justify-between items-center mb-8">
                 <div class="text-2xl font-bold text-gradient">✨ Basim Online Shopping Store</div>
-                <button id="closeMobileMenu" class="text-3xl text-gray-700">×</button>
+                <button id="closeMobileMenu" class="text-3xl text-gray-700 touch-button">×</button>
             </div>
             <div class="space-y-6">
-                <a href="#" class="block text-gray-700 hover:text-primary transition-colors text-lg py-3 border-b" onclick="switchSection('home')">🏠 Home</a>
-                <a href="#" class="block text-gray-700 hover:text-primary transition-colors text-lg py-3 border-b" onclick="switchSection('ladies')">👗 Ladies Fashion</a>
-                <a href="#" class="block text-gray-700 hover:text-boysPrimary transition-colors text-lg py-3 border-b" onclick="switchSection('boys')">👕 Boys Fashion</a>
-                <a href="#" class="block text-gray-700 hover:text-primary transition-colors text-lg py-3 border-b" onclick="showNotification('About page coming soon!', 'info')">About</a>
-                <a href="#" class="block text-gray-700 hover:text-primary transition-colors text-lg py-3 border-b" onclick="showNotification('Contact page coming soon!', 'info')">Contact</a>
+                <a href="#" class="block text-gray-700 hover:text-primary transition-colors text-lg py-3 border-b touch-target" onclick="switchSection('home')">🏠 Home</a>
+                <a href="#" class="block text-gray-700 hover:text-primary transition-colors text-lg py-3 border-b touch-target" onclick="switchSection('ladies')">👗 Ladies Fashion</a>
+                <a href="#" class="block text-gray-700 hover:text-boysPrimary transition-colors text-lg py-3 border-b touch-target" onclick="switchSection('boys')">👕 Boys Fashion</a>
+                <a href="#" class="block text-gray-700 hover:text-primary transition-colors text-lg py-3 border-b touch-target" onclick="showNotification('About page coming soon!', 'info')">About</a>
+                <a href="#" class="block text-gray-700 hover:text-primary transition-colors text-lg py-3 border-b touch-target" onclick="switchSection('contact')">Contact</a>
                 <div class="pt-6">
                     <div class="relative">
-                        <input type="text" placeholder="Search products..." class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent">
+                        <input type="text" placeholder="Search products..." class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent text-base">
                         <div class="absolute right-3 top-3 text-gray-400">🔍</div>
                     </div>
                 </div>
@@ -543,16 +585,16 @@
                 <div class="flex items-center space-x-8">
                     <div class="text-2xl font-bold text-gradient cursor-pointer" onclick="switchSection('home')">✨ Basim Online Shopping Store</div>
                     <div class="hidden md:flex space-x-6">
-                        <a href="#" class="text-gray-700 hover:text-primary transition-colors" onclick="switchSection('home')">Home</a>
-                        <a href="#" class="text-gray-700 hover:text-primary transition-colors" onclick="switchSection('ladies')">👗 Ladies</a>
-                        <a href="#" class="text-gray-700 hover:text-boysPrimary transition-colors" onclick="switchSection('boys')">👕 Boys</a>
-                        <a href="#" class="text-gray-700 hover:text-primary transition-colors" onclick="showNotification('About page coming soon!', 'info')">About</a>
-                        <a href="#" class="text-gray-700 hover:text-primary transition-colors" onclick="showNotification('Contact page coming soon!', 'info')">Contact</a>
+                        <a href="#" class="text-gray-700 hover:text-primary transition-colors touch-target" onclick="switchSection('home')">Home</a>
+                        <a href="#" class="text-gray-700 hover:text-primary transition-colors touch-target" onclick="switchSection('ladies')">👗 Ladies</a>
+                        <a href="#" class="text-gray-700 hover:text-boysPrimary transition-colors touch-target" onclick="switchSection('boys')">👕 Boys</a>
+                        <a href="#" class="text-gray-700 hover:text-primary transition-colors touch-target" onclick="showNotification('About page coming soon!', 'info')">About</a>
+                        <a href="#" class="text-gray-700 hover:text-primary transition-colors touch-target" onclick="switchSection('contact')">Contact</a>
                     </div>
                 </div>
                 <div class="flex items-center space-x-4">
                     <div class="relative hidden sm:block">
-                        <input type="text" id="searchInput" placeholder="Search products..." class="pl-10 pr-4 py-2 border border-gray-200 rounded-full focus:ring-2 focus:ring-primary focus:border-transparent" oninput="handleSearch(event)">
+                        <input type="text" id="searchInput" placeholder="Search products..." class="pl-10 pr-4 py-2 border border-gray-200 rounded-full focus:ring-2 focus:ring-primary focus:border-transparent text-base">
                         <div class="absolute left-3 top-2.5 text-gray-400">🔍</div>
                     </div>
                     <button id="cartButton" class="touch-button relative bg-primary text-white px-4 py-2 rounded-full hover:bg-accent transition-colors pulse-glow">
@@ -924,7 +966,7 @@
                             <input type="email" placeholder="Email Address" class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent">
                             <input type="tel" placeholder="Phone Number" class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent">
                             <textarea placeholder="Your Message" rows="4" class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent"></textarea>
-                            <button type="button" onclick="submitContactForm()" class="w-full bg-primary text-white py-4 rounded-xl hover:bg-accent transition-colors font-semibold text-lg">
+                            <button type="button" onclick="submitContactForm()" class="w-full bg-primary text-white py-4 rounded-xl hover:bg-accent transition-colors font-semibold text-lg touch-button">
                                 Send Message
                             </button>
                         </form>
@@ -944,25 +986,25 @@
                         Your premier destination for elegant fashion. We create timeless pieces that celebrate style and confidence for both ladies and boys.
                     </p>
                     <div class="flex space-x-4">
-                        <a href="#" class="bg-primary p-3 rounded-full hover:bg-accent transition-colors">📘</a>
-                        <a href="#" class="bg-primary p-3 rounded-full hover:bg-accent transition-colors">📷</a>
-                        <a href="#" class="bg-primary p-3 rounded-full hover:bg-accent transition-colors">🐦</a>
+                        <a href="#" class="bg-primary p-3 rounded-full hover:bg-accent transition-colors touch-button">📘</a>
+                        <a href="#" class="bg-primary p-3 rounded-full hover:bg-accent transition-colors touch-button">📷</a>
+                        <a href="#" class="bg-primary p-3 rounded-full hover:bg-accent transition-colors touch-button">🐦</a>
                     </div>
                 </div>
                 <div>
                     <h4 class="font-semibold text-lg mb-4">Collections</h4>
                     <ul class="space-y-2">
-                        <li><a href="#" class="text-gray-300 hover:text-white transition-colors" onclick="switchSection('ladies')">👗 Ladies Fashion</a></li>
-                        <li><a href="#" class="text-gray-300 hover:text-white transition-colors" onclick="switchSection('boys')">👕 Boys Fashion</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white transition-colors touch-target" onclick="switchSection('ladies')">👗 Ladies Fashion</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white transition-colors touch-target" onclick="switchSection('boys')">👕 Boys Fashion</a></li>
                     </ul>
                 </div>
                 <div>
                     <h4 class="font-semibold text-lg mb-4">Quick Links</h4>
                     <ul class="space-y-2">
-                        <li><a href="#" class="text-gray-300 hover:text-white transition-colors" onclick="switchSection('home')">Home</a></li>
-                        <li><a href="#" class="text-gray-300 hover:text-white transition-colors" onclick="switchSection('contact')">Contact</a></li>
-                        <li><a href="#" class="text-gray-300 hover:text-white transition-colors" onclick="showNotification('About page coming soon!', 'info')">About</a></li>
-                        <li><a href="#" class="text-gray-300 hover:text-white transition-colors" onclick="openCartModal()">Cart</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white transition-colors touch-target" onclick="switchSection('home')">Home</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white transition-colors touch-target" onclick="switchSection('contact')">Contact</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white transition-colors touch-target" onclick="showNotification('About page coming soon!', 'info')">About</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white transition-colors touch-target" onclick="openCartModal()">Cart</a></li>
                     </ul>
                 </div>
             </div>
@@ -973,15 +1015,15 @@
     </footer>
 
     <!-- Cart Modal -->
-    <div id="cartModal" class="fixed inset-0 bg-black bg-opacity-50 hidden z-50 flex items-end md:items-center justify-end md:justify-center p-0 md:p-4">
-        <div class="bg-white rounded-t-2xl md:rounded-2xl max-w-md w-full max-h-[80vh] md:max-h-[90vh] overflow-hidden h-[90vh] md:h-auto">
+    <div id="cartModal" class="fixed inset-0 bg-black bg-opacity-50 hidden z-50 flex items-end md:items-center justify-end md:justify-center p-0 md:p-4 modal-mobile">
+        <div class="bg-white rounded-t-2xl md:rounded-2xl max-w-md w-full max-h-[80vh] md:max-h-[90vh] overflow-hidden h-[90vh] md:h-auto modal-content-mobile">
             <div class="p-4 md:p-6 border-b sticky top-0 bg-white z-10">
                 <div class="flex justify-between items-center">
                     <h3 class="text-xl md:text-2xl font-semibold">Shopping Cart</h3>
                     <button onclick="closeCartModal()" class="text-gray-500 hover:text-gray-700 text-2xl md:text-3xl touch-button">×</button>
                 </div>
             </div>
-            <div id="cartItems" class="p-4 md:p-6 overflow-y-auto h-[calc(90vh-200px)]">
+            <div id="cartItems" class="p-4 md:p-6 overflow-y-auto h-[calc(90vh-200px)] swipe-area">
                 <!-- Cart items will be loaded here -->
             </div>
             <div class="p-4 md:p-6 border-t bg-gray-50 sticky bottom-0">
@@ -995,8 +1037,8 @@
     </div>
 
     <!-- Checkout Modal -->
-    <div id="checkoutModal" class="fixed inset-0 bg-black bg-opacity-50 hidden z-50 flex items-end md:items-center justify-end md:justify-center p-0 md:p-4">
-        <div class="bg-white rounded-t-2xl md:rounded-2xl max-w-md md:max-w-2xl w-full max-h-[90vh] md:max-h-[95vh] overflow-hidden h-[90vh] md:h-auto checkout-modal">
+    <div id="checkoutModal" class="fixed inset-0 bg-black bg-opacity-50 hidden z-50 flex items-end md:items-center justify-end md:justify-center p-0 md:p-4 modal-mobile">
+        <div class="bg-white rounded-t-2xl md:rounded-2xl max-w-md md:max-w-2xl w-full max-h-[90vh] md:max-h-[95vh] overflow-hidden h-[90vh] md:h-auto modal-content-mobile">
             <div class="p-4 md:p-6 border-b sticky top-0 bg-white z-10">
                 <div class="flex justify-between items-center">
                     <h3 class="text-xl md:text-2xl font-semibold">Checkout Information</h3>
@@ -1004,7 +1046,7 @@
                 </div>
                 <p class="text-gray-600 text-sm mt-2">Please fill in your details to complete the order</p>
             </div>
-            <div class="p-4 md:p-6 overflow-y-auto h-[calc(90vh-180px)] md:h-[calc(95vh-180px)]">
+            <div class="p-4 md:p-6 overflow-y-auto h-[calc(90vh-180px)] md:h-[calc(95vh-180px)] swipe-area">
                 <form id="checkoutForm" class="space-y-4">
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <div>
@@ -1101,7 +1143,7 @@
                             </div>
                             <div class="flex justify-between">
                                 <span class="text-gray-600">Shipping:</span>
-                                <span class="font-medium text-green-600">Free</span>
+                                <span class="font-medium text-red-600">₨ 200</span>
                             </div>
                             <div class="border-t pt-2 flex justify-between">
                                 <span class="font-semibold">Total:</span>
@@ -1126,16 +1168,16 @@
     <!-- Enhanced Full Screen Image Preview Modal -->
     <div id="imagePreviewModal" class="image-preview-modal">
         <div class="image-preview-container">
-            <button onclick="closeImagePreview()" class="image-preview-close">×</button>
+            <button onclick="closeImagePreview()" class="image-preview-close touch-button">×</button>
             
-            <button onclick="prevImagePreview()" class="image-preview-nav image-preview-prev">❮</button>
+            <button onclick="prevImagePreview()" class="image-preview-nav image-preview-prev touch-button">❮</button>
             
             <div class="relative">
                 <img id="previewImage" src="" alt="Product Preview" class="image-preview-image">
                 <div class="image-preview-counter" id="imageCounter">1/4</div>
             </div>
             
-            <button onclick="nextImagePreview()" class="image-preview-nav image-preview-next">❯</button>
+            <button onclick="nextImagePreview()" class="image-preview-nav image-preview-next touch-button">❯</button>
             
             <div class="image-preview-info">
                 <div class="image-preview-title" id="previewProductName"></div>
@@ -1958,6 +2000,7 @@
             updateCartUI();
             setupEventListeners();
             initFeaturedCarousels();
+            handleCountryChange(); // Initialize country
         });
 
         // ==============================
@@ -2277,7 +2320,7 @@
                         <button class="product-image-nav product-image-next" onclick="nextSlide('ladiesCarousel${productIndex}')">❯</button>
                         <div class="product-image-dots" id="ladiesDots${productIndex}"></div>
                         <div class="absolute top-2 right-2">
-                            <button onclick="addToCartLadies(${product.id})" class="bg-primary text-white p-2 rounded-full hover:bg-accent transition-colors">
+                            <button onclick="addToCartLadies(${product.id})" class="bg-primary text-white p-2 rounded-full hover:bg-accent transition-colors touch-button">
                                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
                                 </svg>
@@ -2337,7 +2380,7 @@
                         <button class="product-image-nav product-image-next" onclick="nextSlide('boysCarousel${productIndex}')">❯</button>
                         <div class="product-image-dots" id="boysDots${productIndex}"></div>
                         <div class="absolute top-2 right-2">
-                            <button onclick="addToCartBoys(${product.id})" class="bg-boysPrimary text-white p-2 rounded-full hover:bg-boysAccent transition-colors">
+                            <button onclick="addToCartBoys(${product.id})" class="bg-boysPrimary text-white p-2 rounded-full hover:bg-boysAccent transition-colors touch-button">
                                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
                                 </svg>
@@ -2482,14 +2525,14 @@
                             <h4 class="font-semibold text-sm md:text-base truncate">${item.name}</h4>
                             <p class="${item.type === 'ladies' ? 'text-primary' : 'text-boysPrimary'} font-bold text-sm md:text-base">₨ ${item.price.toLocaleString()}</p>
                             <div class="flex items-center gap-2 mt-1">
-                                <button onclick="updateCartQuantity(${item.id}, '${item.type}', -1)" class="w-6 h-6 bg-gray-200 rounded-full flex items-center justify-center hover:bg-gray-300 text-sm">-</button>
+                                <button onclick="updateCartQuantity(${item.id}, '${item.type}', -1)" class="w-8 h-8 bg-gray-200 rounded-full flex items-center justify-center hover:bg-gray-300 text-sm touch-button">-</button>
                                 <span class="w-8 text-center text-sm">${item.quantity}</span>
-                                <button onclick="updateCartQuantity(${item.id}, '${item.type}', 1)" class="w-6 h-6 bg-gray-200 rounded-full flex items-center justify-center hover:bg-gray-300 text-sm">+</button>
+                                <button onclick="updateCartQuantity(${item.id}, '${item.type}', 1)" class="w-8 h-8 bg-gray-200 rounded-full flex items-center justify-center hover:bg-gray-300 text-sm touch-button">+</button>
                             </div>
                         </div>
                         <div class="text-right">
                             <p class="font-bold text-sm md:text-base">₨ ${(item.price * item.quantity).toLocaleString()}</p>
-                            <button onclick="removeFromCart(${item.id}, '${item.type}')" class="text-red-500 hover:text-red-700 mt-2 text-sm">Remove</button>
+                            <button onclick="removeFromCart(${item.id}, '${item.type}')" class="text-red-500 hover:text-red-700 mt-2 text-sm touch-target">Remove</button>
                         </div>
                     </div>
                 `).join('');
@@ -2528,10 +2571,12 @@
 
         function openCartModal() {
             document.getElementById('cartModal').classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
         }
 
         function closeCartModal() {
             document.getElementById('cartModal').classList.add('hidden');
+            document.body.style.overflow = '';
         }
 
         function openCheckoutModal() {
@@ -2542,11 +2587,13 @@
             
             closeCartModal();
             document.getElementById('checkoutModal').classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
             updateCheckoutSummary();
         }
 
         function closeCheckoutModal() {
             document.getElementById('checkoutModal').classList.add('hidden');
+            document.body.style.overflow = '';
         }
 
         // ==============================
@@ -2554,8 +2601,11 @@
         // ==============================
 
         function updateCheckoutSummary() {
-            const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
-            document.getElementById('checkoutSubtotal').textContent = `₨ ${total.toLocaleString()}`;
+            const subtotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+            const shipping = 200; // Fixed delivery charges
+            const total = subtotal + shipping;
+            
+            document.getElementById('checkoutSubtotal').textContent = `₨ ${subtotal.toLocaleString()}`;
             document.getElementById('checkoutTotal').textContent = `₨ ${total.toLocaleString()}`;
             
             // Update order items in checkout modal
@@ -2596,7 +2646,9 @@
                 return;
             }
             
-            const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+            const subtotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+            const shipping = 200;
+            const total = subtotal + shipping;
             const orderNumber = 'BOS-' + Date.now().toString().slice(-6);
             
             let message = `🛍️ *NEW ORDER - Basim Online Shopping Store* 🛍️\n\n`;
@@ -2644,8 +2696,8 @@
             });
             
             message += `\n💰 *Order Summary:*\n`;
-            message += `Subtotal: ₨${total}\n`;
-            message += `Shipping: Free\n`;
+            message += `Subtotal: ₨${subtotal}\n`;
+            message += `Shipping: ₨${shipping}\n`;
             message += `*Total: ₨${total}*\n\n`;
             message += `✅ *Please confirm this order!*`;
             
@@ -2746,7 +2798,7 @@
                                 <button class="product-image-nav product-image-next" onclick="nextSlide('ladiesSearchCarousel${productIndex}')">❯</button>
                                 <div class="product-image-dots" id="ladiesSearchDots${productIndex}"></div>
                                 <div class="absolute top-2 right-2">
-                                    <button onclick="addToCartLadies(${product.id})" class="bg-primary text-white p-2 rounded-full hover:bg-accent transition-colors">
+                                    <button onclick="addToCartLadies(${product.id})" class="bg-primary text-white p-2 rounded-full hover:bg-accent transition-colors touch-button">
                                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
                                         </svg>
@@ -2758,7 +2810,7 @@
                                 <p class="text-gray-600 text-sm mb-3 line-clamp-2">${product.description}</p>
                                 <div class="flex justify-between items-center">
                                     <span class="text-lg font-bold text-primary">₨ ${product.price.toLocaleString()}</span>
-                                    <button onclick="addToCartLadies(${product.id})" class="bg-primary text-white px-4 py-2 rounded-lg hover:bg-accent transition-colors text-sm">
+                                    <button onclick="addToCartLadies(${product.id})" class="bg-primary text-white px-4 py-2 rounded-lg hover:bg-accent transition-colors text-sm touch-button">
                                         Add to Cart
                                     </button>
                                 </div>
@@ -2798,7 +2850,7 @@
                                 <button class="product-image-nav product-image-next" onclick="nextSlide('boysSearchCarousel${productIndex}')">❯</button>
                                 <div class="product-image-dots" id="boysSearchDots${productIndex}"></div>
                                 <div class="absolute top-2 right-2">
-                                    <button onclick="addToCartBoys(${product.id})" class="bg-boysPrimary text-white p-2 rounded-full hover:bg-boysAccent transition-colors">
+                                    <button onclick="addToCartBoys(${product.id})" class="bg-boysPrimary text-white p-2 rounded-full hover:bg-boysAccent transition-colors touch-button">
                                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
                                         </svg>
@@ -2810,7 +2862,7 @@
                                 <p class="text-gray-600 text-sm mb-3 line-clamp-2">${product.description}</p>
                                 <div class="flex justify-between items-center">
                                     <span class="text-lg font-bold text-boysPrimary">₨ ${product.price.toLocaleString()}</span>
-                                    <button onclick="addToCartBoys(${product.id})" class="bg-boysPrimary text-white px-4 py-2 rounded-lg hover:bg-boysAccent transition-colors text-sm">
+                                    <button onclick="addToCartBoys(${product.id})" class="bg-boysPrimary text-white px-4 py-2 rounded-lg hover:bg-boysAccent transition-colors text-sm touch-button">
                                         Add to Cart
                                     </button>
                                 </div>
@@ -2854,9 +2906,13 @@
                 modal.addEventListener('click', function(e) {
                     if (e.target === this) {
                         this.classList.add('hidden');
+                        document.body.style.overflow = '';
                     }
                 });
             });
+            
+            // Search input
+            document.getElementById('searchInput').addEventListener('input', handleSearch);
         }
 
         function closeMobileMenuFunction() {
