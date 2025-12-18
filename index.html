@@ -1,1395 +1,1756 @@
 <!doctype html>
 <html lang="en">
- <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Basim Ladies Fashion - Premium Collection 2025</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            primary: '#e91e63',
-            secondary: '#f8bbd9',
-            accent: '#ad1457'
-          },
-          fontFamily: {
-            'elegant': ['Georgia', 'serif'],
-            'modern': ['Inter', 'sans-serif']
-          }
-        }
-      }
-    }
-  </script>
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
-    
-    body {
-      box-sizing: border-box;
-    }
-    
-    * {
-      font-family: 'Inter', sans-serif;
-    }
-    
-    .gradient-bg {
-      background: linear-gradient(135deg, #fce4ec 0%, #f8bbd9 50%, #e1bee7 100%);
-    }
-    
-    .glass-effect {
-      backdrop-filter: blur(10px);
-      background: rgba(255, 255, 255, 0.9);
-    }
-    
-    .hover-scale {
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-    
-    .hover-scale:hover {
-      transform: scale(1.05) translateY(-5px);
-      box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-    }
-    
-    .floating-animation {
-      animation: float 6s ease-in-out infinite;
-    }
-    
-    @keyframes float {
-      0%, 100% { transform: translateY(0px); }
-      50% { transform: translateY(-20px); }
-    }
-    
-    .slide-in {
-      animation: slideIn 0.8s ease-out;
-    }
-    
-    @keyframes slideIn {
-      from { opacity: 0; transform: translateY(30px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    
-    .pulse-glow {
-      animation: pulseGlow 2s infinite;
-    }
-    
-    @keyframes pulseGlow {
-      0%, 100% { box-shadow: 0 0 20px rgba(233, 30, 99, 0.3); }
-      50% { box-shadow: 0 0 40px rgba(233, 30, 99, 0.6); }
-    }
-    
-    .text-gradient {
-      background: linear-gradient(45deg, #e91e63, #ad1457);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-    
-    .line-clamp-2 {
-      display: -webkit-box;
-      -webkit-line-clamp: 2;
-      -webkit-box-orient: vertical;
-      overflow: hidden;
-    }
-  </style>
- </head>
- <body class="bg-gray-50 overflow-x-hidden">
-  <!-- Navigation -->
-  <nav class="fixed top-0 w-full z-50 glass-effect border-b border-white/20">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex justify-between items-center h-16">
-        <div class="flex items-center space-x-8">
-          <div class="text-2xl font-bold text-gradient">✨ Basim Fashion</div>
-          <div class="hidden md:flex space-x-6">
-            <a href="#home" class="text-gray-700 hover:text-primary transition-colors">Home</a>
-            <a href="#collections" class="text-gray-700 hover:text-primary transition-colors">Collections</a>
-            <a href="#about" class="text-gray-700 hover:text-primary transition-colors">About</a>
-            <a href="#contact" class="text-gray-700 hover:text-primary transition-colors">Contact</a>
-          </div>
-        </div>
-        <div class="flex items-center space-x-4">
-          <div class="relative hidden sm:block">
-            <input type="text" id="searchInput" placeholder="Search products..." class="pl-10 pr-4 py-2 border border-gray-200 rounded-full focus:ring-2 focus:ring-primary focus:border-transparent">
-            <div class="absolute left-3 top-2.5 text-gray-400">🔍</div>
-          </div>
-          <button id="cartButton" class="relative bg-primary text-white px-4 py-2 rounded-full hover:bg-accent transition-colors pulse-glow">🛒 Cart (<span id="cartCount">0</span>)</button>
-          <button id="mobileMenu" class="md:hidden text-gray-700">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-            </svg>
-          </button>
-        </div>
-      </div>
-    </div>
-  </nav>
-
-  <!-- Hero Section -->
-  <section id="home" class="gradient-bg min-h-full flex items-center pt-16">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-      <div class="grid lg:grid-cols-2 gap-12 items-center">
-        <div class="slide-in">
-          <h1 class="text-5xl lg:text-7xl font-bold text-gray-900 mb-6">
-            Premium Ladies <span class="text-gradient block">Fashion 2025</span>
-          </h1>
-          <p class="text-xl text-gray-600 mb-8 leading-relaxed">
-            Discover our exclusive collection of elegant dresses, modern designs, and timeless fashion pieces crafted for the contemporary woman.
-          </p>
-          <div class="flex flex-col sm:flex-row gap-4 mb-12">
-            <button onclick="scrollToSection('collections')" class="bg-primary text-white px-8 py-4 rounded-full hover:bg-accent transition-all hover-scale font-semibold">Explore Collection</button>
-            <button onclick="scrollToSection('contact')" class="border-2 border-primary text-primary px-8 py-4 rounded-full hover:bg-primary hover:text-white transition-all">Get in Touch</button>
-          </div>
-          <div class="grid grid-cols-3 gap-6">
-            <div class="text-center">
-              <div class="text-3xl font-bold text-primary">500+</div>
-              <div class="text-gray-600">Happy Customers</div>
-            </div>
-            <div class="text-center">
-              <div class="text-3xl font-bold text-primary">100+</div>
-              <div class="text-gray-600">Unique Designs</div>
-            </div>
-            <div class="text-center">
-              <div class="text-3xl font-bold text-primary">24/7</div>
-              <div class="text-gray-600">Support</div>
-            </div>
-          </div>
-        </div>
-        <div class="relative">
-          <div class="floating-animation">
-            <div class="bg-white rounded-3xl shadow-2xl overflow-hidden">
-              <img src="https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?w=600&h=800&fit=crop" alt="Fashion Model" class="w-full h-96 object-cover">
-              <div class="p-6">
-                <h3 class="text-2xl font-semibold mb-2">Featured: Elegant Evening Dress</h3>
-                <p class="text-gray-600 mb-4">Perfect for special occasions and formal events</p>
-                <div class="flex justify-between items-center">
-                  <span class="text-2xl font-bold text-primary">$299.99</span>
-                  <button class="bg-primary text-white px-6 py-2 rounded-full hover:bg-accent transition-colors">Add to Cart</button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Categories -->
-  <section class="py-20 bg-white">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-16">
-        <h2 class="text-4xl font-bold text-gray-900 mb-4">Shop by Category</h2>
-        <p class="text-xl text-gray-600">Discover our curated collections for every occasion</p>
-      </div>
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
-        <div class="category-card bg-gradient-to-br from-pink-100 to-purple-100 rounded-2xl p-6 text-center hover-scale cursor-pointer" onclick="filterProducts('casual')">
-          <div class="text-4xl mb-4">👗</div>
-          <h3 class="font-semibold text-lg">Casual Wear</h3>
-          <p class="text-gray-600 text-sm">Everyday comfort</p>
-        </div>
-        <div class="category-card bg-gradient-to-br from-yellow-100 to-orange-100 rounded-2xl p-6 text-center hover-scale cursor-pointer" onclick="filterProducts('party')">
-          <div class="text-4xl mb-4">✨</div>
-          <h3 class="font-semibold text-lg">Party Dresses</h3>
-          <p class="text-gray-600 text-sm">Glamorous nights</p>
-        </div>
-        <div class="category-card bg-gradient-to-br from-blue-100 to-indigo-100 rounded-2xl p-6 text-center hover-scale cursor-pointer" onclick="filterProducts('office')">
-          <div class="text-4xl mb-4">💼</div>
-          <h3 class="font-semibold text-lg">Office Wear</h3>
-          <p class="text-gray-600 text-sm">Professional style</p>
-        </div>
-        <div class="category-card bg-gradient-to-br from-green-100 to-teal-100 rounded-2xl p-6 text-center hover-scale cursor-pointer" onclick="filterProducts('bridal')">
-          <div class="text-4xl mb-4">👰</div>
-          <h3 class="font-semibold text-lg">Bridal</h3>
-          <p class="text-gray-600 text-sm">Special moments</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Products Collection -->
-  <section id="collections" class="py-20 gradient-bg">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-16">
-        <h2 class="text-4xl font-bold text-gray-900 mb-4">Featured Collection</h2>
-        <p class="text-xl text-gray-600">Handpicked designs for the modern woman</p>
-      </div>
-      <div class="flex justify-center mb-8">
-        <div class="bg-white rounded-full p-2 shadow-lg">
-          <button onclick="filterProducts('all')" class="filter-btn active px-6 py-2 rounded-full bg-primary text-white">All</button>
-          <button onclick="filterProducts('casual')" class="filter-btn px-6 py-2 rounded-full text-gray-600">Casual</button>
-          <button onclick="filterProducts('party')" class="filter-btn px-6 py-2 rounded-full text-gray-600">Party</button>
-          <button onclick="filterProducts('office')" class="filter-btn px-6 py-2 rounded-full text-gray-600">Office</button>
-        </div>
-      </div>
-      <div id="productsGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-        <!-- Products will be loaded here -->
-      </div>
-    </div>
-  </section>
-
-  <!-- About Section -->
-  <section id="about" class="py-20 bg-white">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid lg:grid-cols-2 gap-16 items-center">
-        <div>
-          <h2 class="text-4xl font-bold text-gray-900 mb-6">About Basim Fashion</h2>
-          <p class="text-lg text-gray-600 mb-6 leading-relaxed">
-            Since 2020, Basim Fashion has been at the forefront of women's fashion, creating stunning pieces that blend traditional elegance with contemporary style. Our commitment to quality and customer satisfaction has made us a trusted name in the fashion industry.
-          </p>
-          <p class="text-lg text-gray-600 mb-8 leading-relaxed">
-            We believe every woman deserves to feel confident and beautiful, which is why we carefully curate our collections to offer something special for every occasion and personal style.
-          </p>
-          <div class="grid grid-cols-2 gap-6">
-            <div class="text-center p-4 bg-gray-50 rounded-xl">
-              <div class="text-3xl mb-2">🚚</div>
-              <h4 class="font-semibold">Free Shipping</h4>
-              <p class="text-sm text-gray-600">On orders over $100</p>
-            </div>
-            <div class="text-center p-4 bg-gray-50 rounded-xl">
-              <div class="text-3xl mb-2">🔄</div>
-              <h4 class="font-semibold">Easy Returns</h4>
-              <p class="text-sm text-gray-600">30-day return policy</p>
-            </div>
-          </div>
-        </div>
-        <div class="relative">
-          <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=600&h=400&fit=crop" alt="Fashion Store" class="rounded-2xl shadow-2xl">
-          <div class="absolute -bottom-6 -left-6 bg-white p-6 rounded-xl shadow-lg">
-            <div class="text-2xl font-bold text-primary">5+ Years</div>
-            <div class="text-gray-600">of Excellence</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Contact Section -->
-  <section id="contact" class="py-20 gradient-bg">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-16">
-        <h2 class="text-4xl font-bold text-gray-900 mb-4">Get in Touch</h2>
-        <p class="text-xl text-gray-600">We'd love to hear from you</p>
-      </div>
-      <div class="grid lg:grid-cols-2 gap-16">
-        <div class="bg-white rounded-2xl p-8 shadow-xl">
-          <h3 class="text-2xl font-semibold mb-6">Send us a Message</h3>
-          <form id="contactForm" class="space-y-6">
-            <div class="grid grid-cols-2 gap-4">
-              <input type="text" placeholder="First Name" required class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent">
-              <input type="text" placeholder="Last Name" required class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent">
-            </div>
-            <input type="email" placeholder="Email Address" required class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent">
-            <input type="tel" placeholder="Phone Number" class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent">
-            <textarea placeholder="Your Message" rows="5" required class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent"></textarea>
-            <button type="submit" class="w-full bg-primary text-white py-3 rounded-xl hover:bg-accent transition-colors font-semibold">Send Message</button>
-          </form>
-        </div>
-        <div class="space-y-8">
-          <div class="bg-white rounded-2xl p-6 shadow-xl">
-            <div class="flex items-center space-x-4">
-              <div class="bg-primary text-white p-3 rounded-full">📍</div>
-              <div>
-                <h4 class="font-semibold">Visit Our Store</h4>
-                <p class="text-gray-600">123 Fashion Street, Style City, SC 12345</p>
-              </div>
-            </div>
-          </div>
-          <div class="bg-white rounded-2xl p-6 shadow-xl">
-            <div class="flex items-center space-x-4">
-              <div class="bg-primary text-white p-3 rounded-full">📞</div>
-              <div>
-                <h4 class="font-semibold">Call Us</h4>
-                <p class="text-gray-600">+1 (555) 123-4567</p>
-              </div>
-            </div>
-          </div>
-          <div class="bg-white rounded-2xl p-6 shadow-xl">
-            <div class="flex items-center space-x-4">
-              <div class="bg-primary text-white p-3 rounded-full">✉️</div>
-              <div>
-                <h4 class="font-semibold">Email Us</h4>
-                <p class="text-gray-600">info@basimfashion.com</p>
-              </div>
-            </div>
-          </div>
-          <div class="bg-white rounded-2xl p-6 shadow-xl">
-            <h4 class="font-semibold mb-4">Contact Us on WhatsApp</h4>
-            <a href="https://wa.me/923347382564" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center gap-3 bg-green-500 text-white px-6 py-4 rounded-xl hover:bg-green-600 transition-all shadow-lg hover:shadow-xl transform hover:scale-105">
-              <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" />
-              </svg>
-              <span class="font-semibold text-lg">Chat on WhatsApp</span>
-            </a>
-          </div>
-          <div class="bg-white rounded-2xl p-6 shadow-xl">
-            <h4 class="font-semibold mb-4">Follow Us</h4>
-            <div class="flex space-x-4">
-              <a href="#" class="bg-blue-600 text-white p-3 rounded-full hover:bg-blue-700 transition-colors">📘</a>
-              <a href="#" class="bg-pink-600 text-white p-3 rounded-full hover:bg-pink-700 transition-colors">📷</a>
-              <a href="#" class="bg-blue-400 text-white p-3 rounded-full hover:bg-blue-500 transition-colors">🐦</a>
-              <a href="#" class="bg-red-600 text-white p-3 rounded-full hover:bg-red-700 transition-colors">📺</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer class="bg-gray-900 text-white py-16">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-        <div class="col-span-1 md:col-span-2">
-          <div class="text-3xl font-bold mb-4">✨ Basim Fashion</div>
-          <p class="text-gray-300 mb-6 max-w-md">
-            Your premier destination for elegant ladies fashion. We create timeless pieces that celebrate the modern woman's style and confidence.
-          </p>
-          <div class="flex space-x-4">
-            <a href="#" class="bg-primary p-3 rounded-full hover:bg-accent transition-colors">📘</a>
-            <a href="#" class="bg-primary p-3 rounded-full hover:bg-accent transition-colors">📷</a>
-            <a href="#" class="bg-primary p-3 rounded-full hover:bg-accent transition-colors">🐦</a>
-          </div>
-        </div>
-        <div>
-          <h4 class="font-semibold text-lg mb-4">Quick Links</h4>
-          <ul class="space-y-2">
-            <li><a href="#home" class="text-gray-300 hover:text-white transition-colors">Home</a></li>
-            <li><a href="#collections" class="text-gray-300 hover:text-white transition-colors">Collections</a></li>
-            <li><a href="#about" class="text-gray-300 hover:text-white transition-colors">About</a></li>
-            <li><a href="#contact" class="text-gray-300 hover:text-white transition-colors">Contact</a></li>
-          </ul>
-        </div>
-        <div>
-          <h4 class="font-semibold text-lg mb-4">Customer Care</h4>
-          <ul class="space-y-2">
-            <li><a href="#" class="text-gray-300 hover:text-white transition-colors">Size Guide</a></li>
-            <li><a href="#" class="text-gray-300 hover:text-white transition-colors">Shipping Info</a></li>
-            <li><a href="#" class="text-gray-300 hover:text-white transition-colors">Returns</a></li>
-            <li><a href="#" class="text-gray-300 hover:text-white transition-colors">FAQ</a></li>
-          </ul>
-        </div>
-      </div>
-      <div class="border-t border-gray-800 mt-12 pt-8 text-center">
-        <p class="text-gray-300">© 2025 Basim Fashion. All rights reserved. | Privacy Policy | Terms of Service</p>
-      </div>
-    </div>
-  </footer>
-
-  <!-- Shopping Cart Modal -->
-  <div id="cartModal" class="fixed inset-0 bg-black bg-opacity-50 hidden z-50 flex items-center justify-center p-4">
-    <div class="bg-white rounded-2xl max-w-md w-full max-h-[80vh] overflow-hidden">
-      <div class="p-6 border-b">
-        <div class="flex justify-between items-center">
-          <h3 class="text-2xl font-semibold">Shopping Cart</h3>
-          <button id="closeCart" class="text-gray-500 hover:text-gray-700 text-2xl">×</button>
-        </div>
-      </div>
-      <div id="cartItems" class="p-6 max-h-96 overflow-y-auto">
-        <div class="text-center text-gray-500 py-8">
-          <div class="text-4xl mb-4">🛒</div>
-          <p>Your cart is empty</p>
-        </div>
-      </div>
-      <div class="p-6 border-t bg-gray-50">
-        <div class="flex justify-between items-center mb-4">
-          <span class="text-lg font-semibold">Total:</span>
-          <span class="text-2xl font-bold text-primary">$<span id="cartTotal">0.00</span></span>
-        </div>
-        <button id="checkoutBtn" class="w-full bg-primary text-white py-3 rounded-xl hover:bg-accent transition-colors font-semibold">Proceed to Checkout</button>
-      </div>
-    </div>
-  </div>
-
-  <!-- Checkout Modal -->
-  <div id="checkoutModal" class="fixed inset-0 bg-black bg-opacity-50 hidden z-50 flex items-center justify-center p-4">
-    <div class="bg-white rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-hidden">
-      <div class="p-6 border-b">
-        <div class="flex justify-between items-center">
-          <h3 class="text-2xl font-semibold">Checkout</h3>
-          <button id="closeCheckout" class="text-gray-500 hover:text-gray-700 text-2xl">×</button>
-        </div>
-      </div>
-      <div class="overflow-y-auto max-h-[calc(90vh-200px)]">
-        <div class="grid lg:grid-cols-2 gap-8 p-6">
-          <!-- Order Summary -->
-          <div class="order-2 lg:order-1">
-            <h4 class="text-xl font-semibold mb-4">Order Summary</h4>
-            <div id="checkoutItems" class="space-y-4 mb-6">
-              <!-- Items will be populated here -->
-            </div>
-            <div class="border-t pt-4 space-y-2">
-              <div class="flex justify-between">
-                <span>Subtotal:</span>
-                <span>$<span id="checkoutSubtotal">0.00</span></span>
-              </div>
-              <div class="flex justify-between">
-                <span>Shipping:</span>
-                <span id="shippingCost">Free</span>
-              </div>
-              <div class="flex justify-between">
-                <span>Tax:</span>
-                <span>$<span id="taxAmount">0.00</span></span>
-              </div>
-              <div class="flex justify-between text-xl font-bold border-t pt-2">
-                <span>Total:</span>
-                <span class="text-primary">$<span id="checkoutTotal">0.00</span></span>
-              </div>
-            </div>
-          </div>
-          <!-- Checkout Form -->
-          <div class="order-1 lg:order-2">
-            <form id="checkoutForm" class="space-y-6">
-              <!-- Customer Information -->
-              <div>
-                <h4 class="text-lg font-semibold mb-4">Customer Information</h4>
-                <div class="grid grid-cols-2 gap-4">
-                  <input type="text" id="firstName" placeholder="First Name" required class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent">
-                  <input type="text" id="lastName" placeholder="Last Name" required class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent">
-                </div>
-                <input type="email" id="email" placeholder="Email Address" required class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent mt-4">
-                <input type="tel" id="phone" placeholder="Phone Number" required class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent mt-4">
-              </div>
-              <!-- Shipping Address -->
-              <div>
-                <h4 class="text-lg font-semibold mb-4">Shipping Address</h4>
-                <input type="text" id="address" placeholder="Street Address" required class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent mb-4">
-                <div class="grid grid-cols-2 gap-4">
-                  <input type="text" id="city" placeholder="City" required class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent">
-                  <input type="text" id="zipCode" placeholder="ZIP Code" required class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent">
-                </div>
-                <select id="country" required class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent mt-4">
-                  <option value="">Select Country</option>
-                  <option value="US">United States</option>
-                  <option value="CA">Canada</option>
-                  <option value="UK">United Kingdom</option>
-                  <option value="AU">Australia</option>
-                  <option value="PK">Pakistan</option>
-                  <option value="IN">India</option>
-                </select>
-              </div>
-              <!-- Payment Method -->
-              <div>
-                <h4 class="text-lg font-semibold mb-4">Payment Method</h4>
-                <div class="space-y-3">
-                  <label class="flex items-center p-4 border border-gray-200 rounded-xl cursor-pointer hover:bg-gray-50">
-                    <input type="radio" name="paymentMethod" value="card" class="mr-3">
-                    <div class="flex items-center">
-                      <span class="text-2xl mr-3">💳</span>
-                      <span>Credit/Debit Card</span>
-                    </div>
-                  </label>
-                  <label class="flex items-center p-4 border border-gray-200 rounded-xl cursor-pointer hover:bg-gray-50">
-                    <input type="radio" name="paymentMethod" value="paypal" class="mr-3">
-                    <div class="flex items-center">
-                      <span class="text-2xl mr-3">🅿️</span>
-                      <span>PayPal</span>
-                    </div>
-                  </label>
-                  <label class="flex items-center p-4 border border-gray-200 rounded-xl cursor-pointer hover:bg-gray-50">
-                    <input type="radio" name="paymentMethod" value="cod" class="mr-3" checked>
-                    <div class="flex items-center">
-                      <span class="text-2xl mr-3">💵</span>
-                      <span>Cash on Delivery</span>
-                    </div>
-                  </label>
-                </div>
-              </div>
-            </form>
-          </div>
-        </div>
-      </div>
-      <div class="p-6 border-t bg-gray-50">
-        <button id="placeOrderBtn" class="w-full bg-primary text-white py-4 rounded-xl hover:bg-accent transition-colors font-semibold text-lg">Place Order - $<span id="finalTotal">0.00</span></button>
-      </div>
-    </div>
-  </div>
-
-  <script>
-    // Product Data with Online Image URLs - 24 Products with 4 images each
-    const products = [
-      { 
-        id: 1, 
-        name: "Designer Casual Dress", 
-        price: 89.99, 
-        category: "casual",
-        description: "Beautiful designer casual dress perfect for everyday wear with premium fabric quality",
-        images: [
-          "https://content.public.markaz.app/markazimagevideo/public/products/1993-95-683287-product-1.webp",
-          "https://content.public.markaz.app/markazimagevideo/public/products/1993-95-683286-product-1.webp",
-          "https://content.public.markaz.app/markazimagevideo/public/products/1993-95-683284-product-1.webp",
-          "https://content.public.markaz.app/markazimagevideo/public/products/1993-95-683285-product-1.webp"
-        ],
-        rating: 4.8, 
-        reviews: 124 
-      },
-      { 
-        id: 2, 
-        name: "Sequin Party Collection", 
-        price: 219.99, 
-        category: "party",
-        description: "Dazzling sequin dress perfect for parties and special occasions",
-        images: [
-          "https://content.public.markaz.app/markazimagevideo/public/products/1993-11-683306-product-1.webp",
-          "https://content.public.markaz.app/markazimagevideo/public/products/1993-11-683305-product-1.webp",
-          "https://content.public.markaz.app/markazimagevideo/public/products/1993-11-683304-product-1.webp",
-          "https://content.public.markaz.app/markazimagevideo/public/products/1993-11-683302-product-1.webp"
-        ],
-        rating: 4.9, 
-        reviews: 92 
-      },
-      { 
-        id: 3, 
-        name: "Bohemian Maxi Dress", 
-        price: 94.99, 
-        category: "casual",
-        description: "Free-spirited bohemian maxi with vibrant embroidery and tassel details",
-        images: [
-          "https://content.public.markaz.app/markazimagevideo/public/products/1993-95-682368-product-1.webp",
-          "https://content.public.markaz.app/markazimagevideo/public/products/1993-95-682364-product-1.webp",
-          "https://content.public.markaz.app/markazimagevideo/public/products/1993-95-682369-product-1.webp",
-          "https://content.public.markaz.app/markazimagevideo/public/products/1993-95-682365-product-1.webp"
-        ],
-        rating: 4.6, 
-        reviews: 145 
-      },
-      { 
-        id: 4, 
-        name: "Professional Pencil Skirt", 
-        price: 79.99, 
-        category: "office",
-        description: "Classic high-waisted pencil skirt perfect for office wear",
-        images: [
-          "https://content.public.markaz.app/markazimagevideo/public/products/1993-95-681250-product-1.webp",
-          "https://content.public.markaz.app/markazimagevideo/public/products/1993-95-681250-product-2.webp",
-          "https://content.public.markaz.app/markazimagevideo/public/products/1993-95-681251-product-1.webp",
-          "https://content.public.markaz.app/markazimagevideo/public/products/1993-95-681251-product-2.webp"
-        ],
-        rating: 4.7, 
-        reviews: 112 
-      },
-      { 
-        id: 5, 
-        name: "Elegant Office Set", 
-        price: 159.99, 
-        category: "office",
-        description: "Sophisticated office ensemble for the modern professional woman",
-        images: [
-          "https://content.public.markaz.app/markazimagevideo/public/products/729-11-680907-product-1.webp",
-          "https://content.public.markaz.app/markazimagevideo/public/products/729-11-680905-product-1.webp",
-          "https://content.public.markaz.app/markazimagevideo/public/products/729-11-680904-product-1.webp",
-          "https://content.public.markaz.app/markazimagevideo/public/products/729-11-680906-product-1.webp"
-        ],
-        rating: 4.8, 
-        reviews: 87 
-      },
-      { 
-        id: 6, 
-        name: "Silk Evening Gown", 
-        price: 249.99, 
-        category: "party",
-        description: "Luxurious silk evening dress with elegant draping",
-        images: [
-          "https://content.public.markaz.app/markazimagevideo/public/products/1993-14-680809-product-1.webp",
-          "https://content.public.markaz.app/markazimagevideo/public/thumbnails/products/1993-14-680810-product-1.webp",
-          "https://content.public.markaz.app/markazimagevideo/public/thumbnails/products/1993-14-680808-product-1.webp",
-          "https://content.public.markaz.app/markazimagevideo/public/thumbnails/products/1993-14-680806-product-1.webp"
-        ],
-        rating: 4.9, 
-        reviews: 82 
-      },
-      { 
-        id: 7, 
-        name: "Contemporary Party Wear", 
-        price: 189.99, 
-        category: "party",
-        description: "Modern party dress with sophisticated styling",
-        images: [
-          "https://content.public.markaz.app/markazimagevideo/public/thumbnails/products/1993-95-680800-product-1.webp",
-          "https://content.public.markaz.app/markazimagevideo/public/thumbnails/products/1993-95-680801-product-1.webp",
-          "https://content.public.markaz.app/markazimagevideo/public/thumbnails/products/1993-95-680798-product-1.webp",
-          "https://content.public.markaz.app/markazimagevideo/public/thumbnails/products/1993-95-680802-product-1.webp"
-        ],
-        rating: 4.7, 
-        reviews: 95 
-      },
-      { 
-        id: 8, 
-        name: "Floral Summer Collection", 
-        price: 69.99, 
-        category: "casual",
-        description: "Vibrant floral print dress perfect for summer days",
-        images: [
-          "https://content.public.markaz.app/markazimagevideo/public/thumbnails/products/1993-95-680493-product-1.webp",
-          "https://content.public.markaz.app/markazimagevideo/public/thumbnails/products/1993-95-680492-product-1.webp",
-          "https://content.public.markaz.app/markazimagevideo/public/thumbnails/products/1993-95-680491-product-1.webp",
-          "https://content.public.markaz.app/markazimagevideo/public/thumbnails/products/1993-95-680490-product-1.webp"
-        ],
-        rating: 4.5, 
-        reviews: 201 
-      },
-      { 
-        id: 9, 
-        name: "Bridal Special Gown", 
-        price: 599.99, 
-        category: "bridal",
-        description: "Exquisite bridal gown with delicate lace and pearl details",
-        images: [
-          "https://content.public.markaz.app/markazimagevideo/public/thumbnails/products/1993-10-680484-product-1.webp",
-          "https://content.public.markaz.app/markazimagevideo/public/thumbnails/products/1993-10-680482-product-1.webp",
-          "https://content.public.markaz.app/markazimagevideo/public/thumbnails/products/1993-10-680481-product-1.webp",
-          "https://content.public.markaz.app/markazimagevideo/public/thumbnails/products/1993-10-680480-product-1.webp"
-        ],
-        rating: 5.0, 
-        reviews: 45 
-      },
-      { 
-        id: 10, 
-        name: "Executive Business Suit", 
-        price: 199.99, 
-        category: "office",
-        description: "Premium business suit for professional settings",
-        images: [
-          "https://content.public.markaz.app/markazimagevideo/public/thumbnails/products/1993-11-680077-product-1.webp",
-          "https://content.public.markaz.app/markazimagevideo/public/thumbnails/products/1993-11-680075-product-1.webp",
-          "https://content.public.markaz.app/markazimagevideo/public/thumbnails/products/1993-11-680076-product-1.webp",
-          "https://content.public.markaz.app/markazimagevideo/public/thumbnails/products/1993-11-680079-product-1.webp"
-        ],
-        rating: 4.6, 
-        reviews: 78 
-      },
-      { 
-        id: 11, 
-        name: "Cocktail Evening Dress", 
-        price: 189.99, 
-        category: "party",
-        description: "Chic cocktail dress for elegant evening events",
-        images: [
-          "https://content.public.markaz.app/markazimagevideo/public/thumbnails/products/1993-95-680073-product-1.webp",
-          "https://content.public.markaz.app/markazimagevideo/public/thumbnails/products/1993-95-680072-product-1.webp",
-          "https://content.public.markaz.app/markazimagevideo/public/thumbnails/products/1993-95-680070-product-1.webp",
-          "https://content.public.markaz.app/markazimagevideo/public/thumbnails/products/1993-95-680071-product-1.webp"
-        ],
-        rating: 4.8, 
-        reviews: 93 
-      },
-      { 
-        id: 12, 
-        name: "Casual Maxi Comfort", 
-        price: 79.99, 
-        category: "casual",
-        description: "Comfortable maxi dress for everyday casual wear",
-        images: [
-          "https://content.public.markaz.app/markazimagevideo/public/thumbnails/products/1993-95-680064-product-1.webp",
-          "https://content.public.markaz.app/markazimagevideo/public/thumbnails/products/1993-95-680062-product-1.webp",
-          "https://content.public.markaz.app/markazimagevideo/public/thumbnails/products/1993-95-680063-product-1.webp",
-          "https://content.public.markaz.app/markazimagevideo/public/thumbnails/products/1993-95-680061-product-1.webp"
-        ],
-        rating: 4.7, 
-        reviews: 156 
-      },
-      { 
-        id: 13, 
-        name: "Premium Casual Wear", 
-        price: 109.99, 
-        category: "casual",
-        description: "Premium quality casual dress with modern design",
-        images: [
-          "https://content.public.markaz.app/markazimagevideo/public/thumbnails/products/1993-10-679781-product-1.webp",
-          "https://content.public.markaz.app/markazimagevideo/public/thumbnails/products/1993-10-679780-product-1.webp",
-          "https://content.public.markaz.app/markazimagevideo/public/products/1993-10-679779-product-1.webp",
-          "https://content.public.markaz.app/markazimagevideo/public/thumbnails/products/1993-10-679778-product-1.webp"
-        ],
-        rating: 4.6, 
-        reviews: 134 
-      },
-      { 
-        id: 14, 
-        name: "Glamorous Party Sequins", 
-        price: 229.99, 
-        category: "party",
-        description: "Glamorous sequin dress that sparkles all night",
-        images: [
-          "https://content.public.markaz.app/markazimagevideo/public/thumbnails/products/1993-10-678684-product-1.webp",
-          "https://content.public.markaz.app/markazimagevideo/public/thumbnails/products/1993-10-678682-product-1.webp",
-          "https://content.public.markaz.app/markazimagevideo/public/thumbnails/products/1993-10-678683-product-1.webp",
-          "https://content.public.markaz.app/markazimagevideo/public/thumbnails/products/1993-10-678681-product-1.webp"
-        ],
-        rating: 4.9, 
-        reviews: 88 
-      },
-      { 
-        id: 15, 
-        name: "Bohemian Chic Collection", 
-        price: 99.99, 
-        category: "casual",
-        description: "Bohemian style dress with artistic patterns",
-        images: [
-          "https://content.public.markaz.app/markazimagevideo/public/thumbnails/products/1993-10-678468-product-1.webp",
-          "https://content.public.markaz.app/markazimagevideo/public/thumbnails/products/1993-10-678467-product-1.webp",
-          "https://content.public.markaz.app/markazimagevideo/public/thumbnails/products/1993-10-678465-product-1.webp",
-          "https://content.public.markaz.app/markazimagevideo/public/thumbnails/products/1993-10-678464-product-1.webp"
-        ],
-        rating: 4.7, 
-        reviews: 167 
-      },
-      { 
-        id: 16, 
-        name: "Corporate Office Attire", 
-        price: 149.99, 
-        category: "office",
-        description: "Professional corporate attire for business meetings",
-        images: [
-          "https://content.public.markaz.app/markazimagevideo/public/thumbnails/products/714-220-673832-product-1.webp",
-          "https://content.public.markaz.app/markazimagevideo/public/thumbnails/products/714-220-673830-product-1.webp",
-          "https://content.public.markaz.app/markazimagevideo/public/thumbnails/products/714-220-673831-product-1.webp",
-          "https://content.public.markaz.app/markazimagevideo/public/thumbnails/products/714-220-673828-product-1.webp"
-        ],
-        rating: 4.5, 
-        reviews: 102 
-      },
-      { 
-        id: 17, 
-        name: "Executive Formal Suit", 
-        price: 179.99, 
-        category: "office",
-        description: "Executive level formal suit with premium tailoring",
-        images: [
-          "https://content.public.markaz.app/markazimagevideo/public/thumbnails/products/399-9-669346-product-1.webp",
-          "https://content.public.markaz.app/markazimagevideo/public/products/399-9-669346-product-2.webp",
-          "https://content.public.markaz.app/markazimagevideo/public/products/399-9-669346-product-2.webp",
-          "https://content.public.markaz.app/markazimagevideo/public/products/1689-11-669068-product-1.webp"
-        ],
-        rating: 4.8, 
-        reviews: 76 
-      },
-      { 
-        id: 18, 
-        name: "Luxury Evening Silk", 
-        price: 269.99, 
-        category: "party",
-        description: "Luxury silk evening dress for special occasions",
-        images: [
-          "https://content.public.markaz.app/markazimagevideo/public/products/1689-11-669068-product-2.webp",
-          "https://content.public.markaz.app/markazimagevideo/public/thumbnails/products/1689-11-669067-product-1.webp",
-          "https://content.public.markaz.app/markazimagevideo/public/thumbnails/products/1689-11-669066-product-1.webp",
-          "https://content.public.markaz.app/markazimagevideo/public/thumbnails/products/1689-95-667619-product-1.webp"
-        ],
-        rating: 4.9, 
-        reviews: 65 
-      },
-      { 
-        id: 19, 
-        name: "Summer Floral Breeze", 
-        price: 74.99, 
-        category: "casual",
-        description: "Light and breezy floral dress for summer",
-        images: [
-          "https://content.public.markaz.app/markazimagevideo/public/thumbnails/products/1689-95-667618-product-1.webp",
-          "https://content.public.markaz.app/markazimagevideo/public/thumbnails/products/1689-95-667617-product-1.webp",
-          "https://content.public.markaz.app/markazimagevideo/public/thumbnails/products/1689-95-667616-product-1.webp",
-          "https://content.public.markaz.app/markazimagevideo/public/thumbnails/products/1680-95-665909-product-1.webp"
-        ],
-        rating: 4.6, 
-        reviews: 198 
-      },
-      { 
-        id: 20, 
-        name: "Royal Bridal Elegance", 
-        price: 649.99, 
-        category: "bridal",
-        description: "Royal elegance bridal gown with intricate details",
-        images: [
-          "https://content.public.markaz.app/markazimagevideo/public/thumbnails/products/1354-95-665900-product-1.webp",
-          "https://content.public.markaz.app/markazimagevideo/public/thumbnails/products/1354-95-665901-product-1.webp",
-          "https://content.public.markaz.app/markazimagevideo/public/thumbnails/products/1680-95-665905-product-1.webp",
-          "https://content.public.markaz.app/markazimagevideo/public/thumbnails/products/1680-95-665906-product-1.webp"
-        ],
-        rating: 5.0, 
-        reviews: 38 
-      },
-      { 
-        id: 21, 
-        name: "Professional Power Suit", 
-        price: 209.99, 
-        category: "office",
-        description: "Power suit designed for executive women",
-        images: [
-          "https://content.public.markaz.app/markazimagevideo/public/thumbnails/products/1593-95-665610-product-1.webp",
-          "https://content.public.markaz.app/markazimagevideo/public/thumbnails/products/1593-95-665611-product-1.webp",
-          "https://content.public.markaz.app/markazimagevideo/public/thumbnails/products/1593-95-665608-product-1.webp",
-          "https://content.public.markaz.app/markazimagevideo/public/thumbnails/products/1593-95-665609-product-1.webp"
-        ],
-        rating: 4.7, 
-        reviews: 91 
-      },
-      { 
-        id: 22, 
-        name: "Elegant Party Cocktail", 
-        price: 199.99, 
-        category: "party",
-        description: "Elegant cocktail dress for sophisticated parties",
-        images: [
-          "https://content.public.markaz.app/markazimagevideo/public/products/1119-11-683915-product-1.webp",
-          "https://content.public.markaz.app/markazimagevideo/public/products/1119-11-683911-product-1.webp",
-          "https://content.public.markaz.app/markazimagevideo/public/products/1119-11-683908-product-1.webp",
-          "https://content.public.markaz.app/markazimagevideo/public/products/1119-11-683902-product-1.webp"
-        ],
-        rating: 4.8, 
-        reviews: 105 
-      },
-      { 
-        id: 23, 
-        name: "Relaxed Maxi Casual", 
-        price: 84.99, 
-        category: "casual",
-        description: "Relaxed fit maxi dress for comfortable all-day wear",
-        images: [
-          "https://content.public.markaz.app/markazimagevideo/public/products/1993-128-683848-product-1.webp",
-          "https://content.public.markaz.app/markazimagevideo/public/products/1993-128-683843-product-1.webp",
-          "https://content.public.markaz.app/markazimagevideo/public/products/1993-128-683844-product-1.webp",
-          "https://content.public.markaz.app/markazimagevideo/public/products/1993-128-683847-product-1.webp"
-        ],
-        rating: 4.5, 
-        reviews: 178 
-      },
-      { 
-        id: 24, 
-        name: "Bridesmaid Elegance", 
-        price: 179.99, 
-        category: "bridal",
-        description: "Elegant bridesmaid dress in soft flowing fabric",
-        images: [
-          "https://content.public.markaz.app/markazimagevideo/public/products/1993-95-683295-product-1.webp",
-          "https://content.public.markaz.app/markazimagevideo/public/products/1993-95-683294-product-1.webp",
-          "https://content.public.markaz.app/markazimagevideo/public/products/1993-95-683292-product-1.webp",
-          "https://content.public.markaz.app/markazimagevideo/public/products/1993-95-683289-product-1.webp"
-        ],
-        rating: 4.9, 
-        reviews: 119 
-      }
-    ];
-
-    let cart = JSON.parse(localStorage.getItem('cart')) || [];
-    let currentFilter = 'all';
-    let currentOrderData = null;
-
-    // Initialize the application
-    document.addEventListener('DOMContentLoaded', function() {
-      renderProducts();
-      updateCartUI();
-      setupEventListeners();
-    });
-
-    // Current image index for each product
-    let currentImageIndex = {};
-
-    // Initialize image indexes
-    function initializeImageIndexes() {
-      products.forEach(product => {
-        currentImageIndex[product.id] = 0;
-      });
-    }
-
-    // Render products with advanced filtering and image gallery
-    function renderProducts(filter = 'all') {
-      const grid = document.getElementById('productsGrid');
-      const filteredProducts = filter === 'all' ? products : products.filter(p => p.category === filter);
-      
-      grid.innerHTML = filteredProducts.map(product => `
-        <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover-scale product-card" data-category="${product.category}">
-          <div class="relative">
-            <div class="relative h-64 overflow-hidden cursor-pointer" onclick="openImagePreview(${product.id})">
-              <img id="productImg-${product.id}" src="${product.images[0]}" alt="${product.name}" class="w-full h-64 object-cover transition-all duration-300 hover:scale-105">
-            </div>
-            
-            <!-- Image Navigation Arrows -->
-            <button onclick="changeImage(${product.id}, -1)" class="absolute left-2 top-1/2 -translate-y-1/2 bg-white hover:bg-gray-100 rounded-full w-10 h-10 flex items-center justify-center shadow-xl transition-all hover:scale-110 z-10">
-              <span class="text-xl font-bold text-gray-800">←</span>
-            </button>
-            <button onclick="changeImage(${product.id}, 1)" class="absolute right-2 top-1/2 -translate-y-1/2 bg-white hover:bg-gray-100 rounded-full w-10 h-10 flex items-center justify-center shadow-xl transition-all hover:scale-110 z-10">
-              <span class="text-xl font-bold text-gray-800">→</span>
-            </button>
-            
-            <!-- Image Indicator Dots -->
-            <div class="absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-2 bg-black bg-opacity-40 px-3 py-2 rounded-full">
-              ${product.images.map((img, idx) => `
-                <button id="dot-${product.id}-${idx}" class="rounded-full transition-all cursor-pointer hover:scale-125 ${idx === 0 ? 'bg-white w-8 h-3' : 'bg-white bg-opacity-60 w-3 h-3'}" onclick="selectImage(${product.id}, ${idx})"></button>
-              `).join('')}
-            </div>
-            
-            <div class="absolute top-4 right-4 bg-white rounded-full p-2 shadow-lg">
-              <button onclick="toggleWishlist(${product.id})" class="text-gray-400 hover:text-red-500 transition-colors">❤️</button>
-            </div>
-            ${product.rating >= 4.8 ? '<div class="absolute top-4 left-4 bg-primary text-white px-2 py-1 rounded-full text-xs font-semibold">Bestseller</div>' : ''}
-            
-            <!-- Image Count Badge -->
-            <div class="absolute bottom-4 right-4 bg-black bg-opacity-70 text-white px-2 py-1 rounded-full text-xs">📷 ${product.images.length} photos</div>
-          </div>
-          
-          <div class="p-6">
-            <h3 class="font-semibold text-lg mb-2">${product.name}</h3>
-            
-            <p class="text-gray-600 text-sm mb-3 line-clamp-2">${product.description}</p>
-            
-            <div class="flex items-center mb-3">
-              <div class="flex text-yellow-400 text-sm">
-                ${'★'.repeat(Math.floor(product.rating))}${'☆'.repeat(5-Math.floor(product.rating))}
-              </div>
-              <span class="text-gray-500 text-sm ml-2">(${product.reviews} reviews)</span>
-            </div>
-            
-            <div class="flex justify-between items-center mb-4">
-              <span class="text-2xl font-bold text-primary">$${product.price}</span>
-              <span class="text-sm text-gray-500 capitalize">${product.category}</span>
-            </div>
-            
-            <div class="flex gap-2">
-              <button onclick="addToCart(${product.id})" class="flex-1 bg-primary text-white py-2 rounded-xl hover:bg-accent transition-colors font-semibold">Add to Cart</button>
-              <button onclick="quickView(${product.id})" class="px-4 py-2 border border-primary text-primary rounded-xl hover:bg-primary hover:text-white transition-colors">👁️</button>
-            </div>
-          </div>
-        </div>
-      `).join('');
-      
-      // Reset image indexes after rendering
-      initializeImageIndexes();
-    }
-
-    // Change image in product card
-    function changeImage(productId, direction) {
-      const product = products.find(p => p.id === productId);
-      if (!product) return;
-      
-      const totalImages = product.images.length;
-      currentImageIndex[productId] = (currentImageIndex[productId] + direction + totalImages) % totalImages;
-      
-      updateProductImage(productId, product);
-    }
-
-    // Select specific image
-    function selectImage(productId, index) {
-      const product = products.find(p => p.id === productId);
-      if (!product) return;
-      
-      currentImageIndex[productId] = index;
-      updateProductImage(productId, product);
-    }
-
-    // Update product image display
-    function updateProductImage(productId, product) {
-      const imgElement = document.getElementById(`productImg-${productId}`);
-      const currentIndex = currentImageIndex[productId];
-      
-      if (imgElement) {
-        imgElement.src = product.images[currentIndex];
-        
-        // Update dots
-        product.images.forEach((img, idx) => {
-          const dot = document.getElementById(`dot-${productId}-${idx}`);
-          if (dot) {
-            if (idx === currentIndex) {
-              dot.className = 'w-8 h-3 rounded-full bg-white transition-all cursor-pointer hover:scale-125';
-            } else {
-              dot.className = 'w-3 h-3 rounded-full bg-white bg-opacity-60 transition-all cursor-pointer hover:scale-125';
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Basim Fashion - Premium Collections 2025</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#e91e63',
+                        secondary: '#f8bbd9',
+                        accent: '#ad1457',
+                        boysPrimary: '#2196f3',
+                        boysSecondary: '#bbdefb',
+                        boysAccent: '#1976d2'
+                    },
+                    fontFamily: {
+                        'elegant': ['Georgia', 'serif'],
+                        'modern': ['Inter', 'sans-serif']
+                    }
+                }
             }
-          }
-        });
-      }
-    }
-
-    // Advanced cart functionality
-    function addToCart(productId) {
-      const product = products.find(p => p.id === productId);
-      const existingItem = cart.find(item => item.id === productId);
-      
-      if (existingItem) {
-        existingItem.quantity += 1;
-      } else {
-        cart.push({ ...product, quantity: 1 });
-      }
-      
-      updateCartUI();
-      saveCart();
-      showNotification(`${product.name} added to cart!`, 'success');
-    }
-
-    function removeFromCart(productId) {
-      cart = cart.filter(item => item.id !== productId);
-      updateCartUI();
-      saveCart();
-    }
-
-    function updateQuantity(productId, change) {
-      const item = cart.find(item => item.id === productId);
-      if (item) {
-        item.quantity += change;
-        if (item.quantity <= 0) {
-          removeFromCart(productId);
-        } else {
-          updateCartUI();
-          saveCart();
         }
-      }
-    }
-
-    function updateCartUI() {
-      const cartCount = document.getElementById('cartCount');
-      const cartItems = document.getElementById('cartItems');
-      const cartTotal = document.getElementById('cartTotal');
-      
-      const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
-      const totalPrice = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
-      
-      cartCount.textContent = totalItems;
-      cartTotal.textContent = totalPrice.toFixed(2);
-      
-      if (cart.length === 0) {
-        cartItems.innerHTML = `
-          <div class="text-center text-gray-500 py-8">
-            <div class="text-4xl mb-4">🛒</div>
-            <p>Your cart is empty</p>
-          </div>
-        `;
-      } else {
-        cartItems.innerHTML = cart.map(item => `
-          <div class="flex items-center gap-4 py-4 border-b border-gray-100">
-            <img src="${item.images ? item.images[0] : item.image}" alt="${item.name}" class="w-16 h-16 object-cover rounded-lg">
-            <div class="flex-1">
-              <h4 class="font-semibold">${item.name}</h4>
-              <p class="text-primary font-bold">$${item.price}</p>
-            </div>
-            <div class="flex items-center gap-2">
-              <button onclick="updateQuantity(${item.id}, -1)" class="w-8 h-8 bg-gray-200 rounded-full flex items-center justify-center hover:bg-gray-300">-</button>
-              <span class="w-8 text-center">${item.quantity}</span>
-              <button onclick="updateQuantity(${item.id}, 1)" class="w-8 h-8 bg-gray-200 rounded-full flex items-center justify-center hover:bg-gray-300">+</button>
-            </div>
-            <button onclick="removeFromCart(${item.id})" class="text-red-500 hover:text-red-700 ml-2">🗑️</button>
-          </div>
-        `).join('');
-      }
-    }
-
-    // Filter functionality
-    function filterProducts(category) {
-      currentFilter = category;
-      renderProducts(category);
-      
-      // Update filter buttons
-      document.querySelectorAll('.filter-btn').forEach(btn => {
-        btn.classList.remove('active', 'bg-primary', 'text-white');
-        btn.classList.add('text-gray-600');
-      });
-      
-      event.target.classList.add('active', 'bg-primary', 'text-white');
-      event.target.classList.remove('text-gray-600');
-    }
-
-    // Search functionality
-    function setupSearch() {
-      const searchInput = document.getElementById('searchInput');
-      searchInput.addEventListener('input', function(e) {
-        const searchTerm = e.target.value.toLowerCase();
-        const filteredProducts = products.filter(product => 
-          product.name.toLowerCase().includes(searchTerm) ||
-          product.category.toLowerCase().includes(searchTerm)
-        );
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
         
-        const grid = document.getElementById('productsGrid');
-        if (searchTerm === '') {
-          renderProducts(currentFilter);
-        } else {
-          grid.innerHTML = filteredProducts.map(product => `
-            <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover-scale">
-              <img src="${product.images[0]}" alt="${product.name}" class="w-full h-64 object-cover">
-              <div class="p-6">
-                <h3 class="font-semibold text-lg mb-2">${product.name}</h3>
-                <p class="text-gray-600 text-sm mb-3 line-clamp-2">${product.description}</p>
-                <div class="flex items-center mb-3">
-                  <div class="flex text-yellow-400 text-sm">
-                    ${'★'.repeat(Math.floor(product.rating))}${'☆'.repeat(5-Math.floor(product.rating))}
-                  </div>
-                  <span class="text-gray-500 text-sm ml-2">(${product.reviews})</span>
-                </div>
-                <div class="flex justify-between items-center mb-4">
-                  <span class="text-2xl font-bold text-primary">$${product.price}</span>
-                  <span class="text-sm text-gray-500">${product.images.length} photos</span>
-                </div>
-                <button onclick="addToCart(${product.id})" class="w-full bg-primary text-white py-2 rounded-xl hover:bg-accent transition-colors font-semibold">
-                  Add to Cart
-                </button>
-              </div>
-            </div>
-          `).join('');
+        body {
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
         }
-      });
-    }
-
-    // Checkout Functions
-    function openCheckout() {
-      document.getElementById('cartModal').classList.add('hidden');
-      document.getElementById('checkoutModal').classList.remove('hidden');
-      populateCheckoutItems();
-      calculateCheckoutTotals();
-    }
-
-    function closeCheckout() {
-      document.getElementById('checkoutModal').classList.add('hidden');
-    }
-
-    function populateCheckoutItems() {
-      const checkoutItems = document.getElementById('checkoutItems');
-      checkoutItems.innerHTML = cart.map(item => `
-        <div class="flex items-center gap-4 p-4 bg-gray-50 rounded-xl">
-          <img src="${item.images ? item.images[0] : item.image}" alt="${item.name}" class="w-16 h-16 object-cover rounded-lg">
-          <div class="flex-1">
-            <h5 class="font-semibold">${item.name}</h5>
-            <p class="text-gray-600">Quantity: ${item.quantity}</p>
-          </div>
-          <div class="text-right">
-            <p class="font-bold text-primary">$${(item.price * item.quantity).toFixed(2)}</p>
-          </div>
+        
+        * {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .ladies-gradient-bg {
+            background: linear-gradient(135deg, #fce4ec 0%, #f8bbd9 50%, #e1bee7 100%);
+        }
+        
+        .boys-gradient-bg {
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 50%, #90caf9 100%);
+        }
+        
+        .glass-effect {
+            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.9);
+        }
+        
+        .hover-scale {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .hover-scale:hover {
+            transform: scale(1.05) translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        
+        .floating-animation {
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        .slide-in {
+            animation: slideIn 0.8s ease-out;
+        }
+        
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .pulse-glow {
+            animation: pulseGlow 2s infinite;
+        }
+        
+        @keyframes pulseGlow {
+            0%, 100% { box-shadow: 0 0 20px rgba(233, 30, 99, 0.3); }
+            50% { box-shadow: 0 0 40px rgba(233, 30, 99, 0.6); }
+        }
+        
+        .text-gradient {
+            background: linear-gradient(45deg, #e91e63, #ad1457);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .text-gradient-boys {
+            background: linear-gradient(45deg, #2196f3, #1976d2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .line-clamp-2 {
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+        
+        /* Section switching */
+        .section-content {
+            display: none;
+        }
+        
+        .section-content.active {
+            display: block;
+        }
+        
+        /* Image Preview Modal */
+        .image-preview-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.95);
+            z-index: 9999;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .image-preview-modal.active {
+            display: flex;
+        }
+        
+        /* Mobile Responsive Styles */
+        @media (max-width: 640px) {
+            .hero-title {
+                font-size: 2.5rem !important;
+                line-height: 1.2 !important;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.1rem !important;
+            }
+            
+            .product-grid {
+                grid-template-columns: repeat(2, 1fr) !important;
+                gap: 0.75rem !important;
+            }
+            
+            .category-grid {
+                grid-template-columns: repeat(2, 1fr) !important;
+                gap: 0.75rem !important;
+            }
+            
+            .product-card .h-64 {
+                height: 180px !important;
+            }
+            
+            .stats-grid {
+                grid-template-columns: repeat(3, 1fr) !important;
+                gap: 0.5rem !important;
+            }
+            
+            .modal-content {
+                margin: 0.5rem !important;
+                border-radius: 1rem !important;
+            }
+            
+            .image-nav-arrows {
+                width: 36px !important;
+                height: 36px !important;
+                font-size: 1rem !important;
+            }
+            
+            .image-dots {
+                transform: translateX(-50%) scale(0.9);
+            }
+            
+            .checkout-grid {
+                grid-template-columns: 1fr !important;
+                gap: 1rem !important;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .section-padding {
+                padding-top: 3rem !important;
+                padding-bottom: 3rem !important;
+            }
+            
+            .container-padding {
+                padding-left: 1rem !important;
+                padding-right: 1rem !important;
+            }
+            
+            .text-responsive {
+                font-size: clamp(1rem, 4vw, 1.25rem) !important;
+            }
+            
+            .heading-responsive {
+                font-size: clamp(1.75rem, 6vw, 2.5rem) !important;
+            }
+            
+            .button-responsive {
+                padding: 0.75rem 1.5rem !important;
+                font-size: 0.9rem !important;
+            }
+            
+            .mobile-hidden {
+                display: none !important;
+            }
+            
+            .mobile-flex-col {
+                flex-direction: column !important;
+            }
+            
+            .mobile-text-center {
+                text-align: center !important;
+            }
+        }
+        
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .product-grid {
+                grid-template-columns: repeat(3, 1fr) !important;
+            }
+        }
+        
+        /* Mobile menu styles */
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 80%;
+            height: 100vh;
+            background: white;
+            z-index: 1000;
+            transition: right 0.3s ease;
+            box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+        }
+        
+        .mobile-menu.active {
+            right: 0;
+        }
+        
+        .mobile-menu-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: rgba(0,0,0,0.5);
+            z-index: 999;
+            display: none;
+        }
+        
+        .mobile-menu-overlay.active {
+            display: block;
+        }
+        
+        /* Touch-friendly buttons */
+        .touch-button {
+            min-height: 44px;
+            min-width: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        /* Prevent horizontal scroll */
+        .no-horizontal-scroll {
+            overflow-x: hidden;
+            width: 100%;
+        }
+        
+        /* Loading animation */
+        .loading {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(255,255,255,.3);
+            border-radius: 50%;
+            border-top-color: #fff;
+            animation: spin 1s ease-in-out infinite;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body class="bg-gray-50 overflow-x-hidden no-horizontal-scroll">
+    <!-- Mobile Menu Overlay -->
+    <div id="mobileMenuOverlay" class="mobile-menu-overlay"></div>
+    
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="mobile-menu">
+        <div class="p-6">
+            <div class="flex justify-between items-center mb-8">
+                <div class="text-2xl font-bold text-gradient">✨ Basim Fashion</div>
+                <button id="closeMobileMenu" class="text-3xl text-gray-700">×</button>
+            </div>
+            <div class="space-y-6">
+                <a href="#" class="block text-gray-700 hover:text-primary transition-colors text-lg py-3 border-b" onclick="switchSection('home')">🏠 Home</a>
+                <a href="#" class="block text-gray-700 hover:text-primary transition-colors text-lg py-3 border-b" onclick="switchSection('ladies')">👗 Ladies Fashion</a>
+                <a href="#" class="block text-gray-700 hover:text-boysPrimary transition-colors text-lg py-3 border-b" onclick="switchSection('boys')">👕 Boys Fashion</a>
+                <a href="#" class="block text-gray-700 hover:text-primary transition-colors text-lg py-3 border-b" onclick="showNotification('About page coming soon!', 'info')">About</a>
+                <a href="#" class="block text-gray-700 hover:text-primary transition-colors text-lg py-3 border-b" onclick="showNotification('Contact page coming soon!', 'info')">Contact</a>
+                <div class="pt-6">
+                    <div class="relative">
+                        <input type="text" placeholder="Search products..." class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent">
+                        <div class="absolute right-3 top-3 text-gray-400">🔍</div>
+                    </div>
+                </div>
+            </div>
         </div>
-      `).join('');
-    }
+    </div>
 
-    function calculateCheckoutTotals() {
-      const subtotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
-      const tax = subtotal * 0.08;
-      const shipping = subtotal > 100 ? 0 : 15;
-      const total = subtotal + tax + shipping;
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 glass-effect border-b border-white/20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 container-padding">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center space-x-8">
+                    <div class="text-2xl font-bold text-gradient cursor-pointer" onclick="switchSection('home')">✨ Basim Fashion</div>
+                    <div class="hidden md:flex space-x-6">
+                        <a href="#" class="text-gray-700 hover:text-primary transition-colors" onclick="switchSection('home')">Home</a>
+                        <a href="#" class="text-gray-700 hover:text-primary transition-colors" onclick="switchSection('ladies')">👗 Ladies</a>
+                        <a href="#" class="text-gray-700 hover:text-boysPrimary transition-colors" onclick="switchSection('boys')">👕 Boys</a>
+                        <a href="#" class="text-gray-700 hover:text-primary transition-colors" onclick="showNotification('About page coming soon!', 'info')">About</a>
+                        <a href="#" class="text-gray-700 hover:text-primary transition-colors" onclick="showNotification('Contact page coming soon!', 'info')">Contact</a>
+                    </div>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <div class="relative hidden sm:block">
+                        <input type="text" id="searchInput" placeholder="Search products..." class="pl-10 pr-4 py-2 border border-gray-200 rounded-full focus:ring-2 focus:ring-primary focus:border-transparent" oninput="handleSearch(event)">
+                        <div class="absolute left-3 top-2.5 text-gray-400">🔍</div>
+                    </div>
+                    <button id="cartButton" class="touch-button relative bg-primary text-white px-4 py-2 rounded-full hover:bg-accent transition-colors pulse-glow">
+                        🛒 Cart (<span id="cartCount">0</span>)
+                    </button>
+                    <button id="mobileMenuButton" class="md:hidden text-gray-700 touch-button">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
 
-      document.getElementById('checkoutSubtotal').textContent = subtotal.toFixed(2);
-      document.getElementById('taxAmount').textContent = tax.toFixed(2);
-      document.getElementById('shippingCost').textContent = shipping === 0 ? 'Free' : `$${shipping.toFixed(2)}`;
-      document.getElementById('checkoutTotal').textContent = total.toFixed(2);
-      document.getElementById('finalTotal').textContent = total.toFixed(2);
-    }
+    <!-- Home/Landing Page -->
+    <section id="home" class="min-h-screen flex items-center justify-center pt-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-20 text-center">
+            <h1 class="text-5xl md:text-7xl font-bold text-gray-900 mb-6">
+                Welcome to <span class="text-gradient">Basim Fashion</span>
+            </h1>
+            <p class="text-xl md:text-2xl text-gray-600 mb-12 max-w-3xl mx-auto">
+                Discover premium fashion collections for ladies and boys. Quality designs, modern styles, and exclusive collections.
+            </p>
+            <div class="flex flex-col md:flex-row gap-8 justify-center items-center">
+                <div class="w-full md:w-1/3">
+                    <div class="bg-white rounded-2xl shadow-xl p-8 hover-scale">
+                        <div class="text-6xl mb-6">👗</div>
+                        <h3 class="text-2xl font-bold text-gray-900 mb-4">Ladies Fashion</h3>
+                        <p class="text-gray-600 mb-6">Elegant dresses, modern designs, and timeless fashion pieces for the contemporary woman.</p>
+                        <button onclick="switchSection('ladies')" class="w-full bg-primary text-white py-4 rounded-xl hover:bg-accent transition-all font-semibold text-lg touch-button">
+                            Explore Ladies Collection
+                        </button>
+                    </div>
+                </div>
+                <div class="w-full md:w-1/3">
+                    <div class="bg-white rounded-2xl shadow-xl p-8 hover-scale">
+                        <div class="text-6xl mb-6">👕</div>
+                        <h3 class="text-2xl font-bold text-gray-900 mb-4">Boys Fashion</h3>
+                        <p class="text-gray-600 mb-6">Stylish outfits, modern designs, and trendy fashion pieces for the contemporary young man.</p>
+                        <button onclick="switchSection('boys')" class="w-full bg-boysPrimary text-white py-4 rounded-xl hover:bg-boysAccent transition-all font-semibold text-lg touch-button">
+                            Explore Boys Collection
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="text-center">
+                    <div class="text-4xl font-bold text-primary mb-2">1000+</div>
+                    <div class="text-gray-600">Happy Customers</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-4xl font-bold text-primary mb-2">250+</div>
+                    <div class="text-gray-600">Unique Designs</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-4xl font-bold text-primary mb-2">24/7</div>
+                    <div class="text-gray-600">Customer Support</div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    // WhatsApp Order Function - MAIN FUNCTION
-    function placeOrder() {
-      if (cart.length === 0) {
-        showNotification('Your cart is empty!', 'info');
-        return;
-      }
+    <!-- Ladies Fashion Section -->
+    <div id="ladiesSection" class="section-content">
+        <!-- Ladies Hero Section -->
+        <section class="ladies-gradient-bg min-h-screen flex items-center pt-16">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-20 container-padding">
+                <div class="grid lg:grid-cols-2 gap-8 md:gap-12 items-center mobile-flex-col">
+                    <div class="slide-in order-2 lg:order-1 mobile-text-center">
+                        <h1 class="hero-title text-4xl md:text-5xl lg:text-7xl font-bold text-gray-900 mb-4 md:mb-6">
+                            Premium Ladies <span class="text-gradient block">Fashion 2025</span>
+                        </h1>
+                        <p class="hero-subtitle text-lg md:text-xl text-gray-600 mb-6 md:mb-8 leading-relaxed text-responsive">
+                            Discover our exclusive collection of elegant dresses, modern designs, and timeless fashion pieces crafted for the contemporary woman.
+                        </p>
+                        <div class="flex flex-col sm:flex-row gap-3 md:gap-4 mb-8 md:mb-12">
+                            <button onclick="scrollToSection('ladiesCollections')" class="button-responsive bg-primary text-white px-6 md:px-8 py-3 md:py-4 rounded-full hover:bg-accent transition-all hover-scale font-semibold touch-button">Explore Collection</button>
+                            <button onclick="switchSection('contact')" class="button-responsive border-2 border-primary text-primary px-6 md:px-8 py-3 md:py-4 rounded-full hover:bg-primary hover:text-white transition-all touch-button">Get in Touch</button>
+                        </div>
+                        <div class="grid grid-cols-3 gap-4 md:gap-6 stats-grid">
+                            <div class="text-center">
+                                <div class="text-2xl md:text-3xl font-bold text-primary">500+</div>
+                                <div class="text-gray-600 text-sm md:text-base">Happy Customers</div>
+                            </div>
+                            <div class="text-center">
+                                <div class="text-2xl md:text-3xl font-bold text-primary">100+</div>
+                                <div class="text-gray-600 text-sm md:text-base">Unique Designs</div>
+                            </div>
+                            <div class="text-center">
+                                <div class="text-2xl md:text-3xl font-bold text-primary">24/7</div>
+                                <div class="text-gray-600 text-sm md:text-base">Support</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="relative order-1 lg:order-2">
+                        <div class="floating-animation">
+                            <div class="bg-white rounded-2xl md:rounded-3xl shadow-xl md:shadow-2xl overflow-hidden">
+                                <img src="https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?w=600&h=800&fit=crop" alt="Fashion Model" class="w-full h-64 md:h-96 object-cover">
+                                <div class="p-4 md:p-6">
+                                    <h3 class="text-xl md:text-2xl font-semibold mb-2">Featured: Elegant Evening Dress</h3>
+                                    <p class="text-gray-600 text-sm md:text-base mb-4">Perfect for special occasions and formal events</p>
+                                    <div class="flex flex-col sm:flex-row justify-between items-center gap-3">
+                                        <span class="text-xl md:text-2xl font-bold text-primary">₨ 4,500</span>
+                                        <button onclick="addToCartLadies(1)" class="bg-primary text-white px-4 md:px-6 py-2 rounded-full hover:bg-accent transition-colors touch-button w-full sm:w-auto">Add to Cart</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-      const form = document.getElementById('checkoutForm');
-      if (!form.checkValidity()) {
-        form.reportValidity();
-        showNotification('Please fill in all required fields!', 'info');
-        return;
-      }
+        <!-- Ladies Categories -->
+        <section class="py-12 md:py-20 bg-white section-padding">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 container-padding">
+                <div class="text-center mb-8 md:mb-16 mobile-text-center">
+                    <h2 class="heading-responsive font-bold text-gray-900 mb-3 md:mb-4">Shop by Category</h2>
+                    <p class="text-responsive text-gray-600">Discover our curated collections for every occasion</p>
+                </div>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 category-grid">
+                    <div class="category-card bg-gradient-to-br from-pink-100 to-purple-100 rounded-xl md:rounded-2xl p-4 md:p-6 text-center hover-scale cursor-pointer touch-button" onclick="filterLadiesProducts('casual')">
+                        <div class="text-3xl md:text-4xl mb-3 md:mb-4">👗</div>
+                        <h3 class="font-semibold text-base md:text-lg">Casual Wear</h3>
+                        <p class="text-gray-600 text-xs md:text-sm">Everyday comfort</p>
+                    </div>
+                    <div class="category-card bg-gradient-to-br from-yellow-100 to-orange-100 rounded-xl md:rounded-2xl p-4 md:p-6 text-center hover-scale cursor-pointer touch-button" onclick="filterLadiesProducts('party')">
+                        <div class="text-3xl md:text-4xl mb-3 md:mb-4">✨</div>
+                        <h3 class="font-semibold text-base md:text-lg">Party Dresses</h3>
+                        <p class="text-gray-600 text-xs md:text-sm">Glamorous nights</p>
+                    </div>
+                    <div class="category-card bg-gradient-to-br from-blue-100 to-indigo-100 rounded-xl md:rounded-2xl p-4 md:p-6 text-center hover-scale cursor-pointer touch-button" onclick="filterLadiesProducts('office')">
+                        <div class="text-3xl md:text-4xl mb-3 md:mb-4">💼</div>
+                        <h3 class="font-semibold text-base md:text-lg">Office Wear</h3>
+                        <p class="text-gray-600 text-xs md:text-sm">Professional style</p>
+                    </div>
+                    <div class="category-card bg-gradient-to-br from-green-100 to-teal-100 rounded-xl md:rounded-2xl p-4 md:p-6 text-center hover-scale cursor-pointer touch-button" onclick="filterLadiesProducts('bridal')">
+                        <div class="text-3xl md:text-4xl mb-3 md:mb-4">👰</div>
+                        <h3 class="font-semibold text-base md:text-lg">Bridal</h3>
+                        <p class="text-gray-600 text-xs md:text-sm">Special moments</p>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-      // Collect form data
-      const customerData = {
-        firstName: document.getElementById('firstName').value.trim(),
-        lastName: document.getElementById('lastName').value.trim(),
-        email: document.getElementById('email').value.trim(),
-        phone: document.getElementById('phone').value.trim(),
-        address: document.getElementById('address').value.trim(),
-        city: document.getElementById('city').value.trim(),
-        zipCode: document.getElementById('zipCode').value.trim(),
-        country: document.getElementById('country').value,
-        paymentMethod: document.querySelector('input[name="paymentMethod"]:checked').value
-      };
+        <!-- Ladies Products Collection -->
+        <section id="ladiesCollections" class="py-12 md:py-20 ladies-gradient-bg section-padding">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 container-padding">
+                <div class="text-center mb-8 md:mb-16 mobile-text-center">
+                    <h2 class="heading-responsive font-bold text-gray-900 mb-3 md:mb-4">Ladies Collection</h2>
+                    <p class="text-responsive text-gray-600">24 handpicked designs for the modern woman</p>
+                </div>
+                <div class="flex justify-center mb-6 md:mb-8">
+                    <div class="bg-white rounded-full p-1 md:p-2 shadow-lg flex flex-wrap justify-center gap-1">
+                        <button onclick="filterLadiesProducts('all')" class="filter-btn-ladies active px-4 md:px-6 py-2 rounded-full bg-primary text-white text-sm md:text-base touch-button">All</button>
+                        <button onclick="filterLadiesProducts('casual')" class="filter-btn-ladies px-4 md:px-6 py-2 rounded-full text-gray-600 text-sm md:text-base touch-button">Casual</button>
+                        <button onclick="filterLadiesProducts('party')" class="filter-btn-ladies px-4 md:px-6 py-2 rounded-full text-gray-600 text-sm md:text-base touch-button">Party</button>
+                        <button onclick="filterLadiesProducts('office')" class="filter-btn-ladies px-4 md:px-6 py-2 rounded-full text-gray-600 text-sm md:text-base touch-button">Office</button>
+                        <button onclick="filterLadiesProducts('bridal')" class="filter-btn-ladies px-4 md:px-6 py-2 rounded-full text-gray-600 text-sm md:text-base touch-button">Bridal</button>
+                    </div>
+                </div>
+                <div id="ladiesProductsGrid" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6 lg:gap-8 product-grid">
+                    <!-- Ladies products will be loaded here -->
+                </div>
+            </div>
+        </section>
+    </div>
 
-      // Validate email
-      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      if (!emailRegex.test(customerData.email)) {
-        showNotification('Please enter a valid email address!', 'info');
-        return;
-      }
+    <!-- Boys Fashion Section -->
+    <div id="boysSection" class="section-content">
+        <!-- Boys Hero Section -->
+        <section class="boys-gradient-bg min-h-screen flex items-center pt-16">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-20 container-padding">
+                <div class="grid lg:grid-cols-2 gap-8 md:gap-12 items-center mobile-flex-col">
+                    <div class="slide-in order-2 lg:order-1 mobile-text-center">
+                        <h1 class="hero-title text-4xl md:text-5xl lg:text-7xl font-bold text-gray-900 mb-4 md:mb-6">
+                            Premium Boys <span class="text-gradient-boys block">Fashion 2025</span>
+                        </h1>
+                        <p class="hero-subtitle text-lg md:text-xl text-gray-600 mb-6 md:mb-8 leading-relaxed text-responsive">
+                            Discover our exclusive collection of stylish outfits, modern designs, and trendy fashion pieces crafted for the contemporary young man.
+                        </p>
+                        <div class="flex flex-col sm:flex-row gap-3 md:gap-4 mb-8 md:mb-12">
+                            <button onclick="scrollToSection('boysCollections')" class="button-responsive bg-boysPrimary text-white px-6 md:px-8 py-3 md:py-4 rounded-full hover:bg-boysAccent transition-all hover-scale font-semibold touch-button">Explore Collection</button>
+                            <button onclick="switchSection('contact')" class="button-responsive border-2 border-boysPrimary text-boysPrimary px-6 md:px-8 py-3 md:py-4 rounded-full hover:bg-boysPrimary hover:text-white transition-all touch-button">Get in Touch</button>
+                        </div>
+                        <div class="grid grid-cols-3 gap-4 md:gap-6 stats-grid">
+                            <div class="text-center">
+                                <div class="text-2xl md:text-3xl font-bold text-boysPrimary">800+</div>
+                                <div class="text-gray-600 text-sm md:text-base">Happy Customers</div>
+                            </div>
+                            <div class="text-center">
+                                <div class="text-2xl md:text-3xl font-bold text-boysPrimary">150+</div>
+                                <div class="text-gray-600 text-sm md:text-base">Unique Designs</div>
+                            </div>
+                            <div class="text-center">
+                                <div class="text-2xl md:text-3xl font-bold text-boysPrimary">24/7</div>
+                                <div class="text-gray-600 text-sm md:text-base">Support</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="relative order-1 lg:order-2">
+                        <div class="floating-animation">
+                            <div class="bg-white rounded-2xl md:rounded-3xl shadow-xl md:shadow-2xl overflow-hidden">
+                                <img src="https://images.unsplash.com/photo-1520975916090-3105956dac38?w=600&h=800&fit=crop" alt="Boys Fashion Model" class="w-full h-64 md:h-96 object-cover">
+                                <div class="p-4 md:p-6">
+                                    <h3 class="text-xl md:text-2xl font-semibold mb-2">Featured: Stylish Casual Set</h3>
+                                    <p class="text-gray-600 text-sm md:text-base mb-4">Perfect for daily wear and casual outings</p>
+                                    <div class="flex flex-col sm:flex-row justify-between items-center gap-3">
+                                        <span class="text-xl md:text-2xl font-bold text-boysPrimary">₨ 3,800</span>
+                                        <button onclick="addToCartBoys(1)" class="bg-boysPrimary text-white px-4 md:px-6 py-2 rounded-full hover:bg-boysAccent transition-colors touch-button w-full sm:w-auto">Add to Cart</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-      // Calculate order total
-      const orderTotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
-      const tax = orderTotal * 0.08;
-      const shipping = orderTotal > 100 ? 0 : 15;
-      const total = orderTotal + tax + shipping;
+        <!-- Boys Categories -->
+        <section class="py-12 md:py-20 bg-white section-padding">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 container-padding">
+                <div class="text-center mb-8 md:mb-16 mobile-text-center">
+                    <h2 class="heading-responsive font-bold text-gray-900 mb-3 md:mb-4">Shop by Category</h2>
+                    <p class="text-responsive text-gray-600">Discover our curated collections for every occasion</p>
+                </div>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 category-grid">
+                    <div class="category-card bg-gradient-to-br from-blue-100 to-cyan-100 rounded-xl md:rounded-2xl p-4 md:p-6 text-center hover-scale cursor-pointer touch-button" onclick="filterBoysProducts('casual')">
+                        <div class="text-3xl md:text-4xl mb-3 md:mb-4">👕</div>
+                        <h3 class="font-semibold text-base md:text-lg">Casual Wear</h3>
+                        <p class="text-gray-600 text-xs md:text-sm">Everyday style</p>
+                    </div>
+                    <div class="category-card bg-gradient-to-br from-purple-100 to-pink-100 rounded-xl md:rounded-2xl p-4 md:p-6 text-center hover-scale cursor-pointer touch-button" onclick="filterBoysProducts('party')">
+                        <div class="text-3xl md:text-4xl mb-3 md:mb-4">🎉</div>
+                        <h3 class="font-semibold text-base md:text-lg">Party Wear</h3>
+                        <p class="text-gray-600 text-xs md:text-sm">Special occasions</p>
+                    </div>
+                    <div class="category-card bg-gradient-to-br from-gray-100 to-blue-gray-100 rounded-xl md:rounded-2xl p-4 md:p-6 text-center hover-scale cursor-pointer touch-button" onclick="filterBoysProducts('formal')">
+                        <div class="text-3xl md:text-4xl mb-3 md:mb-4">🤵</div>
+                        <h3 class="font-semibold text-base md:text-lg">Formal Wear</h3>
+                        <p class="text-gray-600 text-xs md:text-sm">Smart & elegant</p>
+                    </div>
+                    <div class="category-card bg-gradient-to-br from-green-100 to-teal-100 rounded-xl md:rounded-2xl p-4 md:p-6 text-center hover-scale cursor-pointer touch-button" onclick="filterBoysProducts('sports')">
+                        <div class="text-3xl md:text-4xl mb-3 md:mb-4">⚽</div>
+                        <h3 class="font-semibold text-base md:text-lg">Sports Wear</h3>
+                        <p class="text-gray-600 text-xs md:text-sm">Active lifestyle</p>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-      const orderNumber = 'BF-' + new Date().getFullYear() + '-' + String(Math.floor(Math.random() * 10000)).padStart(4, '0');
+        <!-- Boys Products Collection -->
+        <section id="boysCollections" class="py-12 md:py-20 boys-gradient-bg section-padding">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 container-padding">
+                <div class="text-center mb-8 md:mb-16 mobile-text-center">
+                    <h2 class="heading-responsive font-bold text-gray-900 mb-3 md:mb-4">Boys Collection</h2>
+                    <p class="text-responsive text-gray-600">24 handpicked designs for the modern young man</p>
+                </div>
+                <div class="flex justify-center mb-6 md:mb-8">
+                    <div class="bg-white rounded-full p-1 md:p-2 shadow-lg flex flex-wrap justify-center gap-1">
+                        <button onclick="filterBoysProducts('all')" class="filter-btn-boys active px-4 md:px-6 py-2 rounded-full bg-boysPrimary text-white text-sm md:text-base touch-button">All</button>
+                        <button onclick="filterBoysProducts('casual')" class="filter-btn-boys px-4 md:px-6 py-2 rounded-full text-gray-600 text-sm md:text-base touch-button">Casual</button>
+                        <button onclick="filterBoysProducts('party')" class="filter-btn-boys px-4 md:px-6 py-2 rounded-full text-gray-600 text-sm md:text-base touch-button">Party</button>
+                        <button onclick="filterBoysProducts('formal')" class="filter-btn-boys px-4 md:px-6 py-2 rounded-full text-gray-600 text-sm md:text-base touch-button">Formal</button>
+                        <button onclick="filterBoysProducts('sports')" class="filter-btn-boys px-4 md:px-6 py-2 rounded-full text-gray-600 text-sm md:text-base touch-button">Sports</button>
+                    </div>
+                </div>
+                <div id="boysProductsGrid" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6 lg:gap-8 product-grid">
+                    <!-- Boys products will be loaded here -->
+                </div>
+            </div>
+        </section>
+    </div>
 
-      // Create WhatsApp message
-      let whatsappMessage = `🛍️ *NEW ORDER - Basim Fashion* 🛍️\n\n`;
-      whatsappMessage += `📋 *Order Number:* ${orderNumber}\n`;
-      whatsappMessage += `👤 *Customer:* ${customerData.firstName} ${customerData.lastName}\n`;
-      whatsappMessage += `📧 *Email:* ${customerData.email}\n`;
-      whatsappMessage += `📞 *Phone:* ${customerData.phone}\n\n`;
-      
-      whatsappMessage += `📍 *Shipping Address:*\n`;
-      whatsappMessage += `${customerData.address}, ${customerData.city}, ${customerData.zipCode}\n`;
-      whatsappMessage += `${customerData.country}\n\n`;
-      
-      whatsappMessage += `🛒 *Order Items:*\n`;
-      cart.forEach((item, index) => {
-        whatsappMessage += `${index + 1}. ${item.name}\n`;
-        whatsappMessage += `   Quantity: ${item.quantity} | Price: $${item.price} | Total: $${(item.price * item.quantity).toFixed(2)}\n`;
-      });
-      
-      whatsappMessage += `\n💰 *Order Summary:*\n`;
-      whatsappMessage += `Subtotal: $${orderTotal.toFixed(2)}\n`;
-      whatsappMessage += `Tax: $${tax.toFixed(2)}\n`;
-      whatsappMessage += `Shipping: ${shipping === 0 ? 'Free' : `$${shipping}`}\n`;
-      whatsappMessage += `*Total: $${total.toFixed(2)}*\n\n`;
-      
-      whatsappMessage += `💳 *Payment Method:* ${customerData.paymentMethod.toUpperCase()}\n`;
-      whatsappMessage += `📅 *Order Date:* ${new Date().toLocaleDateString()}\n\n`;
-      whatsappMessage += `✅ *Please confirm this order!*`;
+    <!-- Contact Section -->
+    <div id="contactSection" class="section-content">
+        <section class="ladies-gradient-bg py-20 section-padding">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 container-padding">
+                <div class="text-center mb-12">
+                    <h2 class="heading-responsive font-bold text-gray-900 mb-4">Contact Us</h2>
+                    <p class="text-responsive text-gray-600">Get in touch with Basim Fashion</p>
+                </div>
+                <div class="grid lg:grid-cols-2 gap-12">
+                    <div class="bg-white rounded-2xl p-8 shadow-xl">
+                        <h3 class="text-2xl font-bold mb-6">Contact Information</h3>
+                        <div class="space-y-6">
+                            <div class="flex items-center space-x-4">
+                                <div class="bg-primary text-white p-3 rounded-full">
+                                    📍
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold">Address</h4>
+                                    <p class="text-gray-600">Punjab, Dera Ghazi Khan, Tunsa Sharif, Vehowa</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center space-x-4">
+                                <div class="bg-primary text-white p-3 rounded-full">
+                                    📞
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold">Phone</h4>
+                                    <p class="text-gray-600">0334 7382564</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center space-x-4">
+                                <div class="bg-primary text-white p-3 rounded-full">
+                                    ✉️
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold">Email</h4>
+                                    <p class="text-gray-600">infobasimfashion@gmail.com</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center space-x-4">
+                                <div class="bg-primary text-white p-3 rounded-full">
+                                    💬
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold">WhatsApp</h4>
+                                    <p class="text-gray-600">+92 334 7382564</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-2xl p-8 shadow-xl">
+                        <h3 class="text-2xl font-bold mb-6">Send Us a Message</h3>
+                        <form id="contactForm" class="space-y-4">
+                            <div class="grid grid-cols-2 gap-4">
+                                <input type="text" placeholder="First Name" class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent">
+                                <input type="text" placeholder="Last Name" class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent">
+                            </div>
+                            <input type="email" placeholder="Email Address" class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent">
+                            <input type="tel" placeholder="Phone Number" class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent">
+                            <textarea placeholder="Your Message" rows="4" class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent"></textarea>
+                            <button type="button" onclick="submitContactForm()" class="w-full bg-primary text-white py-4 rounded-xl hover:bg-accent transition-colors font-semibold text-lg">
+                                Send Message
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
 
-      // WhatsApp number and link
-      const whatsappNumber = "923347382564";
-      const encodedMessage = encodeURIComponent(whatsappMessage);
-      const whatsappLink = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12 md:py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 container-padding">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div class="col-span-1 md:col-span-2">
+                    <div class="text-2xl md:text-3xl font-bold mb-4">✨ Basim Fashion</div>
+                    <p class="text-gray-300 mb-6 max-w-md">
+                        Your premier destination for elegant fashion. We create timeless pieces that celebrate style and confidence for both ladies and boys.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="bg-primary p-3 rounded-full hover:bg-accent transition-colors">📘</a>
+                        <a href="#" class="bg-primary p-3 rounded-full hover:bg-accent transition-colors">📷</a>
+                        <a href="#" class="bg-primary p-3 rounded-full hover:bg-accent transition-colors">🐦</a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="font-semibold text-lg mb-4">Collections</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-300 hover:text-white transition-colors" onclick="switchSection('ladies')">👗 Ladies Fashion</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white transition-colors" onclick="switchSection('boys')">👕 Boys Fashion</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold text-lg mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-300 hover:text-white transition-colors" onclick="switchSection('home')">Home</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white transition-colors" onclick="switchSection('contact')">Contact</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white transition-colors" onclick="showNotification('About page coming soon!', 'info')">About</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white transition-colors" onclick="openCartModal()">Cart</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-12 pt-8 text-center">
+                <p class="text-gray-300">© 2025 Basim Fashion. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
 
-      // Show processing message
-      const placeOrderBtn = document.getElementById('placeOrderBtn');
-      const originalText = placeOrderBtn.innerHTML;
-      placeOrderBtn.innerHTML = '🔄 Processing Order...';
-      placeOrderBtn.disabled = true;
-      placeOrderBtn.style.opacity = '0.7';
+    <!-- Cart Modal -->
+    <div id="cartModal" class="fixed inset-0 bg-black bg-opacity-50 hidden z-50 flex items-end md:items-center justify-end md:justify-center p-0 md:p-4">
+        <div class="bg-white rounded-t-2xl md:rounded-2xl max-w-md w-full max-h-[80vh] md:max-h-[90vh] overflow-hidden h-[90vh] md:h-auto">
+            <div class="p-4 md:p-6 border-b sticky top-0 bg-white z-10">
+                <div class="flex justify-between items-center">
+                    <h3 class="text-xl md:text-2xl font-semibold">Shopping Cart</h3>
+                    <button onclick="closeCartModal()" class="text-gray-500 hover:text-gray-700 text-2xl md:text-3xl touch-button">×</button>
+                </div>
+            </div>
+            <div id="cartItems" class="p-4 md:p-6 overflow-y-auto h-[calc(90vh-200px)]">
+                <!-- Cart items will be loaded here -->
+            </div>
+            <div class="p-4 md:p-6 border-t bg-gray-50 sticky bottom-0">
+                <div class="flex justify-between items-center mb-4">
+                    <span class="text-lg font-semibold">Total:</span>
+                    <span class="text-xl md:text-2xl font-bold text-primary">₨ <span id="cartTotal">0</span></span>
+                </div>
+                <button onclick="checkout()" class="w-full bg-primary text-white py-3 rounded-xl hover:bg-accent transition-colors font-semibold text-base md:text-lg touch-button">Proceed to Checkout</button>
+            </div>
+        </div>
+    </div>
 
-      // Simulate processing delay
-      setTimeout(() => {
-        // Open WhatsApp link in new tab
-        window.open(whatsappLink, '_blank');
+    <!-- Image Preview Modal -->
+    <div id="imagePreviewModal" class="image-preview-modal">
+        <div class="relative w-full h-full flex items-center justify-center p-4">
+            <button onclick="closeImagePreview()" class="absolute top-4 right-4 bg-white text-gray-800 rounded-full w-10 h-10 flex items-center justify-center text-xl z-50 hover:bg-gray-100 transition-colors">×</button>
+            <img id="previewImage" src="" alt="Product Preview" class="max-w-full max-h-full object-contain rounded-lg">
+            <div class="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-black bg-opacity-50 text-white px-4 py-2 rounded-full">
+                <span id="previewProductName"></span> - ₨<span id="previewProductPrice"></span>
+            </div>
+        </div>
+    </div>
 
-        // Save order data
-        currentOrderData = {
-          orderNumber: orderNumber,
-          customerName: `${customerData.firstName} ${customerData.lastName}`,
-          email: customerData.email,
-          phone: customerData.phone,
-          shippingAddress: {
-            street: customerData.address,
-            city: customerData.city,
-            zipCode: customerData.zipCode,
-            country: customerData.country
-          },
-          items: cart.map(item => ({
-            name: item.name,
-            price: item.price,
-            quantity: item.quantity,
-            total: item.price * item.quantity,
-            category: item.category
-          })),
-          pricing: {
-            subtotal: parseFloat(orderTotal.toFixed(2)),
-            tax: parseFloat(tax.toFixed(2)),
-            shipping: shipping,
-            total: parseFloat(total.toFixed(2))
-          },
-          paymentMethod: customerData.paymentMethod,
-          orderDate: new Date().toISOString(),
-          status: 'pending'
-        };
+    <script>
+        // ==============================
+        // PRODUCTS DATA - 24 LADIES + 24 BOYS
+        // ==============================
 
-        // Save to local storage
-        let orders = JSON.parse(localStorage.getItem('orders')) || [];
-        orders.push(currentOrderData);
-        localStorage.setItem('orders', JSON.stringify(orders));
+        const ladiesProducts = [
+            {
+                id: 1,
+                name: "Designer Casual Dress",
+                price: 2000,
+                category: "casual",
+                description: "Beautiful designer casual dress perfect for everyday wear with premium fabric quality",
+                image: "https://content.public.markaz.app/markazimagevideo/public/products/1993-95-683287-product-1.webp",
+                rating: 4.8,
+                reviews: 124
+            },
+            {
+                id: 2,
+                name: "Sequin Party Collection",
+                price: 3000,
+                category: "party",
+                description: "Dazzling sequin dress perfect for parties and special occasions",
+                image: "https://content.public.markaz.app/markazimagevideo/public/products/1993-11-683306-product-1.webp",
+                rating: 4.9,
+                reviews: 92
+            },
+            {
+                id: 3,
+                name: "Bohemian Maxi Dress",
+                price: 2500,
+                category: "casual",
+                description: "Free-spirited bohemian maxi with vibrant embroidery and tassel details",
+                image: "https://content.public.markaz.app/markazimagevideo/public/products/1993-95-682368-product-1.webp",
+                rating: 4.6,
+                reviews: 145
+            },
+            {
+                id: 4,
+                name: "Professional Pencil Skirt",
+                price: 1800,
+                category: "office",
+                description: "Classic high-waisted pencil skirt perfect for office wear",
+                image: "https://content.public.markaz.app/markazimagevideo/public/products/1993-95-681250-product-1.webp",
+                rating: 4.7,
+                reviews: 112
+            },
+            {
+                id: 5,
+                name: "Elegant Office Set",
+                price: 3500,
+                category: "office",
+                description: "Sophisticated office ensemble for the modern professional woman",
+                image: "https://content.public.markaz.app/markazimagevideo/public/products/729-11-680907-product-1.webp",
+                rating: 4.8,
+                reviews: 87
+            },
+            {
+                id: 6,
+                name: "Silk Evening Gown",
+                price: 4500,
+                category: "party",
+                description: "Luxurious silk evening dress with elegant draping",
+                image: "https://content.public.markaz.app/markazimagevideo/public/products/1993-14-680809-product-1.webp",
+                rating: 4.9,
+                reviews: 82
+            },
+            {
+                id: 7,
+                name: "Contemporary Party Wear",
+                price: 3200,
+                category: "party",
+                description: "Modern party dress with sophisticated styling",
+                image: "https://content.public.markaz.app/markazimagevideo/public/thumbnails/products/1993-95-680800-product-1.webp",
+                rating: 4.7,
+                reviews: 95
+            },
+            {
+                id: 8,
+                name: "Floral Summer Collection",
+                price: 2200,
+                category: "casual",
+                description: "Vibrant floral print dress perfect for summer days",
+                image: "https://content.public.markaz.app/markazimagevideo/public/thumbnails/products/1993-95-680493-product-1.webp",
+                rating: 4.5,
+                reviews: 201
+            },
+            {
+                id: 9,
+                name: "Bridal Special Gown",
+                price: 8500,
+                category: "bridal",
+                description: "Exquisite bridal gown with delicate lace and pearl details",
+                image: "https://content.public.markaz.app/markazimagevideo/public/thumbnails/products/1993-10-680484-product-1.webp",
+                rating: 5.0,
+                reviews: 45
+            },
+            {
+                id: 10,
+                name: "Executive Business Suit",
+                price: 4200,
+                category: "office",
+                description: "Premium business suit for professional settings",
+                image: "https://content.public.markaz.app/markazimagevideo/public/thumbnails/products/1993-11-680077-product-1.webp",
+                rating: 4.6,
+                reviews: 78
+            },
+            {
+                id: 11,
+                name: "Cocktail Evening Dress",
+                price: 3800,
+                category: "party",
+                description: "Chic cocktail dress for elegant evening events",
+                image: "https://content.public.markaz.app/markazimagevideo/public/thumbnails/products/1993-95-680073-product-1.webp",
+                rating: 4.8,
+                reviews: 93
+            },
+            {
+                id: 12,
+                name: "Casual Maxi Comfort",
+                price: 1900,
+                category: "casual",
+                description: "Comfortable maxi dress for everyday casual wear",
+                image: "https://content.public.markaz.app/markazimagevideo/public/thumbnails/products/1993-95-680064-product-1.webp",
+                rating: 4.7,
+                reviews: 156
+            },
+            {
+                id: 13,
+                name: "Premium Casual Wear",
+                price: 2800,
+                category: "casual",
+                description: "Premium quality casual dress with modern design",
+                image: "https://content.public.markaz.app/markazimagevideo/public/thumbnails/products/1993-10-679781-product-1.webp",
+                rating: 4.6,
+                reviews: 134
+            },
+            {
+                id: 14,
+                name: "Glamorous Party Sequins",
+                price: 5200,
+                category: "party",
+                description: "Glamorous sequin dress that sparkles all night",
+                image: "https://content.public.markaz.app/markazimagevideo/public/thumbnails/products/1993-10-678684-product-1.webp",
+                rating: 4.9,
+                reviews: 88
+            },
+            {
+                id: 15,
+                name: "Bohemian Chic Collection",
+                price: 2700,
+                category: "casual",
+                description: "Bohemian style dress with artistic patterns",
+                image: "https://content.public.markaz.app/markazimagevideo/public/thumbnails/products/1993-10-678468-product-1.webp",
+                rating: 4.7,
+                reviews: 167
+            },
+            {
+                id: 16,
+                name: "Corporate Office Attire",
+                price: 4800,
+                category: "office",
+                description: "Professional corporate attire for business meetings",
+                image: "https://content.public.markaz.app/markazimagevideo/public/thumbnails/products/714-220-673832-product-1.webp",
+                rating: 4.5,
+                reviews: 102
+            },
+            {
+                id: 17,
+                name: "Executive Formal Suit",
+                price: 5500,
+                category: "office",
+                description: "Executive level formal suit with premium tailoring",
+                image: "https://content.public.markaz.app/markazimagevideo/public/thumbnails/products/399-9-669346-product-1.webp",
+                rating: 4.8,
+                reviews: 76
+            },
+            {
+                id: 18,
+                name: "Luxury Evening Silk",
+                price: 6500,
+                category: "party",
+                description: "Luxury silk evening dress for special occasions",
+                image: "https://content.public.markaz.app/markazimagevideo/public/products/1689-11-669068-product-2.webp",
+                rating: 4.9,
+                reviews: 65
+            },
+            {
+                id: 19,
+                name: "Summer Floral Breeze",
+                price: 2100,
+                category: "casual",
+                description: "Light and breezy floral dress for summer",
+                image: "https://content.public.markaz.app/markazimagevideo/public/thumbnails/products/1689-95-667618-product-1.webp",
+                rating: 4.6,
+                reviews: 198
+            },
+            {
+                id: 20,
+                name: "Royal Bridal Elegance",
+                price: 12000,
+                category: "bridal",
+                description: "Royal elegance bridal gown with intricate details",
+                image: "https://content.public.markaz.app/markazimagevideo/public/thumbnails/products/1354-95-665900-product-1.webp",
+                rating: 5.0,
+                reviews: 38
+            },
+            {
+                id: 21,
+                name: "Professional Power Suit",
+                price: 6200,
+                category: "office",
+                description: "Power suit designed for executive women",
+                image: "https://content.public.markaz.app/markazimagevideo/public/thumbnails/products/1593-95-665610-product-1.webp",
+                rating: 4.7,
+                reviews: 91
+            },
+            {
+                id: 22,
+                name: "Elegant Party Cocktail",
+                price: 5800,
+                category: "party",
+                description: "Elegant cocktail dress for sophisticated parties",
+                image: "https://content.public.markaz.app/markazimagevideo/public/products/1119-11-683915-product-1.webp",
+                rating: 4.8,
+                reviews: 105
+            },
+            {
+                id: 23,
+                name: "Relaxed Maxi Casual",
+                price: 2300,
+                category: "casual",
+                description: "Relaxed fit maxi dress for comfortable all-day wear",
+                image: "https://content.public.markaz.app/markazimagevideo/public/products/1993-128-683848-product-1.webp",
+                rating: 4.5,
+                reviews: 178
+            },
+            {
+                id: 24,
+                name: "Bridesmaid Elegance",
+                price: 6800,
+                category: "bridal",
+                description: "Elegant bridesmaid dress in soft flowing fabric",
+                image: "https://content.public.markaz.app/markazimagevideo/public/products/1993-95-683295-product-1.webp",
+                rating: 4.9,
+                reviews: 119
+            }
+        ];
 
-        // Clear cart and reset UI
-        cart = [];
-        updateCartUI();
-        saveCart();
-        
-        // Reset button
-        placeOrderBtn.innerHTML = originalText;
-        placeOrderBtn.disabled = false;
-        placeOrderBtn.style.opacity = '1';
+        const boysProducts = [
+            {
+                id: 1,
+                name: "Trendy Casual T-Shirt Set",
+                price: 1500,
+                category: "casual",
+                description: "Comfortable cotton t-shirt set perfect for everyday casual wear",
+                image: "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=600&h=800&fit=crop",
+                rating: 4.7,
+                reviews: 89
+            },
+            {
+                id: 2,
+                name: "Formal Party Suit",
+                price: 4500,
+                category: "party",
+                description: "Elegant formal suit perfect for weddings and special occasions",
+                image: "https://images.unsplash.com/photo-1594938374185-7c19a8f6d2f4?w=600&h=800&fit=crop",
+                rating: 4.9,
+                reviews: 67
+            },
+            {
+                id: 3,
+                name: "Sports Jersey Collection",
+                price: 2200,
+                category: "sports",
+                description: "Breathable sports jersey for active boys",
+                image: "https://images.unsplash.com/photo-1523580494863-6f3031224c94?w=600&h=800&fit=crop",
+                rating: 4.6,
+                reviews: 112
+            },
+            {
+                id: 4,
+                name: "Designer Denim Jacket",
+                price: 2800,
+                category: "casual",
+                description: "Stylish denim jacket with modern design",
+                image: "https://images.unsplash.com/photo-1551028719-00167b16eac5?w=600&h=800&fit=crop",
+                rating: 4.5,
+                reviews: 78
+            },
+            {
+                id: 5,
+                name: "Traditional Sherwani Set",
+                price: 6500,
+                category: "party",
+                description: "Elegant traditional sherwani for weddings and festivals",
+                image: "https://images.unsplash.com/photo-1594938374185-7c19a8f6d2f4?w=600&h=800&fit=crop",
+                rating: 4.8,
+                reviews: 45
+            },
+            {
+                id: 6,
+                name: "Track Suit Combo",
+                price: 3200,
+                category: "sports",
+                description: "Comfortable track suit for sports and casual wear",
+                image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=600&h=800&fit=crop",
+                rating: 4.4,
+                reviews: 93
+            },
+            {
+                id: 7,
+                name: "Smart Formal Shirt",
+                price: 1800,
+                category: "formal",
+                description: "Crisp formal shirt for school and special occasions",
+                image: "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=600&h=800&fit=crop",
+                rating: 4.7,
+                reviews: 124
+            },
+            {
+                id: 8,
+                name: "Casual Hoodie Set",
+                price: 2500,
+                category: "casual",
+                description: "Warm and comfortable hoodie for casual outings",
+                image: "https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=600&h=800&fit=crop",
+                rating: 4.6,
+                reviews: 156
+            },
+            {
+                id: 9,
+                name: "Party Blazer Set",
+                price: 4800,
+                category: "party",
+                description: "Stylish blazer set for parties and celebrations",
+                image: "https://images.unsplash.com/photo-1594938374185-7c19a8f6d2f4?w=600&h=800&fit=crop",
+                rating: 4.8,
+                reviews: 89
+            },
+            {
+                id: 10,
+                name: "Football Kit",
+                price: 2900,
+                category: "sports",
+                description: "Complete football kit with jersey and shorts",
+                image: "https://images.unsplash.com/photo-1523580494863-6f3031224c94?w=600&h=800&fit=crop",
+                rating: 4.5,
+                reviews: 134
+            },
+            {
+                id: 11,
+                name: "Formal Trousers",
+                price: 1600,
+                category: "formal",
+                description: "Well-fitted formal trousers for school and events",
+                image: "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=600&h=800&fit=crop",
+                rating: 4.3,
+                reviews: 98
+            },
+            {
+                id: 12,
+                name: "Graphic T-Shirt Pack",
+                price: 2200,
+                category: "casual",
+                description: "Pack of 3 trendy graphic t-shirts",
+                image: "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=600&h=800&fit=crop",
+                rating: 4.7,
+                reviews: 167
+            },
+            {
+                id: 13,
+                name: "Birthday Party Suit",
+                price: 3800,
+                category: "party",
+                description: "Special birthday party suit with accessories",
+                image: "https://images.unsplash.com/photo-1594938374185-7c19a8f6d2f4?w=600&h=800&fit=crop",
+                rating: 4.9,
+                reviews: 76
+            },
+            {
+                id: 14,
+                name: "Basketball Jersey",
+                price: 2400,
+                category: "sports",
+                description: "Official style basketball jersey",
+                image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=600&h=800&fit=crop",
+                rating: 4.6,
+                reviews: 89
+            },
+            {
+                id: 15,
+                name: "School Uniform Set",
+                price: 3500,
+                category: "formal",
+                description: "Complete school uniform with shirt and trousers",
+                image: "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=600&h=800&fit=crop",
+                rating: 4.8,
+                reviews: 145
+            },
+            {
+                id: 16,
+                name: "Winter Jacket",
+                price: 4200,
+                category: "casual",
+                description: "Warm winter jacket with hood",
+                image: "https://images.unsplash.com/photo-1551028719-00167b16eac5?w=600&h=800&fit=crop",
+                rating: 4.7,
+                reviews: 112
+            },
+            {
+                id: 17,
+                name: "Eid Special Outfit",
+                price: 5500,
+                category: "party",
+                description: "Traditional outfit for Eid celebrations",
+                image: "https://images.unsplash.com/photo-1594938374185-7c19a8f6d2f4?w=600&h=800&fit=crop",
+                rating: 4.9,
+                reviews: 67
+            },
+            {
+                id: 18,
+                name: "Cricket Kit",
+                price: 6800,
+                category: "sports",
+                description: "Complete cricket playing kit",
+                image: "https://images.unsplash.com/photo-1523580494863-6f3031224c94?w=600&h=800&fit=crop",
+                rating: 4.8,
+                reviews: 56
+            },
+            {
+                id: 19,
+                name: "Formal Tie Set",
+                price: 1200,
+                category: "formal",
+                description: "Set of 2 formal ties for school",
+                image: "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=600&h=800&fit=crop",
+                rating: 4.4,
+                reviews: 89
+            },
+            {
+                id: 20,
+                name: "Casual Shorts Pack",
+                price: 1900,
+                category: "casual",
+                description: "Pack of 3 comfortable casual shorts",
+                image: "https://images.unsplash.com/photo-1551028719-00167b16eac5?w=600&h=800&fit=crop",
+                rating: 4.6,
+                reviews: 134
+            },
+            {
+                id: 21,
+                name: "Wedding Guest Suit",
+                price: 5200,
+                category: "party",
+                description: "Elegant suit for wedding guests",
+                image: "https://images.unsplash.com/photo-1594938374185-7c19a8f6d2f4?w=600&h=800&fit=crop",
+                rating: 4.7,
+                reviews: 78
+            },
+            {
+                id: 22,
+                name: "Swimming Trunks",
+                price: 1800,
+                category: "sports",
+                description: "Quick-dry swimming trunks",
+                image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=600&h=800&fit=crop",
+                rating: 4.5,
+                reviews: 92
+            },
+            {
+                id: 23,
+                name: "Formal Blazer",
+                price: 3800,
+                category: "formal",
+                description: "School formal blazer",
+                image: "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=600&h=800&fit=crop",
+                rating: 4.8,
+                reviews: 67
+            },
+            {
+                id: 24,
+                name: "Casual Jeans",
+                price: 2200,
+                category: "casual",
+                description: "Comfortable denim jeans",
+                image: "https://images.unsplash.com/photo-1542272604-787c3835535d?w=600&h=800&fit=crop",
+                rating: 4.7,
+                reviews: 156
+            }
+        ];
 
-        // Close modal and reset form
-        closeCheckout();
-        form.reset();
+        // ==============================
+        // GLOBAL VARIABLES
+        // ==============================
 
-        // Show success message
-        showNotification('Order sent to WhatsApp! Please send the message to confirm your order.', 'success');
-      }, 1500);
-    }
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        let currentLadiesFilter = 'all';
+        let currentBoysFilter = 'all';
+        let currentSection = 'home';
 
-    // Utility functions
-    function saveCart() {
-      localStorage.setItem('cart', JSON.stringify(cart));
-    }
+        // ==============================
+        // INITIALIZATION
+        // ==============================
 
-    function scrollToSection(sectionId) {
-      document.getElementById(sectionId).scrollIntoView({ behavior: 'smooth' });
-    }
+        document.addEventListener('DOMContentLoaded', function() {
+            renderLadiesProducts();
+            renderBoysProducts();
+            updateCartUI();
+            setupEventListeners();
+        });
 
-    function showNotification(message, type = 'info') {
-      const notification = document.createElement('div');
-      notification.className = `fixed top-20 right-4 z-50 px-6 py-3 rounded-lg shadow-lg text-white ${type === 'success' ? 'bg-green-500' : type === 'error' ? 'bg-red-500' : 'bg-blue-500'} slide-in`;
-      notification.textContent = message;
-      document.body.appendChild(notification);
-      
-      setTimeout(() => {
-        notification.remove();
-      }, 3000);
-    }
+        // ==============================
+        // SECTION MANAGEMENT
+        // ==============================
 
-    function quickView(productId) {
-      const product = products.find(p => p.id === productId);
-      showNotification(`Quick view for ${product.name} - Feature coming soon!`, 'info');
-    }
-
-    function toggleWishlist(productId) {
-      showNotification('Added to wishlist!', 'success');
-    }
-
-    // Event listeners setup
-    function setupEventListeners() {
-      document.getElementById('cartButton').addEventListener('click', () => {
-        document.getElementById('cartModal').classList.remove('hidden');
-      });
-
-      document.getElementById('closeCart').addEventListener('click', () => {
-        document.getElementById('cartModal').classList.add('hidden');
-      });
-
-      document.getElementById('contactForm').addEventListener('submit', function(e) {
-        e.preventDefault();
-        
-        showNotification('Thank you for your message! We will get back to you soon. ✅', 'success');
-        this.reset();
-      });
-
-      document.getElementById('checkoutBtn').addEventListener('click', function() {
-        if (cart.length === 0) {
-          showNotification('Your cart is empty!', 'info');
-          return;
+        function switchSection(section) {
+            // Hide all sections
+            document.getElementById('home').style.display = 'none';
+            document.getElementById('ladiesSection').classList.remove('active');
+            document.getElementById('boysSection').classList.remove('active');
+            document.getElementById('contactSection').classList.remove('active');
+            
+            // Show selected section
+            if (section === 'ladies') {
+                document.getElementById('ladiesSection').classList.add('active');
+                document.title = "Basim Ladies Fashion - Premium Collection 2025";
+                currentSection = 'ladies';
+            } else if (section === 'boys') {
+                document.getElementById('boysSection').classList.add('active');
+                document.title = "Basim Boys Fashion - Premium Collection 2025";
+                currentSection = 'boys';
+            } else if (section === 'contact') {
+                document.getElementById('contactSection').classList.add('active');
+                document.title = "Contact - Basim Fashion";
+                currentSection = 'contact';
+            } else {
+                document.getElementById('home').style.display = 'flex';
+                document.title = "Basim Fashion - Ladies & Boys Collection 2025";
+                currentSection = 'home';
+            }
+            
+            // Close mobile menu if open
+            closeMobileMenuFunction();
+            
+            // Scroll to top
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         }
-        openCheckout();
-      });
 
-      document.getElementById('placeOrderBtn').addEventListener('click', function() {
-        placeOrder();
-      });
+        // ==============================
+        // PRODUCT RENDERING
+        // ==============================
 
-      document.getElementById('closeCheckout').addEventListener('click', function() {
-        closeCheckout();
-      });
+        function renderLadiesProducts(filter = 'all') {
+            const grid = document.getElementById('ladiesProductsGrid');
+            const filteredProducts = filter === 'all' ? ladiesProducts : ladiesProducts.filter(p => p.category === filter);
+            
+            grid.innerHTML = filteredProducts.map(product => `
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden hover-scale product-card">
+                    <div class="relative">
+                        <img src="${product.image}" alt="${product.name}" 
+                             class="w-full h-48 md:h-64 object-cover cursor-pointer"
+                             onclick="openImagePreview('${product.image}', '${product.name}', ${product.price})">
+                        <div class="absolute top-2 right-2">
+                            <button onclick="addToCartLadies(${product.id})" class="bg-primary text-white p-2 rounded-full hover:bg-accent transition-colors">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
+                                </svg>
+                            </button>
+                        </div>
+                        ${product.rating >= 4.8 ? 
+                            `<div class="absolute top-2 left-2 bg-yellow-500 text-white px-2 py-1 rounded-full text-xs font-semibold">
+                                ⭐ ${product.rating}
+                            </div>` : ''
+                        }
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-semibold text-base mb-2 line-clamp-1">${product.name}</h3>
+                        <p class="text-gray-600 text-sm mb-3 line-clamp-2">${product.description}</p>
+                        <div class="flex items-center mb-3">
+                            <div class="flex text-yellow-400 text-sm">
+                                ${'★'.repeat(Math.floor(product.rating))}${'☆'.repeat(5-Math.floor(product.rating))}
+                            </div>
+                            <span class="text-gray-500 text-xs ml-2">(${product.reviews})</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-lg font-bold text-primary">₨ ${product.price.toLocaleString()}</span>
+                            <span class="text-xs text-gray-500 capitalize">${product.category}</span>
+                        </div>
+                        <button onclick="addToCartLadies(${product.id})" class="w-full mt-4 bg-primary text-white py-2 rounded-lg hover:bg-accent transition-colors font-semibold text-sm touch-button">
+                            Add to Cart
+                        </button>
+                    </div>
+                </div>
+            `).join('');
+            
+            currentLadiesFilter = filter;
+        }
 
-      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-          e.preventDefault();
-          const target = document.querySelector(this.getAttribute('href'));
-          if (target) {
-            target.scrollIntoView({ behavior: 'smooth' });
-          }
-        });
-      });
+        function renderBoysProducts(filter = 'all') {
+            const grid = document.getElementById('boysProductsGrid');
+            const filteredProducts = filter === 'all' ? boysProducts : boysProducts.filter(p => p.category === filter);
+            
+            grid.innerHTML = filteredProducts.map(product => `
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden hover-scale product-card">
+                    <div class="relative">
+                        <img src="${product.image}" alt="${product.name}" 
+                             class="w-full h-48 md:h-64 object-cover cursor-pointer"
+                             onclick="openImagePreview('${product.image}', '${product.name}', ${product.price})">
+                        <div class="absolute top-2 right-2">
+                            <button onclick="addToCartBoys(${product.id})" class="bg-boysPrimary text-white p-2 rounded-full hover:bg-boysAccent transition-colors">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
+                                </svg>
+                            </button>
+                        </div>
+                        ${product.rating >= 4.8 ? 
+                            `<div class="absolute top-2 left-2 bg-yellow-500 text-white px-2 py-1 rounded-full text-xs font-semibold">
+                                ⭐ ${product.rating}
+                            </div>` : ''
+                        }
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-semibold text-base mb-2 line-clamp-1">${product.name}</h3>
+                        <p class="text-gray-600 text-sm mb-3 line-clamp-2">${product.description}</p>
+                        <div class="flex items-center mb-3">
+                            <div class="flex text-yellow-400 text-sm">
+                                ${'★'.repeat(Math.floor(product.rating))}${'☆'.repeat(5-Math.floor(product.rating))}
+                            </div>
+                            <span class="text-gray-500 text-xs ml-2">(${product.reviews})</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-lg font-bold text-boysPrimary">₨ ${product.price.toLocaleString()}</span>
+                            <span class="text-xs text-gray-500 capitalize">${product.category}</span>
+                        </div>
+                        <button onclick="addToCartBoys(${product.id})" class="w-full mt-4 bg-boysPrimary text-white py-2 rounded-lg hover:bg-boysAccent transition-colors font-semibold text-sm touch-button">
+                            Add to Cart
+                        </button>
+                    </div>
+                </div>
+            `).join('');
+            
+            currentBoysFilter = filter;
+        }
 
-      setupSearch();
+        // ==============================
+        // FILTER FUNCTIONS
+        // ==============================
 
-      document.getElementById('mobileMenu').addEventListener('click', function() {
-        showNotification('Mobile menu - Feature coming soon!', 'info');
-      });
+        function filterLadiesProducts(category) {
+            renderLadiesProducts(category);
+            
+            // Update filter buttons
+            document.querySelectorAll('.filter-btn-ladies').forEach(btn => {
+                btn.classList.remove('active', 'bg-primary', 'text-white');
+                btn.classList.add('text-gray-600');
+            });
+            
+            event.target.classList.add('active', 'bg-primary', 'text-white');
+            event.target.classList.remove('text-gray-600');
+        }
 
-      // Close modals when clicking outside
-      document.querySelectorAll('.fixed.inset-0').forEach(modal => {
-        modal.addEventListener('click', function(e) {
-          if (e.target === this) {
-            this.classList.add('hidden');
-          }
-        });
-      });
-    }
-  </script>
- </body>
+        function filterBoysProducts(category) {
+            renderBoysProducts(category);
+            
+            // Update filter buttons
+            document.querySelectorAll('.filter-btn-boys').forEach(btn => {
+                btn.classList.remove('active', 'bg-boysPrimary', 'text-white');
+                btn.classList.add('text-gray-600');
+            });
+            
+            event.target.classList.add('active', 'bg-boysPrimary', 'text-white');
+            event.target.classList.remove('text-gray-600');
+        }
+
+        // ==============================
+        // CART FUNCTIONS
+        // ==============================
+
+        function addToCartLadies(productId) {
+            const product = ladiesProducts.find(p => p.id === productId);
+            const existingItem = cart.find(item => item.id === productId && item.type === 'ladies');
+            
+            if (existingItem) {
+                existingItem.quantity += 1;
+            } else {
+                cart.push({ 
+                    id: product.id,
+                    name: product.name,
+                    price: product.price,
+                    image: product.image,
+                    type: 'ladies',
+                    quantity: 1 
+                });
+            }
+            
+            updateCartUI();
+            showNotification(`${product.name} added to cart!`, 'success');
+            saveCart();
+        }
+
+        function addToCartBoys(productId) {
+            const product = boysProducts.find(p => p.id === productId);
+            const existingItem = cart.find(item => item.id === productId && item.type === 'boys');
+            
+            if (existingItem) {
+                existingItem.quantity += 1;
+            } else {
+                cart.push({ 
+                    id: product.id,
+                    name: product.name,
+                    price: product.price,
+                    image: product.image,
+                    type: 'boys',
+                    quantity: 1 
+                });
+            }
+            
+            updateCartUI();
+            showNotification(`${product.name} added to cart!`, 'success');
+            saveCart();
+        }
+
+        function updateCartUI() {
+            const cartCount = document.getElementById('cartCount');
+            const cartItems = document.getElementById('cartItems');
+            const cartTotal = document.getElementById('cartTotal');
+            
+            const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+            const totalPrice = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+            
+            cartCount.textContent = totalItems;
+            cartTotal.textContent = totalPrice.toLocaleString();
+            
+            if (cart.length === 0) {
+                cartItems.innerHTML = `
+                    <div class="text-center text-gray-500 py-12">
+                        <div class="text-5xl mb-4">🛒</div>
+                        <p class="text-lg">Your cart is empty</p>
+                        <p class="text-sm text-gray-400 mt-2">Add some products to get started!</p>
+                    </div>
+                `;
+            } else {
+                cartItems.innerHTML = cart.map((item, index) => `
+                    <div class="flex items-center gap-4 py-4 ${index !== cart.length - 1 ? 'border-b border-gray-100' : ''}">
+                        <img src="${item.image}" alt="${item.name}" class="w-16 h-16 md:w-20 md:h-20 object-cover rounded-lg">
+                        <div class="flex-1 min-w-0">
+                            <h4 class="font-semibold text-sm md:text-base truncate">${item.name}</h4>
+                            <p class="${item.type === 'ladies' ? 'text-primary' : 'text-boysPrimary'} font-bold text-sm md:text-base">₨ ${item.price.toLocaleString()}</p>
+                            <div class="flex items-center gap-2 mt-1">
+                                <button onclick="updateCartQuantity(${item.id}, '${item.type}', -1)" class="w-6 h-6 bg-gray-200 rounded-full flex items-center justify-center hover:bg-gray-300 text-sm">-</button>
+                                <span class="w-8 text-center text-sm">${item.quantity}</span>
+                                <button onclick="updateCartQuantity(${item.id}, '${item.type}', 1)" class="w-6 h-6 bg-gray-200 rounded-full flex items-center justify-center hover:bg-gray-300 text-sm">+</button>
+                            </div>
+                        </div>
+                        <div class="text-right">
+                            <p class="font-bold text-sm md:text-base">₨ ${(item.price * item.quantity).toLocaleString()}</p>
+                            <button onclick="removeFromCart(${item.id}, '${item.type}')" class="text-red-500 hover:text-red-700 mt-2 text-sm">Remove</button>
+                        </div>
+                    </div>
+                `).join('');
+            }
+        }
+
+        function updateCartQuantity(productId, type, change) {
+            const item = cart.find(item => item.id === productId && item.type === type);
+            if (item) {
+                item.quantity += change;
+                if (item.quantity <= 0) {
+                    cart = cart.filter(item => !(item.id === productId && item.type === type));
+                }
+                updateCartUI();
+                saveCart();
+            }
+        }
+
+        function removeFromCart(productId, type) {
+            cart = cart.filter(item => !(item.id === productId && item.type === type));
+            updateCartUI();
+            saveCart();
+            showNotification('Item removed from cart!', 'info');
+        }
+
+        function saveCart() {
+            localStorage.setItem('cart', JSON.stringify(cart));
+        }
+
+        // ==============================
+        // MODAL FUNCTIONS
+        // ==============================
+
+        function openCartModal() {
+            document.getElementById('cartModal').classList.remove('hidden');
+        }
+
+        function closeCartModal() {
+            document.getElementById('cartModal').classList.add('hidden');
+        }
+
+        function openImagePreview(imageUrl, productName, price) {
+            document.getElementById('previewImage').src = imageUrl;
+            document.getElementById('previewProductName').textContent = productName;
+            document.getElementById('previewProductPrice').textContent = price.toLocaleString();
+            document.getElementById('imagePreviewModal').classList.add('active');
+        }
+
+        function closeImagePreview() {
+            document.getElementById('imagePreviewModal').classList.remove('active');
+        }
+
+        // ==============================
+        // CHECKOUT FUNCTION
+        // ==============================
+
+        function checkout() {
+            if (cart.length === 0) {
+                showNotification('Your cart is empty! Add some products first.', 'info');
+                return;
+            }
+
+            const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+            const orderNumber = 'BF-' + Date.now().toString().slice(-6);
+            
+            let message = `🛍️ *NEW ORDER - Basim Fashion* 🛍️\n\n`;
+            message += `📋 *Order Number:* ${orderNumber}\n`;
+            message += `📅 *Date:* ${new Date().toLocaleDateString()}\n\n`;
+            message += `🛒 *Order Items:*\n`;
+            
+            cart.forEach((item, index) => {
+                message += `${index + 1}. ${item.name}\n`;
+                message += `   Qty: ${item.quantity} | Price: ₨${item.price} | Total: ₨${(item.price * item.quantity)}\n`;
+            });
+            
+            message += `\n💰 *Order Summary:*\n`;
+            message += `Subtotal: ₨${total}\n`;
+            message += `Shipping: Free\n`;
+            message += `*Total: ₨${total}*\n\n`;
+            message += `✅ *Please confirm this order!*`;
+            
+            const phoneNumber = "923347382564";
+            const encodedMessage = encodeURIComponent(message);
+            const whatsappLink = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+            
+            // Show processing
+            const checkoutBtn = document.querySelector('#cartModal button');
+            const originalText = checkoutBtn.innerHTML;
+            checkoutBtn.innerHTML = '<div class="loading"></div> Processing...';
+            checkoutBtn.disabled = true;
+            
+            setTimeout(() => {
+                window.open(whatsappLink, '_blank');
+                
+                // Clear cart
+                cart = [];
+                updateCartUI();
+                saveCart();
+                closeCartModal();
+                
+                // Reset button
+                checkoutBtn.innerHTML = originalText;
+                checkoutBtn.disabled = false;
+                
+                showNotification('Order sent to WhatsApp! Please send the message.', 'success');
+            }, 1500);
+        }
+
+        // ==============================
+        // UTILITY FUNCTIONS
+        // ==============================
+
+        function scrollToSection(sectionId) {
+            const element = document.getElementById(sectionId);
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+
+        function showNotification(message, type = 'info') {
+            const notification = document.createElement('div');
+            notification.className = `fixed top-20 right-4 z-[9999] px-6 py-4 rounded-xl shadow-xl text-white text-sm md:text-base ${type === 'success' ? 'bg-green-500' : type === 'error' ? 'bg-red-500' : 'bg-blue-500'} slide-in`;
+            notification.textContent = message;
+            document.body.appendChild(notification);
+            
+            setTimeout(() => {
+                notification.remove();
+            }, 3000);
+        }
+
+        function submitContactForm() {
+            showNotification('Thank you for your message! We will contact you soon.', 'success');
+            document.getElementById('contactForm').reset();
+        }
+
+        function handleSearch(event) {
+            const searchTerm = event.target.value.toLowerCase();
+            
+            if (currentSection === 'ladies') {
+                const filtered = ladiesProducts.filter(product => 
+                    product.name.toLowerCase().includes(searchTerm) || 
+                    product.description.toLowerCase().includes(searchTerm) ||
+                    product.category.toLowerCase().includes(searchTerm)
+                );
+                
+                const grid = document.getElementById('ladiesProductsGrid');
+                if (searchTerm === '') {
+                    renderLadiesProducts(currentLadiesFilter);
+                } else {
+                    grid.innerHTML = filtered.map(product => `
+                        <div class="bg-white rounded-xl shadow-lg overflow-hidden hover-scale">
+                            <img src="${product.image}" alt="${product.name}" class="w-full h-48 md:h-64 object-cover">
+                            <div class="p-4">
+                                <h3 class="font-semibold text-base mb-2">${product.name}</h3>
+                                <p class="text-gray-600 text-sm mb-3 line-clamp-2">${product.description}</p>
+                                <div class="flex justify-between items-center">
+                                    <span class="text-lg font-bold text-primary">₨ ${product.price.toLocaleString()}</span>
+                                    <button onclick="addToCartLadies(${product.id})" class="bg-primary text-white px-4 py-2 rounded-lg hover:bg-accent transition-colors text-sm">
+                                        Add to Cart
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    `).join('');
+                }
+            } else if (currentSection === 'boys') {
+                const filtered = boysProducts.filter(product => 
+                    product.name.toLowerCase().includes(searchTerm) || 
+                    product.description.toLowerCase().includes(searchTerm) ||
+                    product.category.toLowerCase().includes(searchTerm)
+                );
+                
+                const grid = document.getElementById('boysProductsGrid');
+                if (searchTerm === '') {
+                    renderBoysProducts(currentBoysFilter);
+                } else {
+                    grid.innerHTML = filtered.map(product => `
+                        <div class="bg-white rounded-xl shadow-lg overflow-hidden hover-scale">
+                            <img src="${product.image}" alt="${product.name}" class="w-full h-48 md:h-64 object-cover">
+                            <div class="p-4">
+                                <h3 class="font-semibold text-base mb-2">${product.name}</h3>
+                                <p class="text-gray-600 text-sm mb-3 line-clamp-2">${product.description}</p>
+                                <div class="flex justify-between items-center">
+                                    <span class="text-lg font-bold text-boysPrimary">₨ ${product.price.toLocaleString()}</span>
+                                    <button onclick="addToCartBoys(${product.id})" class="bg-boysPrimary text-white px-4 py-2 rounded-lg hover:bg-boysAccent transition-colors text-sm">
+                                        Add to Cart
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    `).join('');
+                }
+            }
+        }
+
+        // ==============================
+        // MOBILE MENU FUNCTIONS
+        // ==============================
+
+        function setupEventListeners() {
+            // Cart button
+            document.getElementById('cartButton').addEventListener('click', openCartModal);
+            
+            // Mobile menu
+            const mobileMenuButton = document.getElementById('mobileMenuButton');
+            const closeMobileMenu = document.getElementById('closeMobileMenu');
+            const mobileMenu = document.getElementById('mobileMenu');
+            const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
+            
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.add('active');
+                mobileMenuOverlay.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            });
+            
+            closeMobileMenu.addEventListener('click', closeMobileMenuFunction);
+            mobileMenuOverlay.addEventListener('click', closeMobileMenuFunction);
+            
+            // Close modals on outside click
+            document.querySelectorAll('.fixed.inset-0').forEach(modal => {
+                modal.addEventListener('click', function(e) {
+                    if (e.target === this) {
+                        this.classList.add('hidden');
+                    }
+                });
+            });
+            
+            // Close image preview on ESC
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape') {
+                    closeImagePreview();
+                }
+            });
+        }
+
+        function closeMobileMenuFunction() {
+            const mobileMenu = document.getElementById('mobileMenu');
+            const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
+            
+            mobileMenu.classList.remove('active');
+            mobileMenuOverlay.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+    </script>
+</body>
 </html>
