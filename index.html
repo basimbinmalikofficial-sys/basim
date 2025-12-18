@@ -116,7 +116,77 @@
             display: block;
         }
         
-        /* Image Preview Modal */
+        /* Product Image Carousel */
+        .product-image-carousel {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .product-image-container {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+        
+        .product-image-slide {
+            min-width: 100%;
+            height: 100%;
+        }
+        
+        .product-image-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0,0,0,0.5);
+            color: white;
+            border: none;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        
+        .product-card:hover .product-image-nav {
+            opacity: 1;
+        }
+        
+        .product-image-prev {
+            left: 10px;
+        }
+        
+        .product-image-next {
+            right: 10px;
+        }
+        
+        .product-image-dots {
+            position: absolute;
+            bottom: 10px;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: center;
+            gap: 6px;
+        }
+        
+        .product-image-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.5);
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        
+        .product-image-dot.active {
+            background: white;
+            transform: scale(1.2);
+        }
+        
+        /* Full Screen Image Preview Modal */
         .image-preview-modal {
             display: none;
             position: fixed;
@@ -124,7 +194,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0,0,0,0.95);
+            background: rgba(0,0,0,0.98);
             z-index: 9999;
             align-items: center;
             justify-content: center;
@@ -132,6 +202,115 @@
         
         .image-preview-modal.active {
             display: flex;
+        }
+        
+        .image-preview-container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        
+        .image-preview-image {
+            max-width: 90%;
+            max-height: 80vh;
+            object-fit: contain;
+            border-radius: 8px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+        }
+        
+        .image-preview-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: rgba(255,255,255,0.2);
+            color: white;
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 24px;
+            transition: all 0.3s;
+            backdrop-filter: blur(10px);
+        }
+        
+        .image-preview-close:hover {
+            background: rgba(255,255,255,0.3);
+            transform: scale(1.1);
+        }
+        
+        .image-preview-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255,255,255,0.2);
+            color: white;
+            border: none;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 24px;
+            transition: all 0.3s;
+            backdrop-filter: blur(10px);
+        }
+        
+        .image-preview-nav:hover {
+            background: rgba(255,255,255,0.3);
+            transform: scale(1.1);
+        }
+        
+        .image-preview-prev {
+            left: 30px;
+        }
+        
+        .image-preview-next {
+            right: 30px;
+        }
+        
+        .image-preview-info {
+            position: absolute;
+            bottom: 20px;
+            left: 0;
+            right: 0;
+            text-align: center;
+            color: white;
+            padding: 15px 20px;
+            background: rgba(0,0,0,0.6);
+            backdrop-filter: blur(10px);
+        }
+        
+        .image-preview-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        
+        .image-preview-price {
+            font-size: 1.2rem;
+            color: #e91e63;
+        }
+        
+        .image-preview-counter {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: rgba(0,0,0,0.6);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            backdrop-filter: blur(10px);
         }
         
         /* Mobile Responsive Styles */
@@ -182,6 +361,45 @@
             .checkout-grid {
                 grid-template-columns: 1fr !important;
                 gap: 1rem !important;
+            }
+            
+            .product-image-nav {
+                opacity: 1;
+                width: 28px;
+                height: 28px;
+            }
+            
+            .image-preview-nav {
+                width: 40px;
+                height: 40px;
+                font-size: 18px;
+            }
+            
+            .image-preview-prev {
+                left: 10px;
+            }
+            
+            .image-preview-next {
+                right: 10px;
+            }
+            
+            .image-preview-close {
+                width: 40px;
+                height: 40px;
+                font-size: 20px;
+            }
+            
+            .image-preview-image {
+                max-width: 95%;
+                max-height: 70vh;
+            }
+            
+            .image-preview-title {
+                font-size: 1.2rem;
+            }
+            
+            .image-preview-price {
+                font-size: 1rem;
             }
         }
         
@@ -433,13 +651,31 @@
                     <div class="relative order-1 lg:order-2">
                         <div class="floating-animation">
                             <div class="bg-white rounded-2xl md:rounded-3xl shadow-xl md:shadow-2xl overflow-hidden">
-                                <img src="https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?w=600&h=800&fit=crop" alt="Fashion Model" class="w-full h-64 md:h-96 object-cover">
+                                <div class="product-image-carousel">
+                                    <div class="product-image-container" id="featuredLadiesCarousel">
+                                        <div class="product-image-slide">
+                                            <img src="https://content.public.markaz.app/markazimagevideo/public/products/1993-95-683295-product-1.webp" alt="Featured Ladies Dress 1" class="w-full h-64 md:h-96 object-cover">
+                                        </div>
+                                        <div class="product-image-slide">
+                                            <img src="https://content.public.markaz.app/markazimagevideo/public/products/1993-95-683294-product-1.webp" alt="Featured Ladies Dress 2" class="w-full h-64 md:h-96 object-cover">
+                                        </div>
+                                        <div class="product-image-slide">
+                                            <img src="https://content.public.markaz.app/markazimagevideo/public/products/1993-95-683292-product-1.webp" alt="Featured Ladies Dress 3" class="w-full h-64 md:h-96 object-cover">
+                                        </div>
+                                        <div class="product-image-slide">
+                                            <img src="https://content.public.markaz.app/markazimagevideo/public/products/1993-95-683289-product-1.webp" alt="Featured Ladies Dress 4" class="w-full h-64 md:h-96 object-cover">
+                                        </div>
+                                    </div>
+                                    <button class="product-image-nav product-image-prev" onclick="prevSlide('featuredLadiesCarousel')">❮</button>
+                                    <button class="product-image-nav product-image-next" onclick="nextSlide('featuredLadiesCarousel')">❯</button>
+                                    <div class="product-image-dots" id="featuredLadiesDots"></div>
+                                </div>
                                 <div class="p-4 md:p-6">
-                                    <h3 class="text-xl md:text-2xl font-semibold mb-2">Featured: Elegant Evening Dress</h3>
+                                    <h3 class="text-xl md:text-2xl font-semibold mb-2">Featured: Elegant Evening Dress Collection</h3>
                                     <p class="text-gray-600 text-sm md:text-base mb-4">Perfect for special occasions and formal events</p>
                                     <div class="flex flex-col sm:flex-row justify-between items-center gap-3">
-                                        <span class="text-xl md:text-2xl font-bold text-primary">₨ 4,500</span>
-                                        <button onclick="addToCartLadies(1)" class="bg-primary text-white px-4 md:px-6 py-2 rounded-full hover:bg-accent transition-colors touch-button w-full sm:w-auto">Add to Cart</button>
+                                        <span class="text-xl md:text-2xl font-bold text-primary">₨ 4,500 - 12,000</span>
+                                        <button onclick="addToCartLadies(24)" class="bg-primary text-white px-4 md:px-6 py-2 rounded-full hover:bg-accent transition-colors touch-button w-full sm:w-auto">Add to Cart</button>
                                     </div>
                                 </div>
                             </div>
@@ -539,12 +775,30 @@
                     <div class="relative order-1 lg:order-2">
                         <div class="floating-animation">
                             <div class="bg-white rounded-2xl md:rounded-3xl shadow-xl md:shadow-2xl overflow-hidden">
-                                <img src="https://images.unsplash.com/photo-1520975916090-3105956dac38?w=600&h=800&fit=crop" alt="Boys Fashion Model" class="w-full h-64 md:h-96 object-cover">
+                                <div class="product-image-carousel">
+                                    <div class="product-image-container" id="featuredBoysCarousel">
+                                        <div class="product-image-slide">
+                                            <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=600&h=800&fit=crop" alt="Featured Boys Outfit 1" class="w-full h-64 md:h-96 object-cover">
+                                        </div>
+                                        <div class="product-image-slide">
+                                            <img src="https://images.unsplash.com/photo-1594938374185-7c19a8f6d2f4?w=600&h=800&fit=crop" alt="Featured Boys Outfit 2" class="w-full h-64 md:h-96 object-cover">
+                                        </div>
+                                        <div class="product-image-slide">
+                                            <img src="https://images.unsplash.com/photo-1523580494863-6f3031224c94?w=600&h=800&fit=crop" alt="Featured Boys Outfit 3" class="w-full h-64 md:h-96 object-cover">
+                                        </div>
+                                        <div class="product-image-slide">
+                                            <img src="https://images.unsplash.com/photo-1551028719-00167b16eac5?w=600&h=800&fit=crop" alt="Featured Boys Outfit 4" class="w-full h-64 md:h-96 object-cover">
+                                        </div>
+                                    </div>
+                                    <button class="product-image-nav product-image-prev" onclick="prevSlide('featuredBoysCarousel')">❮</button>
+                                    <button class="product-image-nav product-image-next" onclick="nextSlide('featuredBoysCarousel')">❯</button>
+                                    <div class="product-image-dots" id="featuredBoysDots"></div>
+                                </div>
                                 <div class="p-4 md:p-6">
-                                    <h3 class="text-xl md:text-2xl font-semibold mb-2">Featured: Stylish Casual Set</h3>
+                                    <h3 class="text-xl md:text-2xl font-semibold mb-2">Featured: Stylish Casual Collection</h3>
                                     <p class="text-gray-600 text-sm md:text-base mb-4">Perfect for daily wear and casual outings</p>
                                     <div class="flex flex-col sm:flex-row justify-between items-center gap-3">
-                                        <span class="text-xl md:text-2xl font-bold text-boysPrimary">₨ 3,800</span>
+                                        <span class="text-xl md:text-2xl font-bold text-boysPrimary">₨ 1,500 - 6,800</span>
                                         <button onclick="addToCartBoys(1)" class="bg-boysPrimary text-white px-4 md:px-6 py-2 rounded-full hover:bg-boysAccent transition-colors touch-button w-full sm:w-auto">Add to Cart</button>
                                     </div>
                                 </div>
@@ -869,260 +1123,390 @@
         </div>
     </div>
 
-    <!-- Image Preview Modal -->
+    <!-- Enhanced Full Screen Image Preview Modal -->
     <div id="imagePreviewModal" class="image-preview-modal">
-        <div class="relative w-full h-full flex items-center justify-center p-4">
-            <button onclick="closeImagePreview()" class="absolute top-4 right-4 bg-white text-gray-800 rounded-full w-10 h-10 flex items-center justify-center text-xl z-50 hover:bg-gray-100 transition-colors">×</button>
-            <img id="previewImage" src="" alt="Product Preview" class="max-w-full max-h-full object-contain rounded-lg">
-            <div class="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-black bg-opacity-50 text-white px-4 py-2 rounded-full">
-                <span id="previewProductName"></span> - ₨<span id="previewProductPrice"></span>
+        <div class="image-preview-container">
+            <button onclick="closeImagePreview()" class="image-preview-close">×</button>
+            
+            <button onclick="prevImagePreview()" class="image-preview-nav image-preview-prev">❮</button>
+            
+            <div class="relative">
+                <img id="previewImage" src="" alt="Product Preview" class="image-preview-image">
+                <div class="image-preview-counter" id="imageCounter">1/4</div>
+            </div>
+            
+            <button onclick="nextImagePreview()" class="image-preview-nav image-preview-next">❯</button>
+            
+            <div class="image-preview-info">
+                <div class="image-preview-title" id="previewProductName"></div>
+                <div class="image-preview-price">₨ <span id="previewProductPrice"></span></div>
             </div>
         </div>
     </div>
 
     <script>
         // ==============================
-        // PRODUCTS DATA - 24 LADIES + 24 BOYS
+        // PRODUCTS DATA - 24 LADIES + 24 BOYS WITH 4 IMAGES EACH
         // ==============================
 
         const ladiesProducts = [
             {
                 id: 1,
-                name: "Designer Casual Dress",
+                name: "Designer Casual Dress Collection",
                 price: 2000,
                 category: "casual",
-                description: "Beautiful designer casual dress perfect for everyday wear with premium fabric quality",
-                image: "https://content.public.markaz.app/markazimagevideo/public/products/1993-95-683287-product-1.webp",
+                description: "Beautiful designer casual dresses perfect for everyday wear with premium fabric quality",
+                images: [
+                    "https://content.public.markaz.app/markazimagevideo/public/products/1993-95-683295-product-1.webp",
+                    "https://content.public.markaz.app/markazimagevideo/public/products/1993-95-683294-product-1.webp",
+                    "https://content.public.markaz.app/markazimagevideo/public/products/1993-95-683292-product-1.webp",
+                    "https://content.public.markaz.app/markazimagevideo/public/products/1993-95-683289-product-1.webp"
+                ],
                 rating: 4.8,
                 reviews: 124
             },
             {
                 id: 2,
-                name: "Sequin Party Collection",
+                name: "Sequin Party Collection Set",
                 price: 3000,
                 category: "party",
-                description: "Dazzling sequin dress perfect for parties and special occasions",
-                image: "https://content.public.markaz.app/markazimagevideo/public/products/1993-11-683306-product-1.webp",
+                description: "Dazzling sequin dresses perfect for parties and special occasions",
+                images: [
+                    "https://content.public.markaz.app/markazimagevideo/public/products/1993-11-683306-product-1.webp",
+                    "https://content.public.markaz.app/markazimagevideo/public/products/1993-11-683305-product-1.webp",
+                    "https://content.public.markaz.app/markazimagevideo/public/products/1993-11-683304-product-1.webp",
+                    "https://content.public.markaz.app/markazimagevideo/public/products/1993-11-683302-product-1.webp"
+                ],
                 rating: 4.9,
                 reviews: 92
             },
             {
                 id: 3,
-                name: "Bohemian Maxi Dress",
+                name: "Bohemian Maxi Dress Collection",
                 price: 2500,
                 category: "casual",
                 description: "Free-spirited bohemian maxi with vibrant embroidery and tassel details",
-                image: "https://content.public.markaz.app/markazimagevideo/public/products/1993-95-682368-product-1.webp",
+                images: [
+                    "https://content.public.markaz.app/markazimagevideo/public/products/1993-95-682368-product-1.webp",
+                    "https://content.public.markaz.app/markazimagevideo/public/products/1993-95-682364-product-1.webp",
+                    "https://content.public.markaz.app/markazimagevideo/public/products/1993-95-682369-product-1.webp",
+                    "https://content.public.markaz.app/markazimagevideo/public/products/1993-95-682365-product-1.webp"
+                ],
                 rating: 4.6,
                 reviews: 145
             },
             {
                 id: 4,
-                name: "Professional Pencil Skirt",
+                name: "Professional Pencil Skirt Set",
                 price: 1800,
                 category: "office",
-                description: "Classic high-waisted pencil skirt perfect for office wear",
-                image: "https://content.public.markaz.app/markazimagevideo/public/products/1993-95-681250-product-1.webp",
+                description: "Classic high-waisted pencil skirts perfect for office wear",
+                images: [
+                    "https://content.public.markaz.app/markazimagevideo/public/products/1993-95-681250-product-1.webp",
+                    "https://content.public.markaz.app/markazimagevideo/public/products/1993-95-681250-product-2.webp",
+                    "https://content.public.markaz.app/markazimagevideo/public/products/1993-95-681251-product-1.webp",
+                    "https://content.public.markaz.app/markazimagevideo/public/products/1993-95-681251-product-2.webp"
+                ],
                 rating: 4.7,
                 reviews: 112
             },
             {
                 id: 5,
-                name: "Elegant Office Set",
+                name: "Elegant Office Collection Set",
                 price: 3500,
                 category: "office",
                 description: "Sophisticated office ensemble for the modern professional woman",
-                image: "https://content.public.markaz.app/markazimagevideo/public/products/729-11-680907-product-1.webp",
+                images: [
+                    "https://content.public.markaz.app/markazimagevideo/public/products/729-11-680907-product-1.webp",
+                    "https://content.public.markaz.app/markazimagevideo/public/products/729-11-680905-product-1.webp",
+                    "https://content.public.markaz.app/markazimagevideo/public/products/729-11-680904-product-1.webp",
+                    "https://content.public.markaz.app/markazimagevideo/public/products/729-11-680906-product-1.webp"
+                ],
                 rating: 4.8,
                 reviews: 87
             },
             {
                 id: 6,
-                name: "Silk Evening Gown",
+                name: "Silk Evening Gown Collection",
                 price: 4500,
                 category: "party",
-                description: "Luxurious silk evening dress with elegant draping",
-                image: "https://content.public.markaz.app/markazimagevideo/public/products/1993-14-680809-product-1.webp",
+                description: "Luxurious silk evening dresses with elegant draping",
+                images: [
+                    "https://content.public.markaz.app/markazimagevideo/public/products/1993-14-680809-product-1.webp",
+                    "https://content.public.markaz.app/markazimagevideo/public/thumbnails/products/1993-14-680810-product-1.webp",
+                    "https://content.public.markaz.app/markazimagevideo/public/thumbnails/products/1993-14-680808-product-1.webp",
+                    "https://content.public.markaz.app/markazimagevideo/public/thumbnails/products/1993-14-680806-product-1.webp"
+                ],
                 rating: 4.9,
                 reviews: 82
             },
             {
                 id: 7,
-                name: "Contemporary Party Wear",
+                name: "Contemporary Party Wear Collection",
                 price: 3200,
                 category: "party",
-                description: "Modern party dress with sophisticated styling",
-                image: "https://content.public.markaz.app/markazimagevideo/public/thumbnails/products/1993-95-680800-product-1.webp",
+                description: "Modern party dresses with sophisticated styling",
+                images: [
+                    "https://content.public.markaz.app/markazimagevideo/public/thumbnails/products/1993-95-680800-product-1.webp",
+                    "https://content.public.markaz.app/markazimagevideo/public/thumbnails/products/1993-95-680801-product-1.webp",
+                    "https://content.public.markaz.app/markazimagevideo/public/thumbnails/products/1993-95-680798-product-1.webp",
+                    "https://content.public.markaz.app/markazimagevideo/public/thumbnails/products/1993-95-680802-product-1.webp"
+                ],
                 rating: 4.7,
                 reviews: 95
             },
             {
                 id: 8,
-                name: "Floral Summer Collection",
+                name: "Floral Summer Collection Set",
                 price: 2200,
                 category: "casual",
-                description: "Vibrant floral print dress perfect for summer days",
-                image: "https://content.public.markaz.app/markazimagevideo/public/thumbnails/products/1993-95-680493-product-1.webp",
+                description: "Vibrant floral print dresses perfect for summer days",
+                images: [
+                    "https://content.public.markaz.app/markazimagevideo/public/thumbnails/products/1993-95-680493-product-1.webp",
+                    "https://content.public.markaz.app/markazimagevideo/public/thumbnails/products/1993-95-680492-product-1.webp",
+                    "https://content.public.markaz.app/markazimagevideo/public/thumbnails/products/1993-95-680491-product-1.webp",
+                    "https://content.public.markaz.app/markazimagevideo/public/thumbnails/products/1993-95-680490-product-1.webp"
+                ],
                 rating: 4.5,
                 reviews: 201
             },
             {
                 id: 9,
-                name: "Bridal Special Gown",
+                name: "Bridal Special Gown Collection",
                 price: 8500,
                 category: "bridal",
-                description: "Exquisite bridal gown with delicate lace and pearl details",
-                image: "https://content.public.markaz.app/markazimagevideo/public/thumbnails/products/1993-10-680484-product-1.webp",
+                description: "Exquisite bridal gowns with delicate lace and pearl details",
+                images: [
+                    "https://content.public.markaz.app/markazimagevideo/public/thumbnails/products/1993-10-680484-product-1.webp",
+                    "https://content.public.markaz.app/markazimagevideo/public/thumbnails/products/1993-10-680482-product-1.webp",
+                    "https://content.public.markaz.app/markazimagevideo/public/thumbnails/products/1993-10-680481-product-1.webp",
+                    "https://content.public.markaz.app/markazimagevideo/public/thumbnails/products/1993-10-680480-product-1.webp"
+                ],
                 rating: 5.0,
                 reviews: 45
             },
             {
                 id: 10,
-                name: "Executive Business Suit",
+                name: "Executive Business Suit Collection",
                 price: 4200,
                 category: "office",
-                description: "Premium business suit for professional settings",
-                image: "https://content.public.markaz.app/markazimagevideo/public/thumbnails/products/1993-11-680077-product-1.webp",
+                description: "Premium business suits for professional settings",
+                images: [
+                    "https://content.public.markaz.app/markazimagevideo/public/thumbnails/products/1993-11-680077-product-1.webp",
+                    "https://content.public.markaz.app/markazimagevideo/public/thumbnails/products/1993-11-680075-product-1.webp",
+                    "https://content.public.markaz.app/markazimagevideo/public/thumbnails/products/1993-11-680076-product-1.webp",
+                    "https://content.public.markaz.app/markazimagevideo/public/thumbnails/products/1993-11-680079-product-1.webp"
+                ],
                 rating: 4.6,
                 reviews: 78
             },
             {
                 id: 11,
-                name: "Cocktail Evening Dress",
+                name: "Cocktail Evening Dress Set",
                 price: 3800,
                 category: "party",
-                description: "Chic cocktail dress for elegant evening events",
-                image: "https://content.public.markaz.app/markazimagevideo/public/thumbnails/products/1993-95-680073-product-1.webp",
+                description: "Chic cocktail dresses for elegant evening events",
+                images: [
+                    "https://content.public.markaz.app/markazimagevideo/public/thumbnails/products/1993-95-680073-product-1.webp",
+                    "https://content.public.markaz.app/markazimagevideo/public/thumbnails/products/1993-95-680072-product-1.webp",
+                    "https://content.public.markaz.app/markazimagevideo/public/thumbnails/products/1993-95-680070-product-1.webp",
+                    "https://content.public.markaz.app/markazimagevideo/public/thumbnails/products/1993-95-680071-product-1.webp"
+                ],
                 rating: 4.8,
                 reviews: 93
             },
             {
                 id: 12,
-                name: "Casual Maxi Comfort",
+                name: "Casual Maxi Comfort Collection",
                 price: 1900,
                 category: "casual",
-                description: "Comfortable maxi dress for everyday casual wear",
-                image: "https://content.public.markaz.app/markazimagevideo/public/thumbnails/products/1993-95-680064-product-1.webp",
+                description: "Comfortable maxi dresses for everyday casual wear",
+                images: [
+                    "https://content.public.markaz.app/markazimagevideo/public/thumbnails/products/1993-95-680064-product-1.webp",
+                    "https://content.public.markaz.app/markazimagevideo/public/thumbnails/products/1993-95-680062-product-1.webp",
+                    "https://content.public.markaz.app/markazimagevideo/public/thumbnails/products/1993-95-680063-product-1.webp",
+                    "https://content.public.markaz.app/markazimagevideo/public/thumbnails/products/1993-95-680061-product-1.webp"
+                ],
                 rating: 4.7,
                 reviews: 156
             },
             {
                 id: 13,
-                name: "Premium Casual Wear",
+                name: "Premium Casual Wear Collection",
                 price: 2800,
                 category: "casual",
-                description: "Premium quality casual dress with modern design",
-                image: "https://content.public.markaz.app/markazimagevideo/public/thumbnails/products/1993-10-679781-product-1.webp",
+                description: "Premium quality casual dresses with modern design",
+                images: [
+                    "https://content.public.markaz.app/markazimagevideo/public/thumbnails/products/1993-10-679781-product-1.webp",
+                    "https://content.public.markaz.app/markazimagevideo/public/thumbnails/products/1993-10-679780-product-1.webp",
+                    "https://content.public.markaz.app/markazimagevideo/public/products/1993-10-679779-product-1.webp",
+                    "https://content.public.markaz.app/markazimagevideo/public/thumbnails/products/1993-10-679778-product-1.webp"
+                ],
                 rating: 4.6,
                 reviews: 134
             },
             {
                 id: 14,
-                name: "Glamorous Party Sequins",
+                name: "Glamorous Party Sequins Set",
                 price: 5200,
                 category: "party",
-                description: "Glamorous sequin dress that sparkles all night",
-                image: "https://content.public.markaz.app/markazimagevideo/public/thumbnails/products/1993-10-678684-product-1.webp",
+                description: "Glamorous sequin dresses that sparkle all night",
+                images: [
+                    "https://content.public.markaz.app/markazimagevideo/public/thumbnails/products/1993-10-678684-product-1.webp",
+                    "https://content.public.markaz.app/markazimagevideo/public/thumbnails/products/1993-10-678682-product-1.webp",
+                    "https://content.public.markaz.app/markazimagevideo/public/thumbnails/products/1993-10-678683-product-1.webp",
+                    "https://content.public.markaz.app/markazimagevideo/public/thumbnails/products/1993-10-678681-product-1.webp"
+                ],
                 rating: 4.9,
                 reviews: 88
             },
             {
                 id: 15,
-                name: "Bohemian Chic Collection",
+                name: "Bohemian Chic Collection Set",
                 price: 2700,
                 category: "casual",
-                description: "Bohemian style dress with artistic patterns",
-                image: "https://content.public.markaz.app/markazimagevideo/public/thumbnails/products/1993-10-678468-product-1.webp",
+                description: "Bohemian style dresses with artistic patterns",
+                images: [
+                    "https://content.public.markaz.app/markazimagevideo/public/thumbnails/products/1993-10-678468-product-1.webp",
+                    "https://content.public.markaz.app/markazimagevideo/public/thumbnails/products/1993-10-678467-product-1.webp",
+                    "https://content.public.markaz.app/markazimagevideo/public/thumbnails/products/1993-10-678465-product-1.webp",
+                    "https://content.public.markaz.app/markazimagevideo/public/thumbnails/products/1993-10-678464-product-1.webp"
+                ],
                 rating: 4.7,
                 reviews: 167
             },
             {
                 id: 16,
-                name: "Corporate Office Attire",
+                name: "Corporate Office Attire Set",
                 price: 4800,
                 category: "office",
                 description: "Professional corporate attire for business meetings",
-                image: "https://content.public.markaz.app/markazimagevideo/public/thumbnails/products/714-220-673832-product-1.webp",
+                images: [
+                    "https://content.public.markaz.app/markazimagevideo/public/thumbnails/products/714-220-673832-product-1.webp",
+                    "https://content.public.markaz.app/markazimagevideo/public/thumbnails/products/714-220-673830-product-1.webp",
+                    "https://content.public.markaz.app/markazimagevideo/public/thumbnails/products/714-220-673831-product-1.webp",
+                    "https://content.public.markaz.app/markazimagevideo/public/thumbnails/products/714-220-673828-product-1.webp"
+                ],
                 rating: 4.5,
                 reviews: 102
             },
             {
                 id: 17,
-                name: "Executive Formal Suit",
+                name: "Executive Formal Suit Collection",
                 price: 5500,
                 category: "office",
-                description: "Executive level formal suit with premium tailoring",
-                image: "https://content.public.markaz.app/markazimagevideo/public/thumbnails/products/399-9-669346-product-1.webp",
+                description: "Executive level formal suits with premium tailoring",
+                images: [
+                    "https://content.public.markaz.app/markazimagevideo/public/thumbnails/products/399-9-669346-product-1.webp",
+                    "https://content.public.markaz.app/markazimagevideo/public/products/399-9-669346-product-2.webp",
+                    "https://content.public.markaz.app/markazimagevideo/public/thumbnails/products/399-9-669346-product-1.webp",
+                    "https://content.public.markaz.app/markazimagevideo/public/products/399-9-669346-product-2.webp"
+                ],
                 rating: 4.8,
                 reviews: 76
             },
             {
                 id: 18,
-                name: "Luxury Evening Silk",
+                name: "Luxury Evening Silk Collection",
                 price: 6500,
                 category: "party",
-                description: "Luxury silk evening dress for special occasions",
-                image: "https://content.public.markaz.app/markazimagevideo/public/products/1689-11-669068-product-2.webp",
+                description: "Luxury silk evening dresses for special occasions",
+                images: [
+                    "https://content.public.markaz.app/markazimagevideo/public/products/1689-11-669068-product-1.webp",
+                    "https://content.public.markaz.app/markazimagevideo/public/products/1689-11-669068-product-2.webp",
+                    "https://content.public.markaz.app/markazimagevideo/public/thumbnails/products/1689-11-669067-product-1.webp",
+                    "https://content.public.markaz.app/markazimagevideo/public/thumbnails/products/1689-11-669066-product-1.webp"
+                ],
                 rating: 4.9,
                 reviews: 65
             },
             {
                 id: 19,
-                name: "Summer Floral Breeze",
+                name: "Summer Floral Breeze Collection",
                 price: 2100,
                 category: "casual",
-                description: "Light and breezy floral dress for summer",
-                image: "https://content.public.markaz.app/markazimagevideo/public/thumbnails/products/1689-95-667618-product-1.webp",
+                description: "Light and breezy floral dresses for summer",
+                images: [
+                    "https://content.public.markaz.app/markazimagevideo/public/thumbnails/products/1689-95-667619-product-1.webp",
+                    "https://content.public.markaz.app/markazimagevideo/public/thumbnails/products/1689-95-667618-product-1.webp",
+                    "https://content.public.markaz.app/markazimagevideo/public/thumbnails/products/1689-95-667617-product-1.webp",
+                    "https://content.public.markaz.app/markazimagevideo/public/thumbnails/products/1689-95-667616-product-1.webp"
+                ],
                 rating: 4.6,
                 reviews: 198
             },
             {
                 id: 20,
-                name: "Royal Bridal Elegance",
+                name: "Royal Bridal Elegance Collection",
                 price: 12000,
                 category: "bridal",
-                description: "Royal elegance bridal gown with intricate details",
-                image: "https://content.public.markaz.app/markazimagevideo/public/thumbnails/products/1354-95-665900-product-1.webp",
+                description: "Royal elegance bridal gowns with intricate details",
+                images: [
+                    "https://content.public.markaz.app/markazimagevideo/public/thumbnails/products/1680-95-665909-product-1.webp",
+                    "https://content.public.markaz.app/markazimagevideo/public/thumbnails/products/1354-95-665900-product-1.webp",
+                    "https://content.public.markaz.app/markazimagevideo/public/thumbnails/products/1354-95-665901-product-1.webp",
+                    "https://content.public.markaz.app/markazimagevideo/public/thumbnails/products/1680-95-665905-product-1.webp"
+                ],
                 rating: 5.0,
                 reviews: 38
             },
             {
                 id: 21,
-                name: "Professional Power Suit",
+                name: "Professional Power Suit Set",
                 price: 6200,
                 category: "office",
-                description: "Power suit designed for executive women",
-                image: "https://content.public.markaz.app/markazimagevideo/public/thumbnails/products/1593-95-665610-product-1.webp",
+                description: "Power suits designed for executive women",
+                images: [
+                    "https://content.public.markaz.app/markazimagevideo/public/thumbnails/products/1593-95-665610-product-1.webp",
+                    "https://content.public.markaz.app/markazimagevideo/public/thumbnails/products/1593-95-665611-product-1.webp",
+                    "https://content.public.markaz.app/markazimagevideo/public/thumbnails/products/1593-95-665608-product-1.webp",
+                    "https://content.public.markaz.app/markazimagevideo/public/thumbnails/products/1593-95-665609-product-1.webp"
+                ],
                 rating: 4.7,
                 reviews: 91
             },
             {
                 id: 22,
-                name: "Elegant Party Cocktail",
+                name: "Elegant Party Cocktail Collection",
                 price: 5800,
                 category: "party",
-                description: "Elegant cocktail dress for sophisticated parties",
-                image: "https://content.public.markaz.app/markazimagevideo/public/products/1119-11-683915-product-1.webp",
+                description: "Elegant cocktail dresses for sophisticated parties",
+                images: [
+                    "https://content.public.markaz.app/markazimagevideo/public/products/1119-11-683915-product-1.webp",
+                    "https://content.public.markaz.app/markazimagevideo/public/products/1119-11-683911-product-1.webp",
+                    "https://content.public.markaz.app/markazimagevideo/public/products/1119-11-683908-product-1.webp",
+                    "https://content.public.markaz.app/markazimagevideo/public/products/1119-11-683902-product-1.webp"
+                ],
                 rating: 4.8,
                 reviews: 105
             },
             {
                 id: 23,
-                name: "Relaxed Maxi Casual",
+                name: "Relaxed Maxi Casual Collection",
                 price: 2300,
                 category: "casual",
-                description: "Relaxed fit maxi dress for comfortable all-day wear",
-                image: "https://content.public.markaz.app/markazimagevideo/public/products/1993-128-683848-product-1.webp",
+                description: "Relaxed fit maxi dresses for comfortable all-day wear",
+                images: [
+                    "https://content.public.markaz.app/markazimagevideo/public/products/1993-128-683848-product-1.webp",
+                    "https://content.public.markaz.app/markazimagevideo/public/products/1993-128-683843-product-1.webp",
+                    "https://content.public.markaz.app/markazimagevideo/public/products/1993-128-683844-product-1.webp",
+                    "https://content.public.markaz.app/markazimagevideo/public/products/1993-128-683847-product-1.webp"
+                ],
                 rating: 4.5,
                 reviews: 178
             },
             {
                 id: 24,
-                name: "Bridesmaid Elegance",
+                name: "Bridesmaid Elegance Collection",
                 price: 6800,
                 category: "bridal",
-                description: "Elegant bridesmaid dress in soft flowing fabric",
-                image: "https://content.public.markaz.app/markazimagevideo/public/products/1993-95-683295-product-1.webp",
+                description: "Elegant bridesmaid dresses in soft flowing fabric",
+                images: [
+                    "https://content.public.markaz.app/markazimagevideo/public/products/1993-95-683287-product-1.webp",
+                    "https://content.public.markaz.app/markazimagevideo/public/products/1993-95-683286-product-1.webp",
+                    "https://content.public.markaz.app/markazimagevideo/public/products/1993-95-683284-product-1.webp",
+                    "https://content.public.markaz.app/markazimagevideo/public/products/1993-95-683285-product-1.webp"
+                ],
                 rating: 4.9,
                 reviews: 119
             }
@@ -1131,41 +1515,61 @@
         const boysProducts = [
             {
                 id: 1,
-                name: "Trendy Casual T-Shirt Set",
+                name: "Trendy Casual T-Shirt Collection",
                 price: 1500,
                 category: "casual",
-                description: "Comfortable cotton t-shirt set perfect for everyday casual wear",
-                image: "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=600&h=800&fit=crop",
+                description: "Comfortable cotton t-shirt sets perfect for everyday casual wear",
+                images: [
+                    "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=600&h=800&fit=crop",
+                    "https://images.unsplash.com/photo-1551028719-00167b16eac5?w=600&h=800&fit=crop",
+                    "https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=600&h=800&fit=crop",
+                    "https://images.unsplash.com/photo-1542272604-787c3835535d?w=600&h=800&fit=crop"
+                ],
                 rating: 4.7,
                 reviews: 89
             },
             {
                 id: 2,
-                name: "Formal Party Suit",
+                name: "Formal Party Suit Collection",
                 price: 4500,
                 category: "party",
-                description: "Elegant formal suit perfect for weddings and special occasions",
-                image: "https://images.unsplash.com/photo-1594938374185-7c19a8f6d2f4?w=600&h=800&fit=crop",
+                description: "Elegant formal suits perfect for weddings and special occasions",
+                images: [
+                    "https://images.unsplash.com/photo-1594938374185-7c19a8f6d2f4?w=600&h=800&fit=crop",
+                    "https://images.unsplash.com/photo-1594938374185-7c19a8f6d2f4?w=600&h=800&fit=crop",
+                    "https://images.unsplash.com/photo-1594938374185-7c19a8f6d2f4?w=600&h=800&fit=crop",
+                    "https://images.unsplash.com/photo-1594938374185-7c19a8f6d2f4?w=600&h=800&fit=crop"
+                ],
                 rating: 4.9,
                 reviews: 67
             },
             {
                 id: 3,
-                name: "Sports Jersey Collection",
+                name: "Sports Jersey Collection Set",
                 price: 2200,
                 category: "sports",
-                description: "Breathable sports jersey for active boys",
-                image: "https://images.unsplash.com/photo-1523580494863-6f3031224c94?w=600&h=800&fit=crop",
+                description: "Breathable sports jerseys for active boys",
+                images: [
+                    "https://images.unsplash.com/photo-1523580494863-6f3031224c94?w=600&h=800&fit=crop",
+                    "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=600&h=800&fit=crop",
+                    "https://images.unsplash.com/photo-1523580494863-6f3031224c94?w=600&h=800&fit=crop",
+                    "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=600&h=800&fit=crop"
+                ],
                 rating: 4.6,
                 reviews: 112
             },
             {
                 id: 4,
-                name: "Designer Denim Jacket",
+                name: "Designer Denim Jacket Set",
                 price: 2800,
                 category: "casual",
-                description: "Stylish denim jacket with modern design",
-                image: "https://images.unsplash.com/photo-1551028719-00167b16eac5?w=600&h=800&fit=crop",
+                description: "Stylish denim jackets with modern design",
+                images: [
+                    "https://images.unsplash.com/photo-1551028719-00167b16eac5?w=600&h=800&fit=crop",
+                    "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=600&h=800&fit=crop",
+                    "https://images.unsplash.com/photo-1551028719-00167b16eac5?w=600&h=800&fit=crop",
+                    "https://images.unsplash.com/photo-1542272604-787c3835535d?w=600&h=800&fit=crop"
+                ],
                 rating: 4.5,
                 reviews: 78
             },
@@ -1175,197 +1579,297 @@
                 price: 6500,
                 category: "party",
                 description: "Elegant traditional sherwani for weddings and festivals",
-                image: "https://images.unsplash.com/photo-1594938374185-7c19a8f6d2f4?w=600&h=800&fit=crop",
+                images: [
+                    "https://images.unsplash.com/photo-1594938374185-7c19a8f6d2f4?w=600&h=800&fit=crop",
+                    "https://images.unsplash.com/photo-1594938374185-7c19a8f6d2f4?w=600&h=800&fit=crop",
+                    "https://images.unsplash.com/photo-1594938374185-7c19a8f6d2f4?w=600&h=800&fit=crop",
+                    "https://images.unsplash.com/photo-1594938374185-7c19a8f6d2f4?w=600&h=800&fit=crop"
+                ],
                 rating: 4.8,
                 reviews: 45
             },
             {
                 id: 6,
-                name: "Track Suit Combo",
+                name: "Track Suit Combo Collection",
                 price: 3200,
                 category: "sports",
-                description: "Comfortable track suit for sports and casual wear",
-                image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=600&h=800&fit=crop",
+                description: "Comfortable track suits for sports and casual wear",
+                images: [
+                    "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=600&h=800&fit=crop",
+                    "https://images.unsplash.com/photo-1523580494863-6f3031224c94?w=600&h=800&fit=crop",
+                    "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=600&h=800&fit=crop",
+                    "https://images.unsplash.com/photo-1523580494863-6f3031224c94?w=600&h=800&fit=crop"
+                ],
                 rating: 4.4,
                 reviews: 93
             },
             {
                 id: 7,
-                name: "Smart Formal Shirt",
+                name: "Smart Formal Shirt Collection",
                 price: 1800,
                 category: "formal",
-                description: "Crisp formal shirt for school and special occasions",
-                image: "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=600&h=800&fit=crop",
+                description: "Crisp formal shirts for school and special occasions",
+                images: [
+                    "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=600&h=800&fit=crop",
+                    "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=600&h=800&fit=crop",
+                    "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=600&h=800&fit=crop",
+                    "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=600&h=800&fit=crop"
+                ],
                 rating: 4.7,
                 reviews: 124
             },
             {
                 id: 8,
-                name: "Casual Hoodie Set",
+                name: "Casual Hoodie Collection Set",
                 price: 2500,
                 category: "casual",
-                description: "Warm and comfortable hoodie for casual outings",
-                image: "https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=600&h=800&fit=crop",
+                description: "Warm and comfortable hoodies for casual outings",
+                images: [
+                    "https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=600&h=800&fit=crop",
+                    "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=600&h=800&fit=crop",
+                    "https://images.unsplash.com/photo-1551028719-00167b16eac5?w=600&h=800&fit=crop",
+                    "https://images.unsplash.com/photo-1542272604-787c3835535d?w=600&h=800&fit=crop"
+                ],
                 rating: 4.6,
                 reviews: 156
             },
             {
                 id: 9,
-                name: "Party Blazer Set",
+                name: "Party Blazer Collection Set",
                 price: 4800,
                 category: "party",
-                description: "Stylish blazer set for parties and celebrations",
-                image: "https://images.unsplash.com/photo-1594938374185-7c19a8f6d2f4?w=600&h=800&fit=crop",
+                description: "Stylish blazer sets for parties and celebrations",
+                images: [
+                    "https://images.unsplash.com/photo-1594938374185-7c19a8f6d2f4?w=600&h=800&fit=crop",
+                    "https://images.unsplash.com/photo-1594938374185-7c19a8f6d2f4?w=600&h=800&fit=crop",
+                    "https://images.unsplash.com/photo-1594938374185-7c19a8f6d2f4?w=600&h=800&fit=crop",
+                    "https://images.unsplash.com/photo-1594938374185-7c19a8f6d2f4?w=600&h=800&fit=crop"
+                ],
                 rating: 4.8,
                 reviews: 89
             },
             {
                 id: 10,
-                name: "Football Kit",
+                name: "Football Kit Collection",
                 price: 2900,
                 category: "sports",
-                description: "Complete football kit with jersey and shorts",
-                image: "https://images.unsplash.com/photo-1523580494863-6f3031224c94?w=600&h=800&fit=crop",
+                description: "Complete football kits with jersey and shorts",
+                images: [
+                    "https://images.unsplash.com/photo-1523580494863-6f3031224c94?w=600&h=800&fit=crop",
+                    "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=600&h=800&fit=crop",
+                    "https://images.unsplash.com/photo-1523580494863-6f3031224c94?w=600&h=800&fit=crop",
+                    "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=600&h=800&fit=crop"
+                ],
                 rating: 4.5,
                 reviews: 134
             },
             {
                 id: 11,
-                name: "Formal Trousers",
+                name: "Formal Trousers Collection",
                 price: 1600,
                 category: "formal",
                 description: "Well-fitted formal trousers for school and events",
-                image: "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=600&h=800&fit=crop",
+                images: [
+                    "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=600&h=800&fit=crop",
+                    "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=600&h=800&fit=crop",
+                    "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=600&h=800&fit=crop",
+                    "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=600&h=800&fit=crop"
+                ],
                 rating: 4.3,
                 reviews: 98
             },
             {
                 id: 12,
-                name: "Graphic T-Shirt Pack",
+                name: "Graphic T-Shirt Pack Collection",
                 price: 2200,
                 category: "casual",
-                description: "Pack of 3 trendy graphic t-shirts",
-                image: "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=600&h=800&fit=crop",
+                description: "Packs of trendy graphic t-shirts",
+                images: [
+                    "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=600&h=800&fit=crop",
+                    "https://images.unsplash.com/photo-1551028719-00167b16eac5?w=600&h=800&fit=crop",
+                    "https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=600&h=800&fit=crop",
+                    "https://images.unsplash.com/photo-1542272604-787c3835535d?w=600&h=800&fit=crop"
+                ],
                 rating: 4.7,
                 reviews: 167
             },
             {
                 id: 13,
-                name: "Birthday Party Suit",
+                name: "Birthday Party Suit Collection",
                 price: 3800,
                 category: "party",
-                description: "Special birthday party suit with accessories",
-                image: "https://images.unsplash.com/photo-1594938374185-7c19a8f6d2f4?w=600&h=800&fit=crop",
+                description: "Special birthday party suits with accessories",
+                images: [
+                    "https://images.unsplash.com/photo-1594938374185-7c19a8f6d2f4?w=600&h=800&fit=crop",
+                    "https://images.unsplash.com/photo-1594938374185-7c19a8f6d2f4?w=600&h=800&fit=crop",
+                    "https://images.unsplash.com/photo-1594938374185-7c19a8f6d2f4?w=600&h=800&fit=crop",
+                    "https://images.unsplash.com/photo-1594938374185-7c19a8f6d2f4?w=600&h=800&fit=crop"
+                ],
                 rating: 4.9,
                 reviews: 76
             },
             {
                 id: 14,
-                name: "Basketball Jersey",
+                name: "Basketball Jersey Collection",
                 price: 2400,
                 category: "sports",
-                description: "Official style basketball jersey",
-                image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=600&h=800&fit=crop",
+                description: "Official style basketball jerseys",
+                images: [
+                    "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=600&h=800&fit=crop",
+                    "https://images.unsplash.com/photo-1523580494863-6f3031224c94?w=600&h=800&fit=crop",
+                    "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=600&h=800&fit=crop",
+                    "https://images.unsplash.com/photo-1523580494863-6f3031224c94?w=600&h=800&fit=crop"
+                ],
                 rating: 4.6,
                 reviews: 89
             },
             {
                 id: 15,
-                name: "School Uniform Set",
+                name: "School Uniform Collection Set",
                 price: 3500,
                 category: "formal",
-                description: "Complete school uniform with shirt and trousers",
-                image: "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=600&h=800&fit=crop",
+                description: "Complete school uniforms with shirt and trousers",
+                images: [
+                    "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=600&h=800&fit=crop",
+                    "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=600&h=800&fit=crop",
+                    "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=600&h=800&fit=crop",
+                    "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=600&h=800&fit=crop"
+                ],
                 rating: 4.8,
                 reviews: 145
             },
             {
                 id: 16,
-                name: "Winter Jacket",
+                name: "Winter Jacket Collection",
                 price: 4200,
                 category: "casual",
-                description: "Warm winter jacket with hood",
-                image: "https://images.unsplash.com/photo-1551028719-00167b16eac5?w=600&h=800&fit=crop",
+                description: "Warm winter jackets with hood",
+                images: [
+                    "https://images.unsplash.com/photo-1551028719-00167b16eac5?w=600&h=800&fit=crop",
+                    "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=600&h=800&fit=crop",
+                    "https://images.unsplash.com/photo-1551028719-00167b16eac5?w=600&h=800&fit=crop",
+                    "https://images.unsplash.com/photo-1542272604-787c3835535d?w=600&h=800&fit=crop"
+                ],
                 rating: 4.7,
                 reviews: 112
             },
             {
                 id: 17,
-                name: "Eid Special Outfit",
+                name: "Eid Special Outfit Collection",
                 price: 5500,
                 category: "party",
-                description: "Traditional outfit for Eid celebrations",
-                image: "https://images.unsplash.com/photo-1594938374185-7c19a8f6d2f4?w=600&h=800&fit=crop",
+                description: "Traditional outfits for Eid celebrations",
+                images: [
+                    "https://images.unsplash.com/photo-1594938374185-7c19a8f6d2f4?w=600&h=800&fit=crop",
+                    "https://images.unsplash.com/photo-1594938374185-7c19a8f6d2f4?w=600&h=800&fit=crop",
+                    "https://images.unsplash.com/photo-1594938374185-7c19a8f6d2f4?w=600&h=800&fit=crop",
+                    "https://images.unsplash.com/photo-1594938374185-7c19a8f6d2f4?w=600&h=800&fit=crop"
+                ],
                 rating: 4.9,
                 reviews: 67
             },
             {
                 id: 18,
-                name: "Cricket Kit",
+                name: "Cricket Kit Collection",
                 price: 6800,
                 category: "sports",
-                description: "Complete cricket playing kit",
-                image: "https://images.unsplash.com/photo-1523580494863-6f3031224c94?w=600&h=800&fit=crop",
+                description: "Complete cricket playing kits",
+                images: [
+                    "https://images.unsplash.com/photo-1523580494863-6f3031224c94?w=600&h=800&fit=crop",
+                    "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=600&h=800&fit=crop",
+                    "https://images.unsplash.com/photo-1523580494863-6f3031224c94?w=600&h=800&fit=crop",
+                    "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=600&h=800&fit=crop"
+                ],
                 rating: 4.8,
                 reviews: 56
             },
             {
                 id: 19,
-                name: "Formal Tie Set",
+                name: "Formal Tie Collection Set",
                 price: 1200,
                 category: "formal",
-                description: "Set of 2 formal ties for school",
-                image: "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=600&h=800&fit=crop",
+                description: "Sets of formal ties for school",
+                images: [
+                    "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=600&h=800&fit=crop",
+                    "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=600&h=800&fit=crop",
+                    "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=600&h=800&fit=crop",
+                    "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=600&h=800&fit=crop"
+                ],
                 rating: 4.4,
                 reviews: 89
             },
             {
                 id: 20,
-                name: "Casual Shorts Pack",
+                name: "Casual Shorts Pack Collection",
                 price: 1900,
                 category: "casual",
-                description: "Pack of 3 comfortable casual shorts",
-                image: "https://images.unsplash.com/photo-1551028719-00167b16eac5?w=600&h=800&fit=crop",
+                description: "Packs of comfortable casual shorts",
+                images: [
+                    "https://images.unsplash.com/photo-1551028719-00167b16eac5?w=600&h=800&fit=crop",
+                    "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=600&h=800&fit=crop",
+                    "https://images.unsplash.com/photo-1551028719-00167b16eac5?w=600&h=800&fit=crop",
+                    "https://images.unsplash.com/photo-1542272604-787c3835535d?w=600&h=800&fit=crop"
+                ],
                 rating: 4.6,
                 reviews: 134
             },
             {
                 id: 21,
-                name: "Wedding Guest Suit",
+                name: "Wedding Guest Suit Collection",
                 price: 5200,
                 category: "party",
-                description: "Elegant suit for wedding guests",
-                image: "https://images.unsplash.com/photo-1594938374185-7c19a8f6d2f4?w=600&h=800&fit=crop",
+                description: "Elegant suits for wedding guests",
+                images: [
+                    "https://images.unsplash.com/photo-1594938374185-7c19a8f6d2f4?w=600&h=800&fit=crop",
+                    "https://images.unsplash.com/photo-1594938374185-7c19a8f6d2f4?w=600&h=800&fit=crop",
+                    "https://images.unsplash.com/photo-1594938374185-7c19a8f6d2f4?w=600&h=800&fit=crop",
+                    "https://images.unsplash.com/photo-1594938374185-7c19a8f6d2f4?w=600&h=800&fit=crop"
+                ],
                 rating: 4.7,
                 reviews: 78
             },
             {
                 id: 22,
-                name: "Swimming Trunks",
+                name: "Swimming Trunks Collection",
                 price: 1800,
                 category: "sports",
                 description: "Quick-dry swimming trunks",
-                image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=600&h=800&fit=crop",
+                images: [
+                    "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=600&h=800&fit=crop",
+                    "https://images.unsplash.com/photo-1523580494863-6f3031224c94?w=600&h=800&fit=crop",
+                    "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=600&h=800&fit=crop",
+                    "https://images.unsplash.com/photo-1523580494863-6f3031224c94?w=600&h=800&fit=crop"
+                ],
                 rating: 4.5,
                 reviews: 92
             },
             {
                 id: 23,
-                name: "Formal Blazer",
+                name: "Formal Blazer Collection",
                 price: 3800,
                 category: "formal",
-                description: "School formal blazer",
-                image: "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=600&h=800&fit=crop",
+                description: "School formal blazers",
+                images: [
+                    "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=600&h=800&fit=crop",
+                    "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=600&h=800&fit=crop",
+                    "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=600&h=800&fit=crop",
+                    "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=600&h=800&fit=crop"
+                ],
                 rating: 4.8,
                 reviews: 67
             },
             {
                 id: 24,
-                name: "Casual Jeans",
+                name: "Casual Jeans Collection",
                 price: 2200,
                 category: "casual",
                 description: "Comfortable denim jeans",
-                image: "https://images.unsplash.com/photo-1542272604-787c3835535d?w=600&h=800&fit=crop",
+                images: [
+                    "https://images.unsplash.com/photo-1542272604-787c3835535d?w=600&h=800&fit=crop",
+                    "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=600&h=800&fit=crop",
+                    "https://images.unsplash.com/photo-1551028719-00167b16eac5?w=600&h=800&fit=crop",
+                    "https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=600&h=800&fit=crop"
+                ],
                 rating: 4.7,
                 reviews: 156
             }
@@ -1440,6 +1944,9 @@
         let currentLadiesFilter = 'all';
         let currentBoysFilter = 'all';
         let currentSection = 'home';
+        let currentPreviewImages = [];
+        let currentPreviewIndex = 0;
+        let currentPreviewProduct = null;
 
         // ==============================
         // INITIALIZATION
@@ -1450,6 +1957,152 @@
             renderBoysProducts();
             updateCartUI();
             setupEventListeners();
+            initFeaturedCarousels();
+        });
+
+        // ==============================
+        // CAROUSEL FUNCTIONS
+        // ==============================
+
+        function initFeaturedCarousels() {
+            initCarousel('featuredLadiesCarousel', 'featuredLadiesDots');
+            initCarousel('featuredBoysCarousel', 'featuredBoysDots');
+        }
+
+        function initCarousel(containerId, dotsId) {
+            const container = document.getElementById(containerId);
+            const dotsContainer = document.getElementById(dotsId);
+            const slides = container.querySelectorAll('.product-image-slide');
+            
+            // Create dots
+            dotsContainer.innerHTML = '';
+            slides.forEach((_, index) => {
+                const dot = document.createElement('div');
+                dot.className = `product-image-dot ${index === 0 ? 'active' : ''}`;
+                dot.addEventListener('click', () => {
+                    goToSlide(containerId, index);
+                });
+                dotsContainer.appendChild(dot);
+            });
+        }
+
+        function nextSlide(containerId) {
+            const container = document.getElementById(containerId);
+            const slides = container.querySelectorAll('.product-image-slide');
+            const activeIndex = getCurrentSlideIndex(containerId);
+            const nextIndex = (activeIndex + 1) % slides.length;
+            goToSlide(containerId, nextIndex);
+        }
+
+        function prevSlide(containerId) {
+            const container = document.getElementById(containerId);
+            const slides = container.querySelectorAll('.product-image-slide');
+            const activeIndex = getCurrentSlideIndex(containerId);
+            const prevIndex = (activeIndex - 1 + slides.length) % slides.length;
+            goToSlide(containerId, prevIndex);
+        }
+
+        function goToSlide(containerId, index) {
+            const container = document.getElementById(containerId);
+            const slides = container.querySelectorAll('.product-image-slide');
+            const dots = container.parentElement.querySelectorAll('.product-image-dot');
+            
+            // Update slide position
+            container.style.transform = `translateX(-${index * 100}%)`;
+            
+            // Update dots
+            dots.forEach((dot, i) => {
+                dot.classList.toggle('active', i === index);
+            });
+        }
+
+        function getCurrentSlideIndex(containerId) {
+            const container = document.getElementById(containerId);
+            const transform = container.style.transform;
+            if (!transform || transform === 'none') return 0;
+            
+            const match = transform.match(/translateX\(-(\d+)%\)/);
+            return match ? parseInt(match[1]) / 100 : 0;
+        }
+
+        // ==============================
+        // FULL SCREEN IMAGE PREVIEW FUNCTIONS
+        // ==============================
+
+        function openImagePreview(imageUrl, productName, price, productId = null, type = null) {
+            currentPreviewImages = [];
+            currentPreviewIndex = 0;
+            currentPreviewProduct = null;
+            
+            // Find the product based on clicked image
+            if (productId && type) {
+                if (type === 'ladies') {
+                    currentPreviewProduct = ladiesProducts.find(p => p.id === productId);
+                } else if (type === 'boys') {
+                    currentPreviewProduct = boysProducts.find(p => p.id === productId);
+                }
+                
+                if (currentPreviewProduct) {
+                    currentPreviewImages = currentPreviewProduct.images;
+                    // Find the index of the clicked image
+                    currentPreviewIndex = currentPreviewProduct.images.findIndex(img => img === imageUrl);
+                    if (currentPreviewIndex === -1) currentPreviewIndex = 0;
+                }
+            } else {
+                // Fallback if product not found
+                currentPreviewImages = [imageUrl];
+            }
+            
+            updateImagePreview();
+            document.getElementById('imagePreviewModal').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function updateImagePreview() {
+            if (currentPreviewImages.length > 0) {
+                document.getElementById('previewImage').src = currentPreviewImages[currentPreviewIndex];
+                document.getElementById('imageCounter').textContent = `${currentPreviewIndex + 1}/${currentPreviewImages.length}`;
+                
+                if (currentPreviewProduct) {
+                    document.getElementById('previewProductName').textContent = currentPreviewProduct.name;
+                    document.getElementById('previewProductPrice').textContent = currentPreviewProduct.price.toLocaleString();
+                }
+            }
+        }
+
+        function nextImagePreview() {
+            if (currentPreviewImages.length > 0) {
+                currentPreviewIndex = (currentPreviewIndex + 1) % currentPreviewImages.length;
+                updateImagePreview();
+            }
+        }
+
+        function prevImagePreview() {
+            if (currentPreviewImages.length > 0) {
+                currentPreviewIndex = (currentPreviewIndex - 1 + currentPreviewImages.length) % currentPreviewImages.length;
+                updateImagePreview();
+            }
+        }
+
+        function closeImagePreview() {
+            document.getElementById('imagePreviewModal').classList.remove('active');
+            document.body.style.overflow = '';
+            currentPreviewImages = [];
+            currentPreviewIndex = 0;
+            currentPreviewProduct = null;
+        }
+
+        // Keyboard navigation for image preview
+        document.addEventListener('keydown', function(e) {
+            if (document.getElementById('imagePreviewModal').classList.contains('active')) {
+                if (e.key === 'Escape') {
+                    closeImagePreview();
+                } else if (e.key === 'ArrowLeft') {
+                    prevImagePreview();
+                } else if (e.key === 'ArrowRight') {
+                    nextImagePreview();
+                }
+            }
         });
 
         // ==============================
@@ -1608,12 +2261,21 @@
             const grid = document.getElementById('ladiesProductsGrid');
             const filteredProducts = filter === 'all' ? ladiesProducts : ladiesProducts.filter(p => p.category === filter);
             
-            grid.innerHTML = filteredProducts.map(product => `
+            grid.innerHTML = filteredProducts.map((product, productIndex) => `
                 <div class="bg-white rounded-xl shadow-lg overflow-hidden hover-scale product-card">
-                    <div class="relative">
-                        <img src="${product.image}" alt="${product.name}" 
-                             class="w-full h-48 md:h-64 object-cover cursor-pointer"
-                             onclick="openImagePreview('${product.image}', '${product.name}', ${product.price})">
+                    <div class="relative product-image-carousel">
+                        <div class="product-image-container" id="ladiesCarousel${productIndex}">
+                            ${product.images.map((image, index) => `
+                                <div class="product-image-slide">
+                                    <img src="${image}" alt="${product.name} ${index + 1}" 
+                                         class="w-full h-48 md:h-64 object-cover cursor-pointer"
+                                         onclick="openImagePreview('${image}', '${product.name}', ${product.price}, ${product.id}, 'ladies')">
+                                </div>
+                            `).join('')}
+                        </div>
+                        <button class="product-image-nav product-image-prev" onclick="prevSlide('ladiesCarousel${productIndex}')">❮</button>
+                        <button class="product-image-nav product-image-next" onclick="nextSlide('ladiesCarousel${productIndex}')">❯</button>
+                        <div class="product-image-dots" id="ladiesDots${productIndex}"></div>
                         <div class="absolute top-2 right-2">
                             <button onclick="addToCartLadies(${product.id})" class="bg-primary text-white p-2 rounded-full hover:bg-accent transition-colors">
                                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -1647,6 +2309,11 @@
                 </div>
             `).join('');
             
+            // Initialize carousels for the new products
+            filteredProducts.forEach((_, index) => {
+                initCarousel(`ladiesCarousel${index}`, `ladiesDots${index}`);
+            });
+            
             currentLadiesFilter = filter;
         }
 
@@ -1654,12 +2321,21 @@
             const grid = document.getElementById('boysProductsGrid');
             const filteredProducts = filter === 'all' ? boysProducts : boysProducts.filter(p => p.category === filter);
             
-            grid.innerHTML = filteredProducts.map(product => `
+            grid.innerHTML = filteredProducts.map((product, productIndex) => `
                 <div class="bg-white rounded-xl shadow-lg overflow-hidden hover-scale product-card">
-                    <div class="relative">
-                        <img src="${product.image}" alt="${product.name}" 
-                             class="w-full h-48 md:h-64 object-cover cursor-pointer"
-                             onclick="openImagePreview('${product.image}', '${product.name}', ${product.price})">
+                    <div class="relative product-image-carousel">
+                        <div class="product-image-container" id="boysCarousel${productIndex}">
+                            ${product.images.map((image, index) => `
+                                <div class="product-image-slide">
+                                    <img src="${image}" alt="${product.name} ${index + 1}" 
+                                         class="w-full h-48 md:h-64 object-cover cursor-pointer"
+                                         onclick="openImagePreview('${image}', '${product.name}', ${product.price}, ${product.id}, 'boys')">
+                                </div>
+                            `).join('')}
+                        </div>
+                        <button class="product-image-nav product-image-prev" onclick="prevSlide('boysCarousel${productIndex}')">❮</button>
+                        <button class="product-image-nav product-image-next" onclick="nextSlide('boysCarousel${productIndex}')">❯</button>
+                        <div class="product-image-dots" id="boysDots${productIndex}"></div>
                         <div class="absolute top-2 right-2">
                             <button onclick="addToCartBoys(${product.id})" class="bg-boysPrimary text-white p-2 rounded-full hover:bg-boysAccent transition-colors">
                                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -1692,6 +2368,11 @@
                     </div>
                 </div>
             `).join('');
+            
+            // Initialize carousels for the new products
+            filteredProducts.forEach((_, index) => {
+                initCarousel(`boysCarousel${index}`, `boysDots${index}`);
+            });
             
             currentBoysFilter = filter;
         }
@@ -1741,7 +2422,7 @@
                     id: product.id,
                     name: product.name,
                     price: product.price,
-                    image: product.image,
+                    image: product.images[0],
                     type: 'ladies',
                     quantity: 1 
                 });
@@ -1763,7 +2444,7 @@
                     id: product.id,
                     name: product.name,
                     price: product.price,
-                    image: product.image,
+                    image: product.images[0],
                     type: 'boys',
                     quantity: 1 
                 });
@@ -1866,17 +2547,6 @@
 
         function closeCheckoutModal() {
             document.getElementById('checkoutModal').classList.add('hidden');
-        }
-
-        function openImagePreview(imageUrl, productName, price) {
-            document.getElementById('previewImage').src = imageUrl;
-            document.getElementById('previewProductName').textContent = productName;
-            document.getElementById('previewProductPrice').textContent = price.toLocaleString();
-            document.getElementById('imagePreviewModal').classList.add('active');
-        }
-
-        function closeImagePreview() {
-            document.getElementById('imagePreviewModal').classList.remove('active');
         }
 
         // ==============================
@@ -2055,13 +2725,34 @@
                     product.category.toLowerCase().includes(searchTerm)
                 );
                 
-                const grid = document.getElementById('ladiesProductsGrid');
                 if (searchTerm === '') {
                     renderLadiesProducts(currentLadiesFilter);
                 } else {
-                    grid.innerHTML = filtered.map(product => `
-                        <div class="bg-white rounded-xl shadow-lg overflow-hidden hover-scale">
-                            <img src="${product.image}" alt="${product.name}" class="w-full h-48 md:h-64 object-cover">
+                    // For search results, we'll just filter the existing products
+                    const grid = document.getElementById('ladiesProductsGrid');
+                    grid.innerHTML = filtered.map((product, productIndex) => `
+                        <div class="bg-white rounded-xl shadow-lg overflow-hidden hover-scale product-card">
+                            <div class="relative product-image-carousel">
+                                <div class="product-image-container" id="ladiesSearchCarousel${productIndex}">
+                                    ${product.images.map((image, index) => `
+                                        <div class="product-image-slide">
+                                            <img src="${image}" alt="${product.name} ${index + 1}" 
+                                                 class="w-full h-48 md:h-64 object-cover cursor-pointer"
+                                                 onclick="openImagePreview('${image}', '${product.name}', ${product.price}, ${product.id}, 'ladies')">
+                                        </div>
+                                    `).join('')}
+                                </div>
+                                <button class="product-image-nav product-image-prev" onclick="prevSlide('ladiesSearchCarousel${productIndex}')">❮</button>
+                                <button class="product-image-nav product-image-next" onclick="nextSlide('ladiesSearchCarousel${productIndex}')">❯</button>
+                                <div class="product-image-dots" id="ladiesSearchDots${productIndex}"></div>
+                                <div class="absolute top-2 right-2">
+                                    <button onclick="addToCartLadies(${product.id})" class="bg-primary text-white p-2 rounded-full hover:bg-accent transition-colors">
+                                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
                             <div class="p-4">
                                 <h3 class="font-semibold text-base mb-2">${product.name}</h3>
                                 <p class="text-gray-600 text-sm mb-3 line-clamp-2">${product.description}</p>
@@ -2074,6 +2765,11 @@
                             </div>
                         </div>
                     `).join('');
+                    
+                    // Initialize carousels for search results
+                    filtered.forEach((_, index) => {
+                        initCarousel(`ladiesSearchCarousel${index}`, `ladiesSearchDots${index}`);
+                    });
                 }
             } else if (currentSection === 'boys') {
                 const filtered = boysProducts.filter(product => 
@@ -2082,13 +2778,33 @@
                     product.category.toLowerCase().includes(searchTerm)
                 );
                 
-                const grid = document.getElementById('boysProductsGrid');
                 if (searchTerm === '') {
                     renderBoysProducts(currentBoysFilter);
                 } else {
-                    grid.innerHTML = filtered.map(product => `
-                        <div class="bg-white rounded-xl shadow-lg overflow-hidden hover-scale">
-                            <img src="${product.image}" alt="${product.name}" class="w-full h-48 md:h-64 object-cover">
+                    const grid = document.getElementById('boysProductsGrid');
+                    grid.innerHTML = filtered.map((product, productIndex) => `
+                        <div class="bg-white rounded-xl shadow-lg overflow-hidden hover-scale product-card">
+                            <div class="relative product-image-carousel">
+                                <div class="product-image-container" id="boysSearchCarousel${productIndex}">
+                                    ${product.images.map((image, index) => `
+                                        <div class="product-image-slide">
+                                            <img src="${image}" alt="${product.name} ${index + 1}" 
+                                                 class="w-full h-48 md:h-64 object-cover cursor-pointer"
+                                                 onclick="openImagePreview('${image}', '${product.name}', ${product.price}, ${product.id}, 'boys')">
+                                        </div>
+                                    `).join('')}
+                                </div>
+                                <button class="product-image-nav product-image-prev" onclick="prevSlide('boysSearchCarousel${productIndex}')">❮</button>
+                                <button class="product-image-nav product-image-next" onclick="nextSlide('boysSearchCarousel${productIndex}')">❯</button>
+                                <div class="product-image-dots" id="boysSearchDots${productIndex}"></div>
+                                <div class="absolute top-2 right-2">
+                                    <button onclick="addToCartBoys(${product.id})" class="bg-boysPrimary text-white p-2 rounded-full hover:bg-boysAccent transition-colors">
+                                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
                             <div class="p-4">
                                 <h3 class="font-semibold text-base mb-2">${product.name}</h3>
                                 <p class="text-gray-600 text-sm mb-3 line-clamp-2">${product.description}</p>
@@ -2101,6 +2817,11 @@
                             </div>
                         </div>
                     `).join('');
+                    
+                    // Initialize carousels for search results
+                    filtered.forEach((_, index) => {
+                        initCarousel(`boysSearchCarousel${index}`, `boysSearchDots${index}`);
+                    });
                 }
             }
         }
@@ -2135,13 +2856,6 @@
                         this.classList.add('hidden');
                     }
                 });
-            });
-            
-            // Close image preview on ESC
-            document.addEventListener('keydown', function(e) {
-                if (e.key === 'Escape') {
-                    closeImagePreview();
-                }
             });
         }
 
