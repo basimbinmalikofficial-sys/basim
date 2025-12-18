@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Basim Fashion - Premium Collections 2025</title>
+    <title>Basim Online Shopping Store - Premium Collections 2025</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -299,7 +299,7 @@
     <div id="mobileMenu" class="mobile-menu">
         <div class="p-6">
             <div class="flex justify-between items-center mb-8">
-                <div class="text-2xl font-bold text-gradient">✨ Basim Fashion</div>
+                <div class="text-2xl font-bold text-gradient">✨ Basim Online Shopping Store</div>
                 <button id="closeMobileMenu" class="text-3xl text-gray-700">×</button>
             </div>
             <div class="space-y-6">
@@ -323,7 +323,7 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 container-padding">
             <div class="flex justify-between items-center h-16">
                 <div class="flex items-center space-x-8">
-                    <div class="text-2xl font-bold text-gradient cursor-pointer" onclick="switchSection('home')">✨ Basim Fashion</div>
+                    <div class="text-2xl font-bold text-gradient cursor-pointer" onclick="switchSection('home')">✨ Basim Online Shopping Store</div>
                     <div class="hidden md:flex space-x-6">
                         <a href="#" class="text-gray-700 hover:text-primary transition-colors" onclick="switchSection('home')">Home</a>
                         <a href="#" class="text-gray-700 hover:text-primary transition-colors" onclick="switchSection('ladies')">👗 Ladies</a>
@@ -354,7 +354,7 @@
     <section id="home" class="min-h-screen flex items-center justify-center pt-16">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-20 text-center">
             <h1 class="text-5xl md:text-7xl font-bold text-gray-900 mb-6">
-                Welcome to <span class="text-gradient">Basim Fashion</span>
+                Welcome to <span class="text-gradient">Basim Online Shopping Store</span>
             </h1>
             <p class="text-xl md:text-2xl text-gray-600 mb-12 max-w-3xl mx-auto">
                 Discover premium fashion collections for ladies and boys. Quality designs, modern styles, and exclusive collections.
@@ -616,7 +616,7 @@
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 container-padding">
                 <div class="text-center mb-12">
                     <h2 class="heading-responsive font-bold text-gray-900 mb-4">Contact Us</h2>
-                    <p class="text-responsive text-gray-600">Get in touch with Basim Fashion</p>
+                    <p class="text-responsive text-gray-600">Get in touch with Basim Online Shopping Store</p>
                 </div>
                 <div class="grid lg:grid-cols-2 gap-12">
                     <div class="bg-white rounded-2xl p-8 shadow-xl">
@@ -685,7 +685,7 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 container-padding">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
                 <div class="col-span-1 md:col-span-2">
-                    <div class="text-2xl md:text-3xl font-bold mb-4">✨ Basim Fashion</div>
+                    <div class="text-2xl md:text-3xl font-bold mb-4">✨ Basim Online Shopping Store</div>
                     <p class="text-gray-300 mb-6 max-w-md">
                         Your premier destination for elegant fashion. We create timeless pieces that celebrate style and confidence for both ladies and boys.
                     </p>
@@ -713,7 +713,7 @@
                 </div>
             </div>
             <div class="border-t border-gray-800 mt-12 pt-8 text-center">
-                <p class="text-gray-300">© 2025 Basim Fashion. All rights reserved.</p>
+                <p class="text-gray-300">© 2025 Basim Online Shopping Store. All rights reserved.</p>
             </div>
         </div>
     </footer>
@@ -735,7 +735,130 @@
                     <span class="text-lg font-semibold">Total:</span>
                     <span class="text-xl md:text-2xl font-bold text-primary">₨ <span id="cartTotal">0</span></span>
                 </div>
-                <button onclick="checkout()" class="w-full bg-primary text-white py-3 rounded-xl hover:bg-accent transition-colors font-semibold text-base md:text-lg touch-button">Proceed to Checkout</button>
+                <button onclick="openCheckoutModal()" class="w-full bg-primary text-white py-3 rounded-xl hover:bg-accent transition-colors font-semibold text-base md:text-lg touch-button">Proceed to Checkout</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Checkout Modal -->
+    <div id="checkoutModal" class="fixed inset-0 bg-black bg-opacity-50 hidden z-50 flex items-end md:items-center justify-end md:justify-center p-0 md:p-4">
+        <div class="bg-white rounded-t-2xl md:rounded-2xl max-w-md md:max-w-2xl w-full max-h-[90vh] md:max-h-[95vh] overflow-hidden h-[90vh] md:h-auto checkout-modal">
+            <div class="p-4 md:p-6 border-b sticky top-0 bg-white z-10">
+                <div class="flex justify-between items-center">
+                    <h3 class="text-xl md:text-2xl font-semibold">Checkout Information</h3>
+                    <button onclick="closeCheckoutModal()" class="text-gray-500 hover:text-gray-700 text-2xl md:text-3xl touch-button">×</button>
+                </div>
+                <p class="text-gray-600 text-sm mt-2">Please fill in your details to complete the order</p>
+            </div>
+            <div class="p-4 md:p-6 overflow-y-auto h-[calc(90vh-180px)] md:h-[calc(95vh-180px)]">
+                <form id="checkoutForm" class="space-y-4">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">First Name *</label>
+                            <input type="text" id="firstName" required class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Last Name *</label>
+                            <input type="text" id="lastName" required class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent">
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Mobile Number *</label>
+                        <input type="tel" id="mobileNumber" required class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="03XX XXXXXXX">
+                    </div>
+                    
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Email Address</label>
+                        <input type="email" id="email" class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent">
+                    </div>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Country *</label>
+                            <select id="country" required class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent">
+                                <option value="Pakistan" selected>Pakistan</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Province *</label>
+                            <select id="province" required class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent">
+                                <option value="">Select Province</option>
+                                <option value="Punjab">Punjab</option>
+                                <option value="Sindh">Sindh</option>
+                                <option value="Khyber Pakhtunkhwa">Khyber Pakhtunkhwa</option>
+                                <option value="Balochistan">Balochistan</option>
+                                <option value="Gilgit-Baltistan">Gilgit-Baltistan</option>
+                                <option value="Azad Jammu & Kashmir">Azad Jammu & Kashmir</option>
+                                <option value="Islamabad Capital Territory">Islamabad Capital Territory</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">District *</label>
+                            <input type="text" id="district" required class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Tehsil</label>
+                            <input type="text" id="tehsil" class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent">
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Full Address *</label>
+                        <textarea id="fullAddress" required rows="3" class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent"></textarea>
+                    </div>
+                    
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">ZIP Code</label>
+                        <input type="text" id="zipCode" class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent">
+                    </div>
+                    
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Payment Method *</label>
+                        <div class="mt-2 space-y-2">
+                            <div class="flex items-center">
+                                <input type="radio" id="cashOnDelivery" name="paymentMethod" value="Cash on Delivery" checked class="h-4 w-4 text-primary focus:ring-primary">
+                                <label for="cashOnDelivery" class="ml-3 block text-sm font-medium text-gray-700">
+                                    Cash on Delivery
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-gray-50 p-4 rounded-xl">
+                        <h4 class="font-semibold text-gray-900 mb-2">Order Summary</h4>
+                        <div id="checkoutOrderItems">
+                            <!-- Order items will be loaded here -->
+                        </div>
+                        <div class="space-y-2 mt-4">
+                            <div class="flex justify-between">
+                                <span class="text-gray-600">Subtotal:</span>
+                                <span class="font-medium" id="checkoutSubtotal">₨ 0</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray-600">Shipping:</span>
+                                <span class="font-medium text-green-600">Free</span>
+                            </div>
+                            <div class="border-t pt-2 flex justify-between">
+                                <span class="font-semibold">Total:</span>
+                                <span class="font-bold text-lg text-primary" id="checkoutTotal">₨ 0</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="pt-4">
+                        <button type="button" onclick="submitCheckout()" class="w-full bg-primary text-white py-4 rounded-xl hover:bg-accent transition-colors font-semibold text-lg touch-button">
+                            Place Order & Send via WhatsApp
+                        </button>
+                        <p class="text-center text-gray-500 text-sm mt-2">
+                            Your order will be sent to our WhatsApp for confirmation
+                        </p>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
@@ -1284,11 +1407,11 @@
                 currentSection = 'boys';
             } else if (section === 'contact') {
                 document.getElementById('contactSection').classList.add('active');
-                document.title = "Contact - Basim Fashion";
+                document.title = "Contact - Basim Online Shopping Store";
                 currentSection = 'contact';
             } else {
                 document.getElementById('home').style.display = 'flex';
-                document.title = "Basim Fashion - Ladies & Boys Collection 2025";
+                document.title = "Basim Online Shopping Store - Ladies & Boys Collection 2025";
                 currentSection = 'home';
             }
             
@@ -1512,6 +1635,9 @@
                     </div>
                 `).join('');
             }
+            
+            // Update checkout modal summary
+            updateCheckoutSummary();
         }
 
         function updateCartQuantity(productId, type, change) {
@@ -1549,6 +1675,21 @@
             document.getElementById('cartModal').classList.add('hidden');
         }
 
+        function openCheckoutModal() {
+            if (cart.length === 0) {
+                showNotification('Your cart is empty! Add some products first.', 'info');
+                return;
+            }
+            
+            closeCartModal();
+            document.getElementById('checkoutModal').classList.remove('hidden');
+            updateCheckoutSummary();
+        }
+
+        function closeCheckoutModal() {
+            document.getElementById('checkoutModal').classList.add('hidden');
+        }
+
         function openImagePreview(imageUrl, productName, price) {
             document.getElementById('previewImage').src = imageUrl;
             document.getElementById('previewProductName').textContent = productName;
@@ -1561,21 +1702,81 @@
         }
 
         // ==============================
-        // CHECKOUT FUNCTION
+        // CHECKOUT FUNCTIONS
         // ==============================
 
-        function checkout() {
-            if (cart.length === 0) {
-                showNotification('Your cart is empty! Add some products first.', 'info');
+        function updateCheckoutSummary() {
+            const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+            document.getElementById('checkoutSubtotal').textContent = `₨ ${total.toLocaleString()}`;
+            document.getElementById('checkoutTotal').textContent = `₨ ${total.toLocaleString()}`;
+            
+            // Update order items in checkout modal
+            const checkoutOrderItems = document.getElementById('checkoutOrderItems');
+            checkoutOrderItems.innerHTML = cart.map((item, index) => `
+                <div class="flex justify-between items-center py-2 ${index !== cart.length - 1 ? 'border-b border-gray-100' : ''}">
+                    <div class="flex-1">
+                        <p class="text-sm font-medium">${item.name}</p>
+                        <p class="text-xs text-gray-500">Qty: ${item.quantity} x ₨${item.price.toLocaleString()}</p>
+                    </div>
+                    <p class="text-sm font-semibold">₨ ${(item.price * item.quantity).toLocaleString()}</p>
+                </div>
+            `).join('');
+        }
+
+        function submitCheckout() {
+            // Validate form
+            const firstName = document.getElementById('firstName').value.trim();
+            const lastName = document.getElementById('lastName').value.trim();
+            const mobileNumber = document.getElementById('mobileNumber').value.trim();
+            const province = document.getElementById('province').value;
+            const district = document.getElementById('district').value.trim();
+            const fullAddress = document.getElementById('fullAddress').value.trim();
+            
+            if (!firstName || !lastName || !mobileNumber || !province || !district || !fullAddress) {
+                showNotification('Please fill in all required fields!', 'error');
                 return;
             }
-
-            const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
-            const orderNumber = 'BF-' + Date.now().toString().slice(-6);
             
-            let message = `🛍️ *NEW ORDER - Basim Fashion* 🛍️\n\n`;
+            if (!/^03\d{9}$/.test(mobileNumber)) {
+                showNotification('Please enter a valid Pakistani mobile number (03XXXXXXXXX)', 'error');
+                return;
+            }
+            
+            // Check if cart is empty
+            if (cart.length === 0) {
+                showNotification('Your cart is empty! Please add some products.', 'error');
+                return;
+            }
+            
+            const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+            const orderNumber = 'BOS-' + Date.now().toString().slice(-6);
+            
+            let message = `🛍️ *NEW ORDER - Basim Online Shopping Store* 🛍️\n\n`;
             message += `📋 *Order Number:* ${orderNumber}\n`;
-            message += `📅 *Date:* ${new Date().toLocaleDateString()}\n\n`;
+            message += `📅 *Date:* ${new Date().toLocaleDateString()}\n`;
+            message += `⏰ *Time:* ${new Date().toLocaleTimeString()}\n\n`;
+            
+            message += `👤 *Customer Information:*\n`;
+            message += `Name: ${firstName} ${lastName}\n`;
+            message += `Mobile: ${mobileNumber}\n`;
+            
+            const email = document.getElementById('email').value.trim();
+            if (email) message += `Email: ${email}\n`;
+            
+            message += `Country: Pakistan\n`;
+            message += `Province: ${province}\n`;
+            message += `District: ${district}\n`;
+            
+            const tehsil = document.getElementById('tehsil').value.trim();
+            if (tehsil) message += `Tehsil: ${tehsil}\n`;
+            
+            message += `Address: ${fullAddress}\n`;
+            
+            const zipCode = document.getElementById('zipCode').value.trim();
+            if (zipCode) message += `ZIP Code: ${zipCode}\n`;
+            
+            message += `Payment: Cash on Delivery\n\n`;
+            
             message += `🛒 *Order Items:*\n`;
             
             cart.forEach((item, index) => {
@@ -1594,19 +1795,25 @@
             const whatsappLink = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
             
             // Show processing
-            const checkoutBtn = document.querySelector('#cartModal button');
+            const checkoutBtn = document.querySelector('#checkoutModal button');
             const originalText = checkoutBtn.innerHTML;
             checkoutBtn.innerHTML = '<div class="loading"></div> Processing...';
             checkoutBtn.disabled = true;
             
             setTimeout(() => {
+                // Open WhatsApp first
                 window.open(whatsappLink, '_blank');
                 
                 // Clear cart
                 cart = [];
                 updateCartUI();
                 saveCart();
-                closeCartModal();
+                
+                // Reset form
+                document.getElementById('checkoutForm').reset();
+                
+                // Close modals
+                closeCheckoutModal();
                 
                 // Reset button
                 checkoutBtn.innerHTML = originalText;
