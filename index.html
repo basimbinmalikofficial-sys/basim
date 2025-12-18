@@ -776,14 +776,14 @@
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <div>
                             <label class="block text-sm font-medium text-gray-700 mb-1">Country *</label>
-                            <select id="country" required class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent">
+                            <select id="country" required class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent" onchange="handleCountryChange()">
                                 <option value="Pakistan" selected>Pakistan</option>
                                 <option value="Other">Other</option>
                             </select>
                         </div>
                         <div>
                             <label class="block text-sm font-medium text-gray-700 mb-1">Province *</label>
-                            <select id="province" required class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent">
+                            <select id="province" required class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent" onchange="updateDistricts()">
                                 <option value="">Select Province</option>
                                 <option value="Punjab">Punjab</option>
                                 <option value="Sindh">Sindh</option>
@@ -799,11 +799,17 @@
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <div>
                             <label class="block text-sm font-medium text-gray-700 mb-1">District *</label>
-                            <input type="text" id="district" required class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent">
+                            <select id="district" required class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent" onchange="updateTehsils()">
+                                <option value="">Select District</option>
+                                <!-- Districts will be populated dynamically -->
+                            </select>
                         </div>
                         <div>
                             <label class="block text-sm font-medium text-gray-700 mb-1">Tehsil</label>
-                            <input type="text" id="tehsil" class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent">
+                            <select id="tehsil" class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent">
+                                <option value="">Select Tehsil</option>
+                                <!-- Tehsils will be populated dynamically -->
+                            </select>
                         </div>
                     </div>
                     
@@ -1366,6 +1372,67 @@
         ];
 
         // ==============================
+        // PAKISTAN GEOGRAPHICAL DATA
+        // ==============================
+
+        const pakistanData = {
+            provinces: {
+                "Punjab": ["Lahore", "Faisalabad", "Rawalpindi", "Gujranwala", "Multan", "Sargodha", "Bahawalpur", "Sialkot", "Gujrat", "Sheikhupura", "Jhelum", "Kasur", "Mianwali", "Toba Tek Singh", "Okara", "Rahim Yar Khan", "Hafizabad", "Attock", "Nankana Sahib", "Chiniot", "Pakpattan", "Khushab", "Mandi Bahauddin", "Bhakkar", "Layyah", "Dera Ghazi Khan", "Rajanpur", "Muzaffargarh", "Khanewal", "Vehari", "Narowal", "Sahiwal", "Lodhran", "Bahawalnagar", "Chakwal"],
+                "Sindh": ["Karachi", "Hyderabad", "Sukkur", "Larkana", "Mirpur Khas", "Nawabshah", "Khairpur", "Thatta", "Badin", "Sanghar", "Shikarpur", "Jacobabad", "Ghotki", "Dadu", "Jamshoro", "Matli", "Tando Allahyar", "Tando Muhammad Khan", "Kamber", "Shahdadkot"],
+                "Khyber Pakhtunkhwa": ["Peshawar", "Mardan", "Mingora", "Kohat", "Abbottabad", "Dera Ismail Khan", "Mansehra", "Swabi", "Nowshera", "Charsadda", "Bannu", "Haripur", "Karak", "Hangu", "Tank", "Dir", "Batkhela", "Timergara", "Parachinar", "Lakki Marwat"],
+                "Balochistan": ["Quetta", "Turbat", "Khuzdar", "Chaman", "Hub", "Gwadar", "Dera Murad Jamali", "Dera Allahyar", "Usta Muhammad", "Sibi", "Loralai", "Zhob", "Panjgur", "Qila Saifullah", "Kohlu", "Barkhan", "Musa Khel", "Ziarat", "Awaran", "Harnai"],
+                "Gilgit-Baltistan": ["Gilgit", "Skardu", "Chilas", "Ghizer", "Astore", "Diamer", "Ghanche", "Kharmang", "Shigar", "Nagar", "Roundu"],
+                "Azad Jammu & Kashmir": ["Muzaffarabad", "Mirpur", "Kotli", "Bhimber", "Rawalakot", "Bagh", "Haveli", "Neelum Valley", "Sudhanoti", "Poonch"],
+                "Islamabad Capital Territory": ["Islamabad"]
+            },
+            
+            tehsils: {
+                // Punjab Districts
+                "Lahore": ["Lahore City", "Lahore Cantt", "Raiwind", "Shalimar", "Model Town", "Gulberg", "Allama Iqbal Town", "Samnabad", "Aziz Bhatti Town", "Wahdat Colony"],
+                "Faisalabad": ["Faisalabad City", "Jaranwala", "Samundri", "Tandlianwala", "Chak Jhumra", "Jhammalian", "Lyallpur Town", "Madina Town"],
+                "Rawalpindi": ["Rawalpindi City", "Gujar Khan", "Taxila", "Kahuta", "Kallar Syedan", "Murree", "Raja Bazar", "Lal Kurti"],
+                "Gujranwala": ["Gujranwala City", "Kamoke", "Nowshera Virkan", "Wazirabad", "Qila Didar Singh", "Aroop Town"],
+                "Multan": ["Multan City", "Shujabad", "Jalalpur Pirwala", "Lodhran", "Bosan", "Shah Rukan-e-Alam"],
+                "Sargodha": ["Sargodha City", "Bhalwal", "Sahiwal", "Kot Momin", "Shahpur", "Sillanwali"],
+                "Bahawalpur": ["Bahawalpur City", "Ahmadpur East", "Hasilpur", "Khairpur Tamewali", "Yazman", "Bahawalpur Saddar"],
+                "Sialkot": ["Sialkot City", "Daska", "Pasrur", "Sambrial", "Sialkot Cantt"],
+                "Gujrat": ["Gujrat City", "Kharian", "Sarai Alamgir", "Kunjah", "Lalamusa"],
+                "Sheikhupura": ["Sheikhupura City", "Ferozewala", "Muridke", "Sharaqpur", "Sheikhupura Rural"],
+                "Dera Ghazi Khan": ["Dera Ghazi Khan City", "Taunsa Sharif", "Kot Chutta", "De-Excluded Area", "DG Khan Saddar"],
+                "Rahim Yar Khan": ["Rahim Yar Khan City", "Sadiqabad", "Khanpur", "Liaquatpur", "RYK Saddar"],
+                
+                // Sindh Districts
+                "Karachi": ["Karachi East", "Karachi West", "Karachi South", "Karachi Central", "Malir", "Korangi", "Keamari", "Gulshan-e-Iqbal", "North Nazimabad"],
+                "Hyderabad": ["Hyderabad City", "Latifabad", "Qasimabad", "Hussainabad", "Hyderabad Rural"],
+                "Sukkur": ["Sukkur City", "Rohri", "Pano Aqil", "Salehpat", "Sukkur Rural"],
+                "Larkana": ["Larkana City", "Ratodero", "Dokri", "Bakrani", "Larkana Rural"],
+                "Mirpur Khas": ["Mirpur Khas City", "Digri", "Kot Ghulam Muhammad", "Shujaabad", "Mirpur Khas Rural"],
+                
+                // KPK Districts
+                "Peshawar": ["Peshawar City", "Charsadda Road", "University Town", "Hayatabad", "Cantonment", "Gulbahar"],
+                "Mardan": ["Mardan City", "Takht Bhai", "Katlang", "Rustam", "Mardan Rural"],
+                "Mingora": ["Mingora City", "Barikot", "Charbagh", "Khwazakhela", "Mingora Rural"],
+                "Abbottabad": ["Abbottabad City", "Havelian", "Sherwan", "Lora", "Abbottabad Rural"],
+                
+                // Balochistan Districts
+                "Quetta": ["Quetta City", "Mariabad", "Jinnah Town", "Samungli", "Quetta Rural"],
+                "Turbat": ["Turbat City", "Tump", "Buleda", "Dasht", "Turbat Rural"],
+                "Khuzdar": ["Khuzdar City", "Wadh", "Zeeri", "Moola", "Khuzdar Rural"],
+                
+                // Gilgit-Baltistan Districts
+                "Gilgit": ["Gilgit City", "Jutial", "Danyore", "Nomal", "Gilgit Rural"],
+                "Skardu": ["Skardu City", "Shigar", "Kachura", "Gultari", "Skardu Rural"],
+                
+                // AJK Districts
+                "Muzaffarabad": ["Muzaffarabad City", "Patika", "Chatter", "Garhi Dopatta", "Muzaffarabad Rural"],
+                "Mirpur": ["Mirpur City", "Islamgarh", "Dadyal", "Chaksawari", "Mirpur Rural"],
+                
+                // Islamabad
+                "Islamabad": ["Islamabad City", "Sector F", "Sector G", "Sector I", "Margalla", "Bhara Kahu", "Tarnol", "Golra"]
+            }
+        };
+
+        // ==============================
         // GLOBAL VARIABLES
         // ==============================
 
@@ -1420,6 +1487,117 @@
             
             // Scroll to top
             window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // ==============================
+        // GEOGRAPHICAL DATA FUNCTIONS
+        // ==============================
+
+        function handleCountryChange() {
+            const country = document.getElementById('country').value;
+            const provinceSelect = document.getElementById('province');
+            const districtSelect = document.getElementById('district');
+            const tehsilSelect = document.getElementById('tehsil');
+            
+            if (country === 'Pakistan') {
+                // Enable Pakistan provinces
+                provinceSelect.innerHTML = `
+                    <option value="">Select Province</option>
+                    <option value="Punjab">Punjab</option>
+                    <option value="Sindh">Sindh</option>
+                    <option value="Khyber Pakhtunkhwa">Khyber Pakhtunkhwa</option>
+                    <option value="Balochistan">Balochistan</option>
+                    <option value="Gilgit-Baltistan">Gilgit-Baltistan</option>
+                    <option value="Azad Jammu & Kashmir">Azad Jammu & Kashmir</option>
+                    <option value="Islamabad Capital Territory">Islamabad Capital Territory</option>
+                `;
+                provinceSelect.disabled = false;
+                
+                // Reset district and tehsil
+                districtSelect.innerHTML = '<option value="">Select District</option>';
+                districtSelect.disabled = true;
+                tehsilSelect.innerHTML = '<option value="">Select Tehsil</option>';
+                tehsilSelect.disabled = true;
+            } else {
+                // For other countries
+                provinceSelect.innerHTML = '<option value="">Select State/Region</option>';
+                districtSelect.innerHTML = '<option value="">Select City</option>';
+                tehsilSelect.innerHTML = '<option value="">Select Area</option>';
+                districtSelect.disabled = false;
+                tehsilSelect.disabled = false;
+            }
+        }
+
+        function updateDistricts() {
+            const province = document.getElementById('province').value;
+            const districtSelect = document.getElementById('district');
+            const tehsilSelect = document.getElementById('tehsil');
+            
+            // Clear existing options
+            districtSelect.innerHTML = '<option value="">Select District</option>';
+            tehsilSelect.innerHTML = '<option value="">Select Tehsil</option>';
+            tehsilSelect.disabled = true;
+            
+            if (province && pakistanData.provinces[province]) {
+                // Enable district select
+                districtSelect.disabled = false;
+                
+                // Add district options
+                pakistanData.provinces[province].forEach(district => {
+                    const option = document.createElement('option');
+                    option.value = district;
+                    option.textContent = district;
+                    districtSelect.appendChild(option);
+                });
+            } else {
+                districtSelect.disabled = true;
+            }
+        }
+
+        function updateTehsils() {
+            const district = document.getElementById('district').value;
+            const tehsilSelect = document.getElementById('tehsil');
+            
+            // Clear existing options
+            tehsilSelect.innerHTML = '<option value="">Select Tehsil</option>';
+            
+            if (district && pakistanData.tehsils[district]) {
+                // Enable tehsil select
+                tehsilSelect.disabled = false;
+                
+                // Add tehsil options for selected district
+                pakistanData.tehsils[district].forEach(tehsil => {
+                    const option = document.createElement('option');
+                    option.value = tehsil;
+                    option.textContent = tehsil;
+                    tehsilSelect.appendChild(option);
+                });
+                
+                // Add "Other" option
+                const otherOption = document.createElement('option');
+                otherOption.value = "Other";
+                otherOption.textContent = "Other (Please specify in address)";
+                tehsilSelect.appendChild(otherOption);
+            } else if (district) {
+                // If district exists but no specific tehsils in data
+                tehsilSelect.disabled = false;
+                
+                const generalOptions = ["City Center", "Main Town", "Cantt Area", "Urban Area", "Rural Area", "Suburbs"];
+                generalOptions.forEach(tehsil => {
+                    const option = document.createElement('option');
+                    option.value = tehsil;
+                    option.textContent = tehsil;
+                    tehsilSelect.appendChild(option);
+                });
+                
+                // Add "Other" option
+                const otherOption = document.createElement('option');
+                otherOption.value = "Other";
+                otherOption.textContent = "Other (Please specify in address)";
+                tehsilSelect.appendChild(otherOption);
+            } else {
+                tehsilSelect.disabled = true;
+            }
         }
 
         // ==============================
@@ -1729,7 +1907,7 @@
             const lastName = document.getElementById('lastName').value.trim();
             const mobileNumber = document.getElementById('mobileNumber').value.trim();
             const province = document.getElementById('province').value;
-            const district = document.getElementById('district').value.trim();
+            const district = document.getElementById('district').value;
             const fullAddress = document.getElementById('fullAddress').value.trim();
             
             if (!firstName || !lastName || !mobileNumber || !province || !district || !fullAddress) {
@@ -1763,19 +1941,30 @@
             const email = document.getElementById('email').value.trim();
             if (email) message += `Email: ${email}\n`;
             
-            message += `Country: Pakistan\n`;
-            message += `Province: ${province}\n`;
-            message += `District: ${district}\n`;
+            const country = document.getElementById('country').value;
+            message += `Country: ${country}\n`;
             
-            const tehsil = document.getElementById('tehsil').value.trim();
-            if (tehsil) message += `Tehsil: ${tehsil}\n`;
+            if (country === 'Pakistan') {
+                message += `Province: ${province}\n`;
+                message += `District: ${district}\n`;
+                
+                const tehsil = document.getElementById('tehsil').value;
+                if (tehsil && tehsil !== '') message += `Tehsil: ${tehsil}\n`;
+            } else {
+                message += `State/Region: ${province}\n`;
+                message += `City: ${district}\n`;
+                
+                const area = document.getElementById('tehsil').value;
+                if (area && area !== '') message += `Area: ${area}\n`;
+            }
             
             message += `Address: ${fullAddress}\n`;
             
             const zipCode = document.getElementById('zipCode').value.trim();
             if (zipCode) message += `ZIP Code: ${zipCode}\n`;
             
-            message += `Payment: Cash on Delivery\n\n`;
+            const paymentMethod = document.querySelector('input[name="paymentMethod"]:checked').value;
+            message += `Payment: ${paymentMethod}\n\n`;
             
             message += `🛒 *Order Items:*\n`;
             
@@ -1811,6 +2000,12 @@
                 
                 // Reset form
                 document.getElementById('checkoutForm').reset();
+                
+                // Reset geographical selects
+                document.getElementById('district').innerHTML = '<option value="">Select District</option>';
+                document.getElementById('district').disabled = true;
+                document.getElementById('tehsil').innerHTML = '<option value="">Select Tehsil</option>';
+                document.getElementById('tehsil').disabled = true;
                 
                 // Close modals
                 closeCheckoutModal();
